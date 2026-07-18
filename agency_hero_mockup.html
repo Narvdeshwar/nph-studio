@@ -1,0 +1,67 @@
+<div style="background:#FDFCFB; border-radius:16px; padding:0; overflow:hidden; position:relative; font-family:var(--font-sans);">
+<h2 class="sr-only">Hero section mockup for a full-stack agency landing page in a light coral and ink color theme with animated background blobs</h2>
+
+<div style="position:absolute; top:-60px; right:-40px; width:260px; height:260px; border-radius:50%; background:linear-gradient(135deg,#FF5A36,#7C3AED); opacity:0.18; filter:blur(0px); animation:blobFloat1 8s ease-in-out infinite;"></div>
+<div style="position:absolute; bottom:-80px; left:-60px; width:220px; height:220px; border-radius:50%; background:linear-gradient(135deg,#7C3AED,#FF5A36); opacity:0.14; animation:blobFloat2 10s ease-in-out infinite;"></div>
+
+<div style="position:relative; padding:20px 24px; display:flex; align-items:center; justify-content:space-between; border-bottom:0.5px solid rgba(22,22,22,0.08);">
+  <div style="font-size:15px; font-weight:500; color:#161616; display:flex; align-items:center; gap:6px;">
+    <span style="width:8px; height:8px; border-radius:2px; background:#FF5A36; display:inline-block;"></span>
+    yourAgency
+  </div>
+  <div style="display:flex; gap:20px; font-size:13px; color:#7A7A7A;">
+    <span>Work</span><span>Services</span><span>Team</span><span>Contact</span>
+  </div>
+</div>
+
+<div style="position:relative; padding:56px 40px 48px; text-align:center;">
+  <div style="display:inline-flex; align-items:center; gap:6px; background:#FFF1EC; color:#993C1D; font-size:12px; padding:5px 12px; border-radius:20px; margin-bottom:18px; opacity:0; animation:fadeUp 0.6s ease forwards;">
+    <i class="ti ti-sparkles" style="font-size:14px;" aria-hidden="true"></i>
+    Full-stack team, AI/RAG launching soon
+  </div>
+
+  <h1 style="font-size:34px; font-weight:500; color:#161616; line-height:1.25; margin:0 0 14px; opacity:0; animation:fadeUp 0.6s ease 0.1s forwards;">
+    We design, build, and ship<br/>full-stack products
+  </h1>
+
+  <p style="font-size:15px; color:#7A7A7A; max-width:420px; margin:0 auto 28px; line-height:1.6; opacity:0; animation:fadeUp 0.6s ease 0.2s forwards;">
+    Frontend, backend and AI integration under one roof. From landing page to production MVP.
+  </p>
+
+  <div style="display:flex; gap:12px; justify-content:center; margin-bottom:44px; opacity:0; animation:fadeUp 0.6s ease 0.3s forwards;">
+    <button style="background:#FF5A36; color:#fff; border:none; padding:11px 22px; border-radius:8px; font-size:14px; font-weight:500; cursor:pointer; transition:transform 0.15s ease, box-shadow 0.15s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 20px rgba(255,90,54,0.35)'" onmouseout="this.style.transform='none'; this.style.boxShadow='none'">
+      Book a call <i class="ti ti-arrow-right" style="font-size:14px; vertical-align:-2px;" aria-hidden="true"></i>
+    </button>
+    <button style="background:transparent; color:#161616; border:0.5px solid rgba(22,22,22,0.15); padding:11px 22px; border-radius:8px; font-size:14px; font-weight:500; cursor:pointer; transition:background 0.15s ease;" onmouseover="this.style.background='#FFF1EC'" onmouseout="this.style.background='transparent'">
+      See our work
+    </button>
+  </div>
+
+  <div style="display:flex; gap:12px; justify-content:center; opacity:0; animation:fadeUp 0.7s ease 0.4s forwards;">
+    <div id="card1" style="background:#fff; border:0.5px solid rgba(22,22,22,0.08); border-radius:12px; padding:14px 18px; width:150px; text-align:left; animation:cardFloat1 5s ease-in-out infinite;">
+      <div style="width:26px; height:26px; border-radius:6px; background:#FFF1EC; display:flex; align-items:center; justify-content:center; margin-bottom:8px;"><i class="ti ti-code" style="font-size:14px; color:#993C1D;" aria-hidden="true"></i></div>
+      <div style="font-size:12px; font-weight:500; color:#161616;">Backend</div>
+      <div style="font-size:11px; color:#7A7A7A;">Go, RAG, infra</div>
+    </div>
+    <div id="card2" style="background:#fff; border:0.5px solid rgba(22,22,22,0.08); border-radius:12px; padding:14px 18px; width:150px; text-align:left; animation:cardFloat2 5.5s ease-in-out infinite;">
+      <div style="width:26px; height:26px; border-radius:6px; background:#F1EBFC; display:flex; align-items:center; justify-content:center; margin-bottom:8px;"><i class="ti ti-layout-2" style="font-size:14px; color:#5B3EAE;" aria-hidden="true"></i></div>
+      <div style="font-size:12px; font-weight:500; color:#161616;">Frontend</div>
+      <div style="font-size:11px; color:#7A7A7A;">UI, motion, UX</div>
+    </div>
+    <div id="card3" style="background:#fff; border:0.5px solid rgba(22,22,22,0.08); border-radius:12px; padding:14px 18px; width:150px; text-align:left; animation:cardFloat1 6s ease-in-out infinite 0.5s;">
+      <div style="width:26px; height:26px; border-radius:6px; background:#FAECE7; display:flex; align-items:center; justify-content:center; margin-bottom:8px;"><i class="ti ti-robot" style="font-size:14px; color:#D85A30;" aria-hidden="true"></i></div>
+      <div style="font-size:12px; font-weight:500; color:#161616;">AI / RAG</div>
+      <div style="font-size:11px; color:#7A7A7A;">Coming soon</div>
+    </div>
+  </div>
+</div>
+
+<style>
+@keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+@keyframes blobFloat1 { 0%,100% { transform:translate(0,0); } 50% { transform:translate(-14px,16px); } }
+@keyframes blobFloat2 { 0%,100% { transform:translate(0,0); } 50% { transform:translate(12px,-14px); } }
+@keyframes cardFloat1 { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-6px); } }
+@keyframes cardFloat2 { 0%,100% { transform:translateY(0); } 50% { transform:translateY(6px); } }
+.sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
+</style>
+</div>
