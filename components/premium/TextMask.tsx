@@ -15,14 +15,14 @@ export function TextMask({ children, delay = 0 }: TextMaskProps) {
     initial: { y: "100%" },
     enter: { 
       y: "0%", 
-      transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1], delay } 
+      transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] as [number, number, number, number], delay } 
     }
   };
 
   return (
     <div ref={ref} className="overflow-hidden inline-block relative">
       <motion.div
-        variants={slideUp as Variants}
+        variants={slideUp}
         initial="initial"
         animate={isInView ? "enter" : "initial"}
         className="inline-block origin-bottom"
