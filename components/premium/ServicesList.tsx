@@ -39,7 +39,19 @@ const services = [
   }
 ];
 
-function ServiceCard({ service, index }: { service: any, index: number }) {
+interface ServiceData {
+  title: string;
+  subtitle: string;
+  timeline: string;
+  price: string;
+  description: string;
+  features: string[];
+  color: string;
+  popular: boolean;
+  available: boolean;
+}
+
+function ServiceCard({ service, index }: { service: ServiceData, index: number }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -109,7 +121,7 @@ function ServiceCard({ service, index }: { service: any, index: number }) {
   );
 }
 
-export function ServicesListV4() {
+export function ServicesList() {
   return (
     <section className="w-full bg-background relative z-10 py-32">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-8">

@@ -47,7 +47,16 @@ const caseStudies = [
   }
 ];
 
-function HorizontalCard({ study, index }: { study: any, index: number }) {
+interface StudyData {
+  title: string;
+  category: string;
+  problem: string;
+  solution: string;
+  color: string;
+  bg: string;
+}
+
+function HorizontalCard({ study, index }: { study: StudyData, index: number }) {
   return (
     <div className="w-screen h-full flex-shrink-0 flex items-center justify-center p-8 sm:p-20">
       <div 
@@ -107,7 +116,7 @@ function HorizontalCard({ study, index }: { study: any, index: number }) {
   );
 }
 
-export function WorkListV4() {
+export function WorkList() {
   const containerRef = useRef(null);
   
   const { scrollYProgress } = useScroll({

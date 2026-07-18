@@ -13,7 +13,7 @@ const menuLinks = [
   { name: 'Contact', href: '/contact' }
 ];
 
-export function NavbarV4() {
+export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [menuTheme, setMenuTheme] = useState<'dark' | 'light'>('dark');

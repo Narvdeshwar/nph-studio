@@ -10,7 +10,12 @@ const projects = [
   { name: 'LMS Platform', category: 'EdTech MVP' }
 ];
 
-function FuturisticCard({ project, index }: { project: any, index: number }) {
+interface ProjectData {
+  name: string;
+  category: string;
+}
+
+function FuturisticCard({ project, index }: { project: ProjectData, index: number }) {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
@@ -68,7 +73,7 @@ function FuturisticCard({ project, index }: { project: any, index: number }) {
   );
 }
 
-export function WorkPreviewV4() {
+export function WorkPreview() {
   return (
     <section className="w-full py-32 bg-foreground text-background relative z-10 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-8 sm:px-20">

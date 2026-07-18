@@ -10,7 +10,7 @@ const steps = [
   { num: "04", title: "Launch", desc: "Deployment to production, scaling infrastructure, and complete handover." }
 ];
 
-export function ProcessV4() {
+export function Process() {
   const containerRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -38,7 +38,7 @@ export function ProcessV4() {
           </div>
 
           <div className="flex flex-col gap-24 relative z-10">
-            {steps.map((step, i) => (
+            {steps.map((step) => (
               <motion.div 
                 key={step.num}
                 initial={{ opacity: 0, x: 50 }}

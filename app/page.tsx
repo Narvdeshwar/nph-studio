@@ -4,12 +4,13 @@ import { useRef } from 'react';
 import { Magnetic } from '@/components/premium/Magnetic';
 import { TextMask } from '@/components/premium/TextMask';
 import { Cursor } from '@/components/premium/Cursor';
-import { NavbarV4 } from '@/components/premium/NavbarV4';
-import { ProofStripV4 } from '@/components/premium/ProofStripV4';
-import { ServicesV4 } from '@/components/premium/ServicesV4';
-import { WorkPreviewV4 } from '@/components/premium/WorkPreviewV4';
-import { ProcessV4 } from '@/components/premium/ProcessV4';
-import { FooterV4 } from '@/components/premium/FooterV4';
+import { Navbar } from '@/components/premium/Navbar';
+import { ProofStrip } from '@/components/premium/ProofStrip';
+import { Services } from '@/components/premium/Services';
+import { WorkPreview } from '@/components/premium/WorkPreview';
+import { Process } from '@/components/premium/Process';
+import { Footer } from '@/components/premium/Footer';
+import { CapabilitiesBento } from '@/components/premium/CapabilitiesBento';
 import { IconArrowUpRight } from '@tabler/icons-react';
 
 export default function Home() {
@@ -24,73 +25,88 @@ export default function Home() {
   return (
     <div ref={containerRef} className="relative bg-background text-foreground min-h-[200vh] cursor-none font-sans">
       <Cursor />
-      <NavbarV4 />
+      <Navbar />
 
       {/* Hero Section */}
-      <section className="relative h-screen flex flex-col justify-end p-8 pb-20 sm:p-20 z-10">
+      <section className="relative h-screen flex flex-col justify-center p-8 sm:p-20 z-10 overflow-hidden">
         
-        {/* Parallax Background Glow - Optimized for low-end devices */}
+        {/* Subtle Engineering Grid Background */}
+        <div className="absolute inset-0 z-[-2] opacity-20 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
+
+        {/* Parallax Background Glow */}
         <motion.div 
           style={{ y }}
           className="absolute inset-0 z-[-1] pointer-events-none"
         >
-          <div className="absolute top-[10%] right-[5%] w-[600px] h-[600px] opacity-[0.12]" style={{ background: 'radial-gradient(circle at center, var(--primary), transparent 70%)' }} />
-          <div className="absolute bottom-[20%] left-[5%] w-[500px] h-[500px] opacity-[0.12]" style={{ background: 'radial-gradient(circle at center, var(--secondary), transparent 70%)' }} />
+          <div className="absolute top-[10%] right-[10%] w-[600px] h-[600px] opacity-[0.15]" style={{ background: 'radial-gradient(circle at center, var(--primary), transparent 70%)' }} />
+          <div className="absolute bottom-[20%] left-[10%] w-[500px] h-[500px] opacity-[0.10]" style={{ background: 'radial-gradient(circle at center, var(--secondary), transparent 70%)' }} />
         </motion.div>
 
-        <div className="max-w-[1400px]">
-          <div className="mb-12 border-l-2 border-primary pl-6 max-w-sm">
-            <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1, duration: 1 }}
-              className="text-muted text-lg leading-relaxed"
-            >
+        <div className="max-w-[1400px] w-full mx-auto relative mt-20">
+          
+          {/* Sleek Technical Status Badge (Replaced old border-l text) */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+            className="mb-12 inline-flex items-center gap-4 bg-surface border border-border rounded-full px-6 py-3 shadow-lg backdrop-blur-md"
+          >
+            <div className="flex items-center justify-center relative">
+              <span className="w-2.5 h-2.5 bg-primary rounded-full" />
+              <span className="w-2.5 h-2.5 bg-primary rounded-full absolute animate-ping opacity-75" />
+            </div>
+            <p className="text-foreground text-sm font-bold uppercase tracking-widest">
               We engineer digital experiences that blur the line between design and deep tech.
-            </motion.p>
-          </div>
+            </p>
+          </motion.div>
 
-          <h1 className="text-[12vw] sm:text-[10vw] font-bold leading-[0.85] tracking-tighter uppercase flex flex-col">
+          {/* Main Typography */}
+          <h1 className="text-[12vw] sm:text-[11vw] font-black leading-[0.85] tracking-tighter uppercase flex flex-col">
             <TextMask delay={0.1}>We Build</TextMask>
             <span className="flex items-center gap-6">
               <TextMask delay={0.2}>Products</TextMask>
+              
+              {/* Upgraded Text Pill - Animated Gradient Mesh */}
               <motion.div 
                 initial={{ width: 0 }}
-                animate={{ width: "15vw" }}
-                transition={{ delay: 0.8, duration: 1, ease: [0.33, 1, 0.68, 1] }}
-                className="h-[8vw] bg-primary hidden sm:block rounded-full"
-              />
+                animate={{ width: "16vw" }}
+                transition={{ delay: 0.8, duration: 1.2, ease: [0.33, 1, 0.68, 1] }}
+                className="h-[8vw] hidden sm:block rounded-[4vw] overflow-hidden relative shadow-inner border border-black/5"
+              >
+                {/* Animated Gradient inside the pill */}
+                <div 
+                  className="absolute inset-[-100%] opacity-90"
+                  style={{
+                    background: 'linear-gradient(45deg, #FF5A36, #7C3AED, #FF5A36, #3B82F6)',
+                    backgroundSize: '400% 400%',
+                    animation: 'gradientShift 8s ease infinite'
+                  }}
+                />
+              </motion.div>
             </span>
             <TextMask delay={0.3}>That Ship.</TextMask>
           </h1>
         </div>
 
-        <div className="absolute bottom-10 right-10 sm:bottom-20 sm:right-20">
+        {/* Premium Floating CTA */}
+        <div className="absolute bottom-10 right-10 sm:bottom-20 sm:right-20 z-50">
           <Magnetic>
-            <button className="w-32 h-32 rounded-full bg-foreground text-background flex flex-col items-center justify-center font-medium uppercase tracking-wider text-sm transition-transform hover:scale-105 hover:bg-primary hover:text-white active:scale-95 group shadow-xl">
-              Start
-              <IconArrowUpRight size={24} className="mt-1 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+            <button className="w-36 h-36 rounded-full bg-foreground/95 backdrop-blur-xl border border-white/10 text-background flex flex-col items-center justify-center font-bold uppercase tracking-widest text-sm transition-all hover:scale-105 hover:bg-primary hover:border-primary active:scale-95 group shadow-2xl">
+              <span className="group-hover:-translate-y-2 transition-transform duration-300">Start</span>
+              <IconArrowUpRight size={24} className="absolute opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-3 transition-all duration-300" />
             </button>
           </Magnetic>
         </div>
       </section>
 
-      {/* Infinite Marquee Section */}
-      <section className="py-32 bg-surface text-primary overflow-hidden flex whitespace-nowrap border-y border-border relative z-10">
-        <motion.div 
-          animate={{ x: [0, -1035] }}
-          transition={{ repeat: Infinity, duration: 8, ease: "linear" }}
-          className="text-[12vw] font-black uppercase tracking-tighter flex items-center"
-        >
-          <span className="mx-8 opacity-30">—</span> FRONTEND <span className="mx-8 opacity-30">—</span> BACKEND <span className="mx-8 opacity-30">—</span> AI/RAG <span className="mx-8 opacity-30">—</span> FRONTEND <span className="mx-8 opacity-30">—</span> BACKEND <span className="mx-8 opacity-30">—</span> AI/RAG
-        </motion.div>
-      </section>
+      {/* Core Capabilities Bento Grid */}
+      <CapabilitiesBento />
 
-      <ProofStripV4 />
-      <ServicesV4 />
-      <WorkPreviewV4 />
-      <ProcessV4 />
-      <FooterV4 />
+      <ProofStrip />
+      <Services />
+      <WorkPreview />
+      <Process />
+      <Footer />
 
     </div>
   );

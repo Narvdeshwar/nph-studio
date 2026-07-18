@@ -1,5 +1,5 @@
 'use client';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, Variants } from 'framer-motion';
 import { useRef } from 'react';
 
 interface TextMaskProps {
@@ -22,7 +22,7 @@ export function TextMask({ children, delay = 0 }: TextMaskProps) {
   return (
     <div ref={ref} className="overflow-hidden inline-block relative">
       <motion.div
-        variants={slideUp}
+        variants={slideUp as Variants}
         initial="initial"
         animate={isInView ? "enter" : "initial"}
         className="inline-block origin-bottom"

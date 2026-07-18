@@ -1,7 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 
-export function ProofStripV4() {
+export function ProofStrip() {
   return (
     <section className="w-full py-24 bg-background border-b border-border relative z-10">
       <div className="max-w-[1400px] mx-auto px-8 sm:px-20">

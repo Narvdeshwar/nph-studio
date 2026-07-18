@@ -1,7 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import { TextMask } from '@/components/premium/TextMask';
-import { Magnetic } from '@/components/premium/Magnetic';
+
 
 const pillars = [
   {
@@ -21,7 +21,7 @@ const pillars = [
   }
 ];
 
-export function ServicesV4() {
+export function Services() {
   return (
     <section className="w-full py-32 bg-background relative z-10">
       <div className="max-w-[1400px] mx-auto px-8 sm:px-20">
@@ -34,7 +34,7 @@ export function ServicesV4() {
         </div>
 
         <div className="flex flex-col gap-12 sm:gap-24">
-          {pillars.map((pillar, i) => (
+          {pillars.map((pillar) => (
             <motion.div 
               key={pillar.num}
               initial={{ opacity: 0, y: 50 }}
