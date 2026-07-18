@@ -2,8 +2,8 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { Magnetic } from '@/components/premium/Magnetic';
-import { TextMask } from '@/components/premium/TextMask';
-import { Cursor } from '@/components/premium/Cursor';
+import { ThemeCursor } from '@/components/premium/ThemeCursor';
+import { DecryptedText } from '@/components/premium/DecryptedText';
 import { Navbar } from '@/components/premium/Navbar';
 import { ProofStrip } from '@/components/premium/ProofStrip';
 import { Services } from '@/components/premium/Services';
@@ -24,7 +24,7 @@ export default function Home() {
 
   return (
     <div ref={containerRef} className="relative bg-background text-foreground min-h-[200vh] cursor-none font-sans">
-      <Cursor />
+      <ThemeCursor />
       <Navbar />
 
       {/* Hero Section */}
@@ -62,9 +62,11 @@ export default function Home() {
 
           {/* Main Typography */}
           <h1 className="text-[12vw] sm:text-[11vw] font-black leading-[0.85] tracking-tighter uppercase flex flex-col">
-            <TextMask delay={0.1}>We Build</TextMask>
+            <DecryptedText text="We Build" delay={0.1} className="block" />
             <span className="flex items-center gap-6">
-              <TextMask delay={0.2}>Products</TextMask>
+              <span className="text-primary block">
+                <DecryptedText text="Products" delay={0.3} className="block" />
+              </span>
               
               {/* Upgraded Text Pill - Animated Gradient Mesh */}
               <motion.div 
@@ -84,7 +86,7 @@ export default function Home() {
                 />
               </motion.div>
             </span>
-            <TextMask delay={0.3}>That Ship.</TextMask>
+            <DecryptedText text="That Ship." delay={0.5} className="block" />
           </h1>
         </div>
 

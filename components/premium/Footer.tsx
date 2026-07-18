@@ -7,7 +7,7 @@ import { IconArrowRight } from '@tabler/icons-react';
 
 export function Footer() {
   const containerRef = useRef(null);
-  
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start end', 'end end']
@@ -17,21 +17,21 @@ export function Footer() {
   const y = useTransform(scrollYProgress, [0, 1], ['-30%', '0%']);
 
   return (
-    <footer ref={containerRef} className="relative h-[800px] sm:h-[900px] w-full" style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}>
-      <motion.div 
-        style={{ y }} 
+    <footer ref={containerRef} className="relative h-screen w-full" style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}>
+      <motion.div
+        style={{ y }}
         className="absolute inset-0 bg-[#0A0A0A] text-white flex flex-col justify-between pt-32 pb-8 px-8 sm:px-20"
       >
-        
+
         <div className="flex flex-col sm:flex-row justify-between items-start w-full max-w-[1400px] mx-auto gap-20">
-          
+
           <div className="flex-1">
             <h2 className="text-[10vw] sm:text-[6vw] font-black leading-[0.85] tracking-tighter uppercase mb-12">
               <TextMask>Let&apos;s Build</TextMask><br/>
               <TextMask delay={0.1}>Something</TextMask><br/>
               <TextMask delay={0.2}>Epic.</TextMask>
             </h2>
-            
+
             <Magnetic>
               <button className="group flex items-center justify-center w-40 h-40 bg-primary rounded-full text-white font-bold uppercase tracking-widest text-sm hover:scale-110 active:scale-95 transition-transform shadow-[0_0_40px_rgba(255,90,54,0.3)]">
                 Start Now
@@ -48,7 +48,7 @@ export function Footer() {
               <a href="/team" className="hover:text-primary transition-colors">Team</a>
               <a href="/process" className="hover:text-primary transition-colors">Process</a>
             </div>
-            
+
             <div className="flex flex-col gap-6">
               <span className="text-white">Socials</span>
               <a href="#" className="hover:text-primary transition-colors">Twitter (X)</a>
@@ -57,7 +57,7 @@ export function Footer() {
               <a href="#" className="hover:text-primary transition-colors">GitHub</a>
             </div>
           </div>
-          
+
         </div>
 
         {/* Massive Bottom Text */}

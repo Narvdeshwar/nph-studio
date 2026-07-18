@@ -1,6 +1,6 @@
 'use client';
 import { Navbar } from '@/components/premium/Navbar';
-import { Cursor } from '@/components/premium/Cursor';
+import { ThemeCursor } from '@/components/premium/ThemeCursor';
 import { Footer } from '@/components/premium/Footer';
 import { ContactForm } from '@/components/premium/ContactForm';
 import { TextMask } from '@/components/premium/TextMask';
@@ -8,7 +8,7 @@ import { TextMask } from '@/components/premium/TextMask';
 export default function ContactPage() {
   return (
     <div className="relative bg-background text-foreground min-h-screen cursor-none font-sans">
-      <Cursor />
+      <ThemeCursor />
       <Navbar />
 
       {/* Contact Page Header */}

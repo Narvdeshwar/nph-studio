@@ -2,13 +2,13 @@ import Link from 'next/link';
 
 export function Footer() {
   return (
-    <footer className="w-full border-t border-border bg-background py-16 px-6">
+    <footer className="w-full border-t border-border bg-background py-16 px-6 h-screen">
       <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
         <h2 className="text-[32px] font-medium text-foreground mb-4">
           Ready to build your next product?
         </h2>
         <p className="text-[16px] text-muted mb-8 max-w-[400px]">
-          Let's talk about your idea, scope the MVP, and get it built in weeks, not months.
+          Let&apos;s talk about your idea, scope the MVP, and get it built in weeks, not months.
         </p>
         <button className="bg-primary text-white border-none py-[12px] px-8 rounded-lg text-[15px] font-medium cursor-pointer transition-all hover:-translate-y-[2px] hover:shadow-[0_8px_20px_rgba(255,90,54,0.35)] active:scale-95 mb-16">
           Book a discovery call

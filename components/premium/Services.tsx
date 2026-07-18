@@ -1,6 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
-import { TextMask } from '@/components/premium/TextMask';
+import { BlurText } from '@/components/premium/BlurText';
 
 
 const pillars = [
@@ -27,9 +27,9 @@ export function Services() {
       <div className="max-w-[1400px] mx-auto px-8 sm:px-20">
         
         <div className="mb-24">
-          <h2 className="text-[6vw] sm:text-[5vw] font-bold leading-none tracking-tighter uppercase mb-6">
-            <TextMask>Capability</TextMask><br/>
-            <TextMask delay={0.1}>Pillars</TextMask>
+          <h2 className="text-[6vw] sm:text-[5vw] font-bold leading-none tracking-tighter uppercase mb-6 flex flex-col">
+            <BlurText delay={0.1}>Capability</BlurText>
+            <BlurText delay={0.3}>Pillars</BlurText>
           </h2>
         </div>
 

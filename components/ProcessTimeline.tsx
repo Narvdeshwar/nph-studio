@@ -42,7 +42,7 @@ export function ProcessTimeline() {
         >
           <h2 className="text-[32px] sm:text-[40px] font-medium text-foreground mb-4">How we work</h2>
           <p className="text-[16px] text-muted max-w-[400px] mx-auto">
-            A transparent, predictable process so you never have to wonder "what is the team doing?"
+            A transparent, predictable process so you never have to wonder &quot;what is the team doing?&quot;
           </p>
         </motion.div>
 

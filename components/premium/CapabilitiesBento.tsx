@@ -1,6 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import { IconCpu, IconDatabase, IconLayoutDashboard, IconRocket } from '@tabler/icons-react';
+import { GlareCard } from '@/components/premium/GlareCard';
 
 export function CapabilitiesBento() {
   return (
@@ -17,6 +18,7 @@ export function CapabilitiesBento() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
           
           {/* Bento Box 1: Frontend (Spans 2 cols) */}
+          <GlareCard className="md:col-span-2">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -35,8 +37,10 @@ export function CapabilitiesBento() {
               <div className="w-1/2 h-4 bg-primary rounded-full mt-4" />
             </div>
           </motion.div>
+          </GlareCard>
 
           {/* Bento Box 2: Performance */}
+          <GlareCard>
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -51,8 +55,10 @@ export function CapabilitiesBento() {
             </div>
             <p className="text-muted">Optimized CI/CD pipelines, edge caching, and zero-downtime deployments.</p>
           </motion.div>
+          </GlareCard>
 
           {/* Bento Box 3: Backend */}
+          <GlareCard>
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -65,8 +71,10 @@ export function CapabilitiesBento() {
             <h3 className="text-3xl font-black uppercase tracking-tighter mb-4">Robust Backends</h3>
             <p className="text-background/70">Scalable Go and Node.js microservices handling millions of requests with custom Postgres architectures.</p>
           </motion.div>
+          </GlareCard>
 
           {/* Bento Box 4: AI/RAG (Spans 2 cols) */}
+          <GlareCard className="md:col-span-2">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -88,6 +96,7 @@ export function CapabilitiesBento() {
               <p>{`});`}</p>
             </div>
           </motion.div>
+          </GlareCard>
 
         </div>
 
