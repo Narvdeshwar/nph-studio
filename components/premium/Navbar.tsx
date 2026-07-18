@@ -6,7 +6,7 @@ import { Logo } from '@/components/premium/Logo';
 import { Magnetic } from '@/components/premium/Magnetic';
 
 const menuLinks = [
-  { name: 'Home', href: '/home-v4' },
+  { name: 'Home', href: '/' },
   { name: 'Work', href: '/work' },
   { name: 'Services', href: '/services' },
   { name: 'Team', href: '/team' },
@@ -44,7 +44,7 @@ export function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-    
+
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -52,34 +52,34 @@ export function Navbar() {
   return (
     <>
       {/* Floating Header */}
-      <motion.header 
+      <motion.header
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 p-6 sm:p-8 flex justify-between items-center mix-blend-difference text-white pointer-events-none ${scrolled ? 'py-4' : ''}`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
       >
         <Magnetic>
-          <Link href="/home-v4" className="flex items-center gap-3 hover:text-primary transition-colors z-50 relative pointer-events-auto">
+          <Link href="/" className="flex items-center gap-3 hover:text-primary transition-colors z-50 relative pointer-events-auto">
             <Logo className="w-8 h-8 text-white" />
             <span className="font-bold tracking-widest uppercase text-white">NPH Studio</span>
           </Link>
         </Magnetic>
 
         <Magnetic>
-          <button 
+          <button
             onClick={handleMenuClick}
             className="relative z-50 w-16 h-16 rounded-full flex flex-col items-center justify-center gap-1.5 transition-colors duration-300 shadow-lg bg-white text-black hover:bg-primary hover:text-white pointer-events-auto"
           >
-            <motion.div 
-              animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 4 : 0 }} 
+            <motion.div
+              animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 4 : 0 }}
               className="w-6 h-[2px] bg-current origin-center"
             />
-            <motion.div 
-              animate={{ width: isOpen ? 0 : 24, opacity: isOpen ? 0 : 1 }} 
+            <motion.div
+              animate={{ width: isOpen ? 0 : 24, opacity: isOpen ? 0 : 1 }}
               className="w-6 h-[2px] bg-current"
             />
-            <motion.div 
-              animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? -4 : 0 }} 
+            <motion.div
+              animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? -4 : 0 }}
               className="w-6 h-[2px] bg-current origin-center"
             />
           </button>
@@ -89,7 +89,7 @@ export function Navbar() {
       {/* Full Screen Overlay Menu */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ clipPath: 'circle(0% at calc(100% - 4rem) 4rem)' }}
             animate={{ clipPath: 'circle(150% at calc(100% - 4rem) 4rem)' }}
             exit={{ clipPath: 'circle(0% at calc(100% - 4rem) 4rem)' }}
@@ -97,7 +97,7 @@ export function Navbar() {
             className={`fixed inset-0 z-40 flex items-center justify-center transition-colors duration-500 ${menuTheme === 'dark' ? 'bg-[#0A0A0A] text-white' : 'bg-[#FDFCFB] text-[#161616]'}`}
           >
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-7xl px-8 flex flex-col sm:flex-row justify-between items-start">
-              
+
               <div className="flex flex-col gap-4 sm:gap-8">
                 <span className={`uppercase tracking-widest text-sm font-bold mb-4 ${menuTheme === 'dark' ? 'text-zinc-500' : 'text-zinc-400'}`}>Navigation</span>
                 {menuLinks.map((link, i) => (
@@ -108,12 +108,12 @@ export function Navbar() {
                       exit={{ y: "100%" }}
                       transition={{ duration: 0.6, delay: 0.1 + (i * 0.05), ease: [0.33, 1, 0.68, 1] }}
                     >
-                      <Link 
-                        href={link.href} 
+                      <Link
+                        href={link.href}
                         onClick={() => setIsOpen(false)}
                         className="text-5xl sm:text-7xl font-black uppercase tracking-tighter hover:text-primary transition-colors flex items-center gap-4 group"
                       >
-                        <span className={`text-xl sm:text-3xl font-medium transition-colors ${menuTheme === 'dark' ? 'text-zinc-600 group-hover:text-primary/50' : 'text-zinc-300 group-hover:text-primary/50'}`}>0{i+1}</span>
+                        <span className={`text-xl sm:text-3xl font-medium transition-colors ${menuTheme === 'dark' ? 'text-zinc-600 group-hover:text-primary/50' : 'text-zinc-300 group-hover:text-primary/50'}`}>0{i + 1}</span>
                         {link.name}
                       </Link>
                     </motion.div>

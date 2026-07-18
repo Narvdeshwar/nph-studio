@@ -28,36 +28,43 @@ export function DecryptedText({ text, speed = 30, maxIterations = 10, className 
   useEffect(() => {
     if (!started) return;
 
-    const interval = setInterval(() => {
-      let updatedText = '';
-      let allFinished = true;
+    let animationFrameId: number;
+    let lastTime = 0;
 
-      for (let i = 0; i < text.length; i++) {
-        // Skip spaces
-        if (text[i] === ' ') {
-          updatedText += ' ';
-          continue;
+    const tick = (time: number) => {
+      if (time - lastTime >= speed) {
+        let updatedText = '';
+        let allFinished = true;
+
+        for (let i = 0; i < text.length; i++) {
+          if (text[i] === ' ') {
+            updatedText += ' ';
+            continue;
+          }
+
+          if (iterationsRef.current[i] >= maxIterations + (i * 2)) {
+            updatedText += text[i];
+          } else {
+            updatedText += chars[Math.floor(Math.random() * chars.length)];
+            iterationsRef.current[i]++;
+            allFinished = false;
+          }
         }
 
-        if (iterationsRef.current[i] >= maxIterations + (i * 2)) {
-          // Solved
-          updatedText += text[i];
-        } else {
-          // Random character
-          updatedText += chars[Math.floor(Math.random() * chars.length)];
-          iterationsRef.current[i]++;
-          allFinished = false;
+        setDisplayText(updatedText);
+        lastTime = time;
+
+        if (allFinished) {
+          cancelAnimationFrame(animationFrameId);
+          return;
         }
       }
+      animationFrameId = requestAnimationFrame(tick);
+    };
 
-      setDisplayText(updatedText);
+    animationFrameId = requestAnimationFrame(tick);
 
-      if (allFinished) {
-        clearInterval(interval);
-      }
-    }, speed);
-
-    return () => clearInterval(interval);
+    return () => cancelAnimationFrame(animationFrameId);
   }, [started, text, speed, maxIterations]);
 
   return (
