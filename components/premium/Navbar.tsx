@@ -53,7 +53,7 @@ export function Navbar() {
     <>
       {/* Floating Header */}
       <motion.header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 p-6 sm:p-8 flex justify-between items-center mix-blend-difference text-white pointer-events-none ${scrolled ? 'py-4' : ''}`}
+        className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 p-6 sm:p-8 flex justify-between items-center mix-blend-difference text-white pointer-events-none ${scrolled ? 'py-4' : ''}`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}

@@ -31,7 +31,7 @@ export function CapabilitiesBento() {
             <p className="text-muted text-lg max-w-md">Pixel-perfect, ultra-responsive user interfaces built with React, Next.js, and Framer Motion. We don&apos;t just build websites; we build cinematic experiences.</p>
             
             {/* Decorative UI element */}
-            <div className="absolute -bottom-10 -right-10 w-64 h-48 bg-background border border-border rounded-tl-3xl shadow-2xl group-hover:-translate-y-4 group-hover:-translate-x-4 transition-transform duration-500 flex flex-col gap-4 p-6">
+            <div className="hidden md:flex absolute -bottom-10 -right-10 w-64 h-48 bg-background border border-border rounded-tl-3xl shadow-2xl group-hover:-translate-y-4 group-hover:-translate-x-4 transition-transform duration-500 flex-col gap-4 p-6">
               <div className="w-full h-4 bg-zinc-100 rounded-full" />
               <div className="w-3/4 h-4 bg-zinc-100 rounded-full" />
               <div className="w-1/2 h-4 bg-primary rounded-full mt-4" />
@@ -88,7 +88,7 @@ export function CapabilitiesBento() {
             <p className="text-zinc-400 text-lg max-w-md">Integrating intelligent agents and semantic search into your product. Custom LLM pipelines tailored to your proprietary data.</p>
             
             {/* Decorative Code block */}
-            <div className="absolute -bottom-16 -right-4 w-72 h-56 bg-black border border-zinc-800 rounded-tl-xl shadow-2xl p-6 font-mono text-xs text-green-400 opacity-50 group-hover:-translate-y-4 transition-transform duration-500">
+            <div className="hidden md:block absolute -bottom-16 -right-4 w-72 h-56 bg-black border border-zinc-800 rounded-tl-xl shadow-2xl p-6 font-mono text-xs text-green-400 opacity-50 group-hover:-translate-y-4 transition-transform duration-500">
               <p>{`import { generateText } from 'ai';`}</p>
               <p className="mt-2">{`const response = await generateText({`}</p>
               <p className="ml-4">{`model: customLLM,`}</p>

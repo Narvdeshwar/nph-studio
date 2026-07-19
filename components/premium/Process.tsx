@@ -27,12 +27,12 @@ export function Process() {
     <section ref={containerRef} className="w-full py-32 bg-background relative z-10">
       <div className="max-w-[1400px] mx-auto px-8 sm:px-20 flex flex-col md:flex-row gap-20">
         
-        <div className="md:w-1/3 sticky top-32 h-fit">
-          <h2 className="text-[6vw] sm:text-[4vw] font-bold leading-none tracking-tighter uppercase mb-6 flex flex-col">
+        <div className="md:w-1/3 sticky top-0 md:top-32 h-fit z-30 bg-white/95 dark:bg-[#0A0A0A]/95 backdrop-blur-md pt-24 pb-6 -mx-8 px-8 sm:-mx-20 sm:px-20 md:bg-transparent md:backdrop-blur-none md:py-0 md:mx-0 md:px-0 mb-12 md:mb-0 border-b border-border/40 md:border-none">
+          <h2 className="text-[12vw] sm:text-[8vw] md:text-[4vw] font-bold leading-none tracking-tighter uppercase mb-2 md:mb-6 flex flex-col">
             <BlurText delay={0.1}>The</BlurText>
             <BlurText delay={0.3}>Process</BlurText>
           </h2>
-          <p className="text-muted text-lg">Predictable, transparent, and built for speed.</p>
+          <p className="text-muted text-sm sm:text-base md:text-lg">Predictable, transparent, and built for speed.</p>
         </div>
 
         <div className="md:w-2/3">

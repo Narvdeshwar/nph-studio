@@ -9,6 +9,7 @@ import { ProofStrip } from '@/components/premium/ProofStrip';
 import { Services } from '@/components/premium/Services';
 import { WorkPreview } from '@/components/premium/WorkPreview';
 import { Process } from '@/components/premium/Process';
+import { Sparkles } from '@/components/premium/Sparkles';
 import { Footer } from '@/components/premium/Footer';
 import { CapabilitiesBento } from '@/components/premium/CapabilitiesBento';
 import { IconArrowUpRight } from '@tabler/icons-react';
@@ -32,6 +33,13 @@ export default function Home() {
         
         {/* Subtle Engineering Grid Background */}
         <div className="absolute inset-0 z-[-2] opacity-20 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
+
+        {/* Cinematic Sparkles Background */}
+        <div className="absolute inset-0 z-[-2] opacity-80 mix-blend-screen pointer-events-none">
+          <Sparkles particleColor="#FF5A36" particleDensity={30} minSize={0.5} maxSize={2.5} className="opacity-60" />
+          <Sparkles particleColor="#7C3AED" particleDensity={50} minSize={0.3} maxSize={1.5} className="opacity-50" />
+          <Sparkles particleColor="#FFFFFF" particleDensity={120} minSize={0.1} maxSize={1.2} className="opacity-40" />
+        </div>
 
         {/* Parallax Background Glow */}
         <motion.div 
