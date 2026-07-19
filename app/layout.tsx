@@ -4,6 +4,7 @@ import { Noise } from "@/components/premium/Noise";
 import { Navbar } from "@/components/premium/Navbar";
 import { ThemeCursor } from "@/components/premium/ThemeCursor";
 import { Curtain } from "@/components/premium/Curtain";
+import { Sparkles } from "@/components/premium/Sparkles";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -35,8 +36,12 @@ export default function RootLayout({
         <Curtain />
         <ThemeCursor />
         <Navbar />
+        {/* Global Sparkles Background */}
+        <div className="fixed inset-0 z-0 opacity-60 pointer-events-none">
+          <Sparkles particleColor="#FF5A36" minSize={0.5} maxSize={1.5} particleDensity={15} />
+        </div>
         <Noise opacity={0.03} />
-        <main className="flex-1 flex flex-col">
+        <main className="flex-1 flex flex-col relative z-10">
           {children}
         </main>
       </body>

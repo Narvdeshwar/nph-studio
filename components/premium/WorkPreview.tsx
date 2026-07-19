@@ -1,6 +1,6 @@
 'use client';
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { TextMask } from '@/components/premium/TextMask';
 import { Magnetic } from '@/components/premium/Magnetic';
 import { ScrollVelocity } from '@/components/premium/ScrollVelocity';
@@ -17,11 +17,29 @@ interface ProjectData {
 }
 
 function FuturisticCard({ project, index }: { project: ProjectData, index: number }) {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+  
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    setMousePos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top
+    });
+  };
 
   return (
-    <div ref={containerRef} className="relative w-full h-[400px] sm:h-[600px] flex items-center justify-center group cursor-pointer">
+    <div 
+      ref={containerRef} 
+      className="relative w-full h-[400px] sm:h-[600px] flex items-center justify-center group cursor-pointer overflow-hidden rounded-2xl"
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       
       {/* Step 1: Laser Lines combine in the center */}
       <motion.div 
@@ -39,15 +57,18 @@ function FuturisticCard({ project, index }: { project: ProjectData, index: numbe
 
       {/* Step 2: The container expands from the center collision line */}
       <motion.div
-        className="absolute inset-0 bg-zinc-900 rounded-2xl overflow-hidden flex items-center justify-center border border-zinc-800"
+        className="absolute inset-0 bg-[#0A0A0A] flex items-center justify-center border border-zinc-800 transition-transform duration-1000 group-hover:scale-95 rounded-2xl"
         initial={{ scaleY: 0, opacity: 0 }}
         animate={isInView ? { scaleY: 1, opacity: 1 } : {}}
         transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1], delay: (index * 0.3) + 0.8 }}
         style={{ originY: 0.5 }}
       >
         {/* Hover Gradient Effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-purple-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0" />
         
+        {/* Image/Video Placeholder Background that scales on hover */}
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop')] bg-cover bg-center opacity-0 group-hover:opacity-40 transition-all duration-1000 group-hover:scale-110 mix-blend-overlay" />
+
         {/* Step 3: Text reveals after expansion */}
         <div className="relative z-10 text-center pointer-events-none">
           <motion.div className="overflow-hidden">
@@ -55,7 +76,7 @@ function FuturisticCard({ project, index }: { project: ProjectData, index: numbe
               initial={{ y: "100%", opacity: 0, filter: "blur(10px)" }}
               animate={isInView ? { y: "0%", opacity: 1, filter: "blur(0px)" } : {}}
               transition={{ duration: 0.6, delay: (index * 0.3) + 1.2, ease: "easeOut" }}
-              className="text-4xl sm:text-7xl font-black uppercase tracking-tighter mb-4 group-hover:scale-110 group-hover:text-primary transition-all duration-700"
+              className="text-4xl sm:text-7xl font-black uppercase tracking-tighter mb-4 group-hover:scale-110 group-hover:text-white transition-all duration-700 drop-shadow-2xl text-zinc-300"
             >
               {project.name}
             </motion.h3>
@@ -64,12 +85,27 @@ function FuturisticCard({ project, index }: { project: ProjectData, index: numbe
             initial={{ opacity: 0, letterSpacing: "0px" }}
             animate={isInView ? { opacity: 1, letterSpacing: "8px" } : {}}
             transition={{ duration: 1, delay: (index * 0.3) + 1.4, ease: "easeOut" }}
-            className="text-zinc-400 uppercase text-sm font-medium opacity-0 group-hover:opacity-100 transition-all duration-500"
+            className="text-primary uppercase text-sm font-bold opacity-0 group-hover:opacity-100 transition-all duration-500 drop-shadow-md"
           >
             {project.category}
           </motion.p>
         </div>
       </motion.div>
+
+      {/* Localized "View Project" Cursor Morph */}
+      <motion.div 
+        className="pointer-events-none absolute z-50 flex items-center justify-center w-24 h-24 rounded-full bg-primary text-white font-bold text-xs uppercase tracking-widest text-center leading-tight shadow-2xl mix-blend-normal"
+        animate={{
+          x: mousePos.x - 48,
+          y: mousePos.y - 48,
+          scale: isHovered ? 1 : 0,
+          opacity: isHovered ? 1 : 0
+        }}
+        transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.5 }}
+      >
+        View<br/>Project
+      </motion.div>
+
     </div>
   );
 }

@@ -5,7 +5,7 @@ import { GlareCard } from '@/components/premium/GlareCard';
 
 export function CapabilitiesBento() {
   return (
-    <section className="py-32 bg-background relative z-10">
+    <section className="py-32 relative z-10">
       <div className="max-w-[1400px] mx-auto px-8 sm:px-20">
         
         <div className="mb-16">

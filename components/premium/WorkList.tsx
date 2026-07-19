@@ -129,7 +129,7 @@ export function WorkList() {
   const x = useTransform(scrollYProgress, [0, 1], ['0%', '-80%']);
 
   return (
-    <section ref={containerRef} className="w-full h-[600vh] relative z-10 bg-red-400">
+    <section ref={containerRef} className="w-full h-[600vh] relative z-10">
 
       {/* Sticky container that holds the viewport */}
       <div className="sticky top-3 w-full h-screen overflow-hidden flex items-center">

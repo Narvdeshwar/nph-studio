@@ -54,8 +54,15 @@ export function GlareCard({ children, className = '' }: { children: ReactNode, c
         transformStyle: 'preserve-3d',
         perspective: 1000
       }}
-      className={`relative rounded-[32px] overflow-hidden group ${className}`}
+      className={`relative rounded-[32px] group ${className}`}
     >
+      {/* Outer Proximity Glow */}
+      <motion.div
+        className="pointer-events-none absolute -inset-0.5 z-[-1] rounded-[32px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl mix-blend-screen"
+        style={{
+          background: useMotionTemplate`radial-gradient(300px circle at ${mouseX}px ${mouseY}px, var(--primary), transparent 60%)`
+        }}
+      />
       {/* Glare Effect */}
       <motion.div
         className="pointer-events-none absolute inset-0 z-50 mix-blend-overlay rounded-[32px]"

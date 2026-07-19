@@ -1,20 +1,49 @@
 'use client';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
+import { useRef, useState, useEffect } from 'react';
 import { Magnetic } from '@/components/premium/Magnetic';
 import { TextMask } from '@/components/premium/TextMask';
-import { IconArrowRight } from '@tabler/icons-react';
+import { IconCheck, IconCopy } from '@tabler/icons-react';
 
 export function Footer() {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [copied, setCopied] = useState(false);
+
+  // Mouse tracking for typography
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  
+  const springX = useSpring(mouseX, { stiffness: 100, damping: 30 });
+  const springY = useSpring(mouseY, { stiffness: 100, damping: 30 });
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start end', 'end end']
   });
 
-  // Parallax reveal effect - moves from top to bottom as you scroll in
   const y = useTransform(scrollYProgress, [0, 1], ['-30%', '0%']);
+  
+  const textX = useTransform(springX, [-1, 1], ['48%', '52%']);
+  const textY = useTransform(springY, [-1, 1], [90, 110]);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      // Normalize mouse coordinates to -1 to 1
+      const x = (e.clientX / window.innerWidth) * 2 - 1;
+      const y = (e.clientY / window.innerHeight) * 2 - 1;
+      mouseX.set(x);
+      mouseY.set(y);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, [mouseX, mouseY]);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText('hello@nph.studio');
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <footer ref={containerRef} className="relative h-screen w-full" style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}>
@@ -33,39 +62,60 @@ export function Footer() {
             </h2>
 
             <Magnetic>
-              <button className="group flex items-center justify-center w-40 h-40 bg-primary rounded-full text-white font-bold uppercase tracking-widest text-sm hover:scale-110 active:scale-95 transition-transform shadow-[0_0_40px_rgba(255,90,54,0.3)]">
-                Start Now
-                <IconArrowRight size={20} className="absolute opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-12 transition-all duration-300" />
+              <button 
+                onClick={handleCopyEmail}
+                className="group relative flex items-center justify-center w-40 h-40 bg-primary rounded-full text-white font-bold uppercase tracking-widest text-sm hover:scale-110 active:scale-95 transition-transform shadow-[0_0_40px_rgba(255,90,54,0.3)]"
+              >
+                <div className="flex flex-col items-center gap-2">
+                  <span className="transition-all duration-300 group-hover:-translate-y-2 group-hover:opacity-0">{copied ? 'Copied!' : 'Email Us'}</span>
+                  <div className="absolute opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-2">
+                    {copied ? <IconCheck size={20} /> : <IconCopy size={20} />}
+                  </div>
+                </div>
               </button>
             </Magnetic>
           </div>
 
           <div className="flex gap-16 text-sm uppercase tracking-widest font-medium text-zinc-500">
             <div className="flex flex-col gap-6">
-              <span className="text-white">Navigation</span>
-              <a href="/work" className="hover:text-primary transition-colors">Work</a>
-              <a href="/services" className="hover:text-primary transition-colors">Services</a>
-              <a href="/team" className="hover:text-primary transition-colors">Team</a>
-              <a href="/process" className="hover:text-primary transition-colors">Process</a>
+              <span className="text-white mb-2">Navigation</span>
+              {['Work', 'Services', 'Team', 'Process'].map((item) => (
+                <Magnetic key={item}>
+                  <a href={`/${item.toLowerCase()}`} className="hover:text-primary transition-colors block w-fit">
+                    {item}
+                  </a>
+                </Magnetic>
+              ))}
             </div>
 
             <div className="flex flex-col gap-6">
-              <span className="text-white">Socials</span>
-              <a href="#" className="hover:text-primary transition-colors">Twitter (X)</a>
-              <a href="#" className="hover:text-primary transition-colors">LinkedIn</a>
-              <a href="#" className="hover:text-primary transition-colors">Instagram</a>
-              <a href="#" className="hover:text-primary transition-colors">GitHub</a>
+              <span className="text-white mb-2">Socials</span>
+              {['Twitter (X)', 'LinkedIn', 'Instagram', 'GitHub'].map((social) => (
+                <Magnetic key={social}>
+                  <a href="#" className="hover:text-primary transition-colors block w-fit">
+                    {social}
+                  </a>
+                </Magnetic>
+              ))}
             </div>
           </div>
 
         </div>
 
-        {/* Massive Bottom Text */}
+        {/* Massive Bottom Text Tracking Mouse */}
         <div className="w-full mt-20 flex justify-center overflow-hidden">
-          <svg viewBox="0 0 1000 120" className="w-full max-w-[1400px] fill-zinc-800 pointer-events-none select-none">
-            <text x="50%" y="100" textAnchor="middle" fontSize="130" fontWeight="900" fontFamily="sans-serif" letterSpacing="-2">
+          <svg viewBox="0 0 1000 120" className="w-full max-w-[1400px] fill-zinc-800/80 pointer-events-none select-none">
+            <motion.text 
+              x={textX} 
+              y={textY} 
+              textAnchor="middle" 
+              fontSize="130" 
+              fontWeight="900" 
+              fontFamily="sans-serif" 
+              letterSpacing="-2"
+            >
               NPH STUDIO
-            </text>
+            </motion.text>
           </svg>
         </div>
 
