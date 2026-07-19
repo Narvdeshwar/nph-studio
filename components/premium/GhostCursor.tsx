@@ -14,7 +14,16 @@ export function GhostCursor() {
   const ghostX = useSpring(0, { stiffness: 200, damping: 30 });
   const ghostY = useSpring(0, { stiffness: 200, damping: 30 });
 
+  const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+
     // Hide default cursor on desktop
     document.body.style.cursor = 'none';
     
@@ -47,9 +56,9 @@ export function GhostCursor() {
       window.removeEventListener('mousemove', moveCursor);
       document.body.style.cursor = 'auto';
     };
-  }, [cursorX, cursorY, ghostX, ghostY, isVisible]);
+  }, [cursorX, cursorY, ghostX, ghostY, isVisible, mounted]);
 
-  if (typeof window === 'undefined') return null;
+  if (!mounted) return null;
 
   return (
     <>

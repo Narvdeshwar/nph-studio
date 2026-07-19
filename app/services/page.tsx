@@ -1,5 +1,5 @@
 'use client';
-import { Navbar } from '@/components/premium/Navbar';
+
 import { Cursor } from '@/components/premium/Cursor';
 import { Footer } from '@/components/premium/Footer';
 import { ServicesList } from '@/components/premium/ServicesList';
@@ -9,7 +9,7 @@ export default function ServicesPage() {
   return (
     <div className="relative bg-background text-foreground min-h-screen cursor-none font-sans">
       <Cursor />
-      <Navbar />
+      
 
       {/* Services Page Header */}
       <section className="relative pt-[25vh] pb-[5vh] px-8 sm:px-20 text-center bg-background z-20">

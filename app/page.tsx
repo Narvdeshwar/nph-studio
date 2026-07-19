@@ -2,9 +2,9 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { Magnetic } from '@/components/premium/Magnetic';
-import { ThemeCursor } from '@/components/premium/ThemeCursor';
+
 import { DecryptedText } from '@/components/premium/DecryptedText';
-import { Navbar } from '@/components/premium/Navbar';
+
 import { ProofStrip } from '@/components/premium/ProofStrip';
 import { Services } from '@/components/premium/Services';
 import { WorkPreview } from '@/components/premium/WorkPreview';
@@ -25,8 +25,8 @@ export default function Home() {
 
   return (
     <div ref={containerRef} className="relative bg-background text-foreground min-h-[200vh] cursor-none font-sans">
-      <ThemeCursor />
-      <Navbar />
+      
+      
 
       {/* Hero Section */}
       <section className="relative h-screen flex flex-col justify-center p-8 sm:p-20 z-10 overflow-hidden">

@@ -61,7 +61,7 @@ function ServiceCard({ service, index }: { service: ServiceData, index: number }
       className={`relative rounded-[32px] p-8 sm:p-12 border ${service.popular ? 'border-primary' : 'border-border'} ${!service.available ? 'bg-zinc-100 opacity-80' : 'bg-surface'} flex flex-col h-full group overflow-hidden`}
     >
       {/* Background Hover Glow */}
-      <div 
+      <div
         className="absolute top-0 right-0 w-64 h-64 opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none"
         style={{ background: `radial-gradient(circle at center, ${service.color}, transparent 70%)` }}
       />
@@ -103,10 +103,10 @@ function ServiceCard({ service, index }: { service: ServiceData, index: number }
 
       <div className="mt-12">
         <Magnetic>
-          <button 
-            className={`w-full py-4 rounded-full text-sm font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2
-              ${service.popular 
-                ? 'bg-foreground text-background hover:bg-primary hover:text-white' 
+          <button
+            className={`w-full py-4 rounded-full text-sm font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 px-3
+              ${service.popular
+                ? 'bg-foreground text-background hover:bg-primary hover:text-white'
                 : 'bg-white border border-border text-foreground hover:border-foreground'}
               ${!service.available ? 'cursor-not-allowed opacity-50' : ''}
             `}

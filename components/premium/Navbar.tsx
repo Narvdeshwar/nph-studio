@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
+import { TransitionLink } from '@/components/premium/TransitionLink';
 import { Logo } from '@/components/premium/Logo';
 import { Magnetic } from '@/components/premium/Magnetic';
 
@@ -53,22 +53,24 @@ export function Navbar() {
     <>
       {/* Floating Header */}
       <motion.header
-        className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 p-6 sm:p-8 flex justify-between items-center mix-blend-difference text-white pointer-events-none ${scrolled ? 'py-4' : ''}`}
+        className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 p-6 sm:p-8 flex justify-between items-center pointer-events-none ${scrolled ? 'py-4' : ''}`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
       >
         <Magnetic>
-          <Link href="/" className="flex items-center gap-3 hover:text-primary transition-colors z-50 relative pointer-events-auto">
-            <Logo className="w-8 h-8 text-white" />
-            <span className="font-bold tracking-widest uppercase text-white">NPH Studio</span>
-          </Link>
+          <TransitionLink href="/" className="pointer-events-auto mix-blend-difference text-white z-[60]">
+            <div className="relative group">
+              <Logo className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
+              <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full scale-0 group-hover:scale-150 transition-transform duration-500" />
+            </div>
+          </TransitionLink>
         </Magnetic>
 
         <Magnetic>
           <button
             onClick={handleMenuClick}
-            className="relative z-50 w-16 h-16 rounded-full flex flex-col items-center justify-center gap-1.5 transition-colors duration-300 shadow-lg bg-white text-black hover:bg-primary hover:text-white pointer-events-auto"
+            className="relative z-50 w-16 h-16 rounded-full flex flex-col items-center justify-center gap-1.5 transition-colors duration-300 shadow-lg bg-[#161616] text-white hover:bg-primary pointer-events-auto"
           >
             <motion.div
               animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 4 : 0 }}
@@ -108,14 +110,14 @@ export function Navbar() {
                       exit={{ y: "100%" }}
                       transition={{ duration: 0.6, delay: 0.1 + (i * 0.05), ease: [0.33, 1, 0.68, 1] }}
                     >
-                      <Link
+                      <TransitionLink
                         href={link.href}
                         onClick={() => setIsOpen(false)}
                         className="text-5xl sm:text-7xl font-black uppercase tracking-tighter hover:text-primary transition-colors flex items-center gap-4 group"
                       >
                         <span className={`text-xl sm:text-3xl font-medium transition-colors ${menuTheme === 'dark' ? 'text-zinc-600 group-hover:text-primary/50' : 'text-zinc-300 group-hover:text-primary/50'}`}>0{i + 1}</span>
                         {link.name}
-                      </Link>
+                      </TransitionLink>
                     </motion.div>
                   </div>
                 ))}

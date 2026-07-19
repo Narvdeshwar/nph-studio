@@ -59,22 +59,22 @@ interface StudyData {
 function HorizontalCard({ study, index }: { study: StudyData, index: number }) {
   return (
     <div className="w-screen h-full flex-shrink-0 flex items-center justify-center p-8 sm:p-20">
-      <div 
+      <div
         className="w-full max-w-[1400px] h-[80vh] rounded-[40px] overflow-hidden relative shadow-2xl flex flex-col md:flex-row border border-white/5"
         style={{ backgroundColor: study.bg }}
       >
         {/* Glow - Optimized for low-end devices using radial-gradient instead of CSS blur */}
-        <div 
+        <div
           className="absolute top-[-100px] right-[-100px] w-[600px] h-[600px] opacity-20 pointer-events-none"
-          style={{ 
-            background: `radial-gradient(circle at center, ${study.color}, transparent 70%)` 
+          style={{
+            background: `radial-gradient(circle at center, ${study.color}, transparent 70%)`
           }}
         />
 
         {/* Content */}
         <div className="flex-1 p-12 sm:p-20 flex flex-col justify-between z-10 text-white">
           <div>
-            <span 
+            <span
               className="font-bold uppercase tracking-widest text-sm mb-6 block"
               style={{ color: study.color }}
             >
@@ -83,7 +83,7 @@ function HorizontalCard({ study, index }: { study: StudyData, index: number }) {
             <h2 className="text-5xl sm:text-7xl font-black uppercase tracking-tighter leading-[0.9] mb-12">
               {study.title}
             </h2>
-            
+
             <div className="flex flex-col gap-8 mb-12">
               <div>
                 <h3 className="text-xs font-bold text-white/50 uppercase tracking-widest mb-2">The Problem</h3>
@@ -118,7 +118,7 @@ function HorizontalCard({ study, index }: { study: StudyData, index: number }) {
 
 export function WorkList() {
   const containerRef = useRef(null);
-  
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end end']
@@ -129,27 +129,27 @@ export function WorkList() {
   const x = useTransform(scrollYProgress, [0, 1], ['0%', '-80%']);
 
   return (
-    <section ref={containerRef} className="w-full h-[600vh] relative z-10 bg-background">
-      
+    <section ref={containerRef} className="w-full h-[600vh] relative z-10 bg-red-400">
+
       {/* Sticky container that holds the viewport */}
-      <div className="sticky top-0 w-full h-screen overflow-hidden flex items-center">
-        
+      <div className="sticky top-3 w-full h-screen overflow-hidden flex items-center">
+
         {/* The Horizontal Track */}
-        <motion.div 
+        <motion.div
           style={{ x }}
           className="flex h-full w-[500vw] items-center will-change-transform"
         >
           {caseStudies.map((study, i) => (
-            <HorizontalCard 
-              key={study.title} 
-              study={study} 
-              index={i} 
+            <HorizontalCard
+              key={study.title}
+              study={study}
+              index={i}
             />
           ))}
         </motion.div>
 
         {/* Scroll Instruction Overlay */}
-        <motion.div 
+        <motion.div
           style={{ opacity: useTransform(scrollYProgress, [0, 0.05], [1, 0]) }}
           className="absolute bottom-10 left-1/2 -translate-x-1/2 text-black/40 text-sm font-bold uppercase tracking-widest flex flex-col items-center gap-2 pointer-events-none"
         >

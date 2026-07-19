@@ -1,5 +1,5 @@
 'use client';
-import { Navbar } from '@/components/premium/Navbar';
+
 import { Cursor } from '@/components/premium/Cursor';
 import { Footer } from '@/components/premium/Footer';
 import { TeamList } from '@/components/premium/TeamList';
@@ -9,7 +9,7 @@ export default function TeamPage() {
   return (
     <div className="relative bg-background text-foreground min-h-screen cursor-none font-sans">
       <Cursor />
-      <Navbar />
+      
 
       {/* Team Page Header */}
       <section className="relative pt-[25vh] pb-[5vh] px-8 sm:px-20 text-center bg-background z-20">

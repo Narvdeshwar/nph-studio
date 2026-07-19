@@ -1,6 +1,6 @@
 'use client';
-import { Navbar } from '@/components/premium/Navbar';
-import { ThemeCursor } from '@/components/premium/ThemeCursor';
+
+
 import { Footer } from '@/components/premium/Footer';
 import { WorkList } from '@/components/premium/WorkList';
 import { TextMask } from '@/components/premium/TextMask';
@@ -8,9 +8,6 @@ import { TextMask } from '@/components/premium/TextMask';
 export default function WorkPage() {
   return (
     <div className="relative bg-background text-foreground min-h-screen cursor-none font-sans">
-      <ThemeCursor />
-      <Navbar />
-
       {/* Work Page Header - Normal document flow */}
       <section className="relative pt-[25vh] pb-[10vh] px-8 sm:px-20 text-center bg-background z-20">
         <h1 className="text-[12vw] sm:text-[8vw] font-bold leading-[0.85] tracking-tighter uppercase mb-6 flex flex-col items-center">
