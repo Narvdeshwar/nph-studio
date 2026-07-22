@@ -61,7 +61,7 @@ export function Navbar() {
         <Magnetic>
           <TransitionLink href="/" className="pointer-events-auto z-[60]">
             <div className="relative group">
-              <Logo className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
+              <Logo className="text-2xl sm:text-3xl text-white" />
               <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full scale-0 group-hover:scale-150 transition-transform duration-500" />
             </div>
           </TransitionLink>

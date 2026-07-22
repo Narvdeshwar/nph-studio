@@ -11,7 +11,7 @@ export function Footer() {
   // Mouse tracking for typography
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  
+
   const springX = useSpring(mouseX, { stiffness: 100, damping: 30 });
   const springY = useSpring(mouseY, { stiffness: 100, damping: 30 });
 
@@ -21,7 +21,7 @@ export function Footer() {
   });
 
   const y = useTransform(scrollYProgress, [0, 1], ['-30%', '0%']);
-  
+
   const textX = useTransform(springX, [-1, 1], ['48%', '52%']);
   const textY = useTransform(springY, [-1, 1], [90, 110]);
 
@@ -56,7 +56,7 @@ export function Footer() {
             </h2>
 
             <Magnetic>
-              <a 
+              <a
                 href="https://wa.me/918787205784"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -86,10 +86,19 @@ export function Footer() {
 
             <div className="flex flex-col gap-6">
               <span className="text-white mb-2">Socials</span>
-              {['Twitter (X)', 'LinkedIn', 'Instagram', 'GitHub'].map((social) => (
-                <Magnetic key={social}>
-                  <a href="#" className="hover:text-primary transition-colors block w-fit">
-                    {social}
+              {[
+                { name: 'Twitter (X)', url: 'https://x.com/Eternal_Dev_IO' },
+                { name: 'LinkedIn', url: 'https://www.linkedin.com/in/narvdeshwar/' },
+                { name: 'GitHub', url: 'https://github.com/narvdeshwar' }
+              ].map((social) => (
+                <Magnetic key={social.name}>
+                  <a
+                    href={social.url}
+                    target={social.url !== '#' ? "_blank" : "_self"}
+                    rel={social.url !== '#' ? "noopener noreferrer" : ""}
+                    className="hover:text-primary transition-colors block w-fit"
+                  >
+                    {social.name}
                   </a>
                 </Magnetic>
               ))}
@@ -101,16 +110,16 @@ export function Footer() {
         {/* Massive Bottom Text Tracking Mouse */}
         <div className="w-full mt-20 flex justify-center overflow-hidden">
           <svg viewBox="0 0 1000 120" className="w-full max-w-[1400px] fill-zinc-800/80 pointer-events-none select-none">
-            <motion.text 
-              x={textX} 
-              y={textY} 
-              textAnchor="middle" 
-              fontSize="130" 
-              fontWeight="900" 
-              fontFamily="sans-serif" 
+            <motion.text
+              x={textX}
+              y={textY}
+              textAnchor="middle"
+              fontSize="130"
+              fontWeight="900"
+              fontFamily="sans-serif"
               letterSpacing="-2"
             >
-              NPH STUDIO
+              NPH-STUDIO
             </motion.text>
           </svg>
         </div>

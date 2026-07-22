@@ -29,7 +29,7 @@ export function TransitionLink({ href, children, className, onClick, ...props }:
     // Wait for curtain to fully cover the screen before pushing route
     setTimeout(() => {
       router.push(targetUrl);
-    }, 700); 
+    }, 1200); 
   };
 
   return (

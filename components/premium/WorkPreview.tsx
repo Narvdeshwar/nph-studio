@@ -6,8 +6,7 @@ import { Magnetic } from '@/components/premium/Magnetic';
 import { ScrollVelocity } from '@/components/premium/ScrollVelocity';
 
 const projects = [
-  { name: 'AIBulletin', category: 'AI News Platform', image: '/aibulletin.png' },
-  { name: 'JSPARK.AI', category: 'Enterprise AI', image: '/jspark.png' },
+  { name: 'AIBulletin', category: 'AI News Platform', image: '/aibulletin.png', link: 'http://aibulletin.in/' },
   { name: 'LMS Platform', category: 'EdTech MVP', image: '/lms.png' }
 ];
 
@@ -15,10 +14,11 @@ interface ProjectData {
   name: string;
   category: string;
   image: string;
+  link?: string;
 }
 
 function FuturisticCard({ project, index }: { project: ProjectData, index: number }) {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLAnchorElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
   
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -34,12 +34,16 @@ function FuturisticCard({ project, index }: { project: ProjectData, index: numbe
   };
 
   return (
-    <div 
+    <a 
+      href={project.link || '#'}
+      target={project.link ? '_blank' : undefined}
+      rel={project.link ? 'noopener noreferrer' : undefined}
       ref={containerRef} 
-      className="relative w-full h-[400px] sm:h-[600px] flex items-center justify-center group cursor-pointer overflow-hidden rounded-2xl"
+      className="relative block w-full h-[400px] sm:h-[600px] flex items-center justify-center group cursor-pointer overflow-hidden rounded-2xl"
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={(e) => !project.link && e.preventDefault()}
     >
       
       {/* Step 1: Laser Lines combine in the center */}
@@ -113,7 +117,7 @@ function FuturisticCard({ project, index }: { project: ProjectData, index: numbe
         View<br/>Project
       </motion.div>
 
-    </div>
+    </a>
   );
 }
 

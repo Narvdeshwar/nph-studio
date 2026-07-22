@@ -11,23 +11,8 @@ const caseStudies = [
     problem: 'Founders needed a noise-free source for AI news.',
     solution: 'Built a high-performance aggregation engine.',
     color: '#FF5A36',
-    bg: '#1A0F0D'
-  },
-  {
-    title: 'JSPARK.AI',
-    category: 'Enterprise AI Platform',
-    problem: 'Companies struggled to deploy custom AI models.',
-    solution: 'A scalable, multi-tenant platform for LLM tools.',
-    color: '#7C3AED',
-    bg: '#150D22'
-  },
-  {
-    title: 'JSPARK Prime',
-    category: 'Premium AI Ecosystem',
-    problem: 'Power users required advanced analytics and speed.',
-    solution: 'Engineered a premium tier with dedicated compute.',
-    color: '#FDFCFB',
-    bg: '#161616'
+    bg: '#1A0F0D',
+    link: 'http://aibulletin.in/'
   },
   {
     title: 'LMS Platform',
@@ -54,6 +39,7 @@ interface StudyData {
   solution: string;
   color: string;
   bg: string;
+  link?: string;
 }
 
 function HorizontalCard({ study, index }: { study: StudyData, index: number }) {
@@ -97,12 +83,21 @@ function HorizontalCard({ study, index }: { study: StudyData, index: number }) {
           </div>
 
           <Magnetic>
-            <button className="flex items-center gap-4 text-sm font-bold uppercase tracking-wider group hover:text-white/80 transition-colors self-start">
-              View Live Case Study
-              <span className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
-                <IconArrowUpRight size={20} />
-              </span>
-            </button>
+            {study.link ? (
+              <a href={study.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-sm font-bold uppercase tracking-wider group hover:text-white/80 transition-colors self-start">
+                View Live Case Study
+                <span className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+                  <IconArrowUpRight size={20} />
+                </span>
+              </a>
+            ) : (
+              <button className="flex items-center gap-4 text-sm font-bold uppercase tracking-wider group hover:text-white/80 transition-colors self-start cursor-not-allowed opacity-50">
+                Coming Soon
+                <span className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+                  <IconArrowUpRight size={20} />
+                </span>
+              </button>
+            )}
           </Magnetic>
         </div>
 
@@ -125,11 +120,11 @@ export function WorkList() {
   });
 
   // Map scroll progress to a horizontal translation
-  // 5 items = total width is 500vw. We want to translate by -400vw to reach the last item.
-  const x = useTransform(scrollYProgress, [0, 1], ['0%', '-80%']);
+  // 3 items = total width is 300vw. We want to translate by -200vw to reach the last item.
+  const x = useTransform(scrollYProgress, [0, 1], ['0%', '-66.66%']);
 
   return (
-    <section ref={containerRef} className="w-full h-[600vh] relative z-10">
+    <section ref={containerRef} className="w-full h-[400vh] relative z-10">
 
       {/* Sticky container that holds the viewport */}
       <div className="sticky top-3 w-full h-screen overflow-hidden flex items-center">
@@ -137,7 +132,7 @@ export function WorkList() {
         {/* The Horizontal Track */}
         <motion.div
           style={{ x }}
-          className="flex h-full w-[500vw] items-center will-change-transform"
+          className="flex h-full w-[300vw] items-center will-change-transform"
         >
           {caseStudies.map((study, i) => (
             <HorizontalCard

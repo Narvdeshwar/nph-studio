@@ -39,8 +39,7 @@ export function Curtain() {
             transition={{ duration: 0.4, delay: 0.2 }}
             className="text-white flex items-center gap-4"
           >
-            <Logo className="w-12 h-12" />
-            <span className="text-3xl font-black uppercase tracking-widest">NPH Studio</span>
+            <Logo className="text-4xl sm:text-5xl" />
           </motion.div>
         </motion.div>
       )}
