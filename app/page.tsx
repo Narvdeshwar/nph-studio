@@ -12,7 +12,7 @@ import { Process } from '@/components/premium/Process';
 import { Sparkles } from '@/components/premium/Sparkles';
 import { Footer } from '@/components/premium/Footer';
 import { CapabilitiesBento } from '@/components/premium/CapabilitiesBento';
-import { IconArrowUpRight } from '@tabler/icons-react';
+import { IconArrowUpRight, IconBrandWhatsapp } from '@tabler/icons-react';
 
 export default function Home() {
   const containerRef = useRef(null);
@@ -24,12 +24,12 @@ export default function Home() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
   return (
-    <div ref={containerRef} className="relative bg-background text-foreground min-h-[200vh] cursor-none font-sans">
+    <div ref={containerRef} className="relative bg-background text-foreground min-h-[200vh] font-sans">
       
       
 
       {/* Hero Section */}
-      <section className="relative h-screen flex flex-col justify-center p-8 sm:p-20 z-10 overflow-hidden">
+      <section className="relative min-h-[100vh] h-[100vh] flex flex-col justify-center p-8 sm:p-20 z-10 overflow-hidden">
         
         {/* Subtle Engineering Grid Background */}
         <div className="absolute inset-0 z-[-2] opacity-20 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
@@ -101,10 +101,15 @@ export default function Home() {
         {/* Premium Floating CTA */}
         <div className="absolute bottom-10 right-10 sm:bottom-20 sm:right-20 z-50">
           <Magnetic>
-            <button className="w-36 h-36 rounded-full bg-foreground/95 backdrop-blur-xl border border-white/10 text-background flex flex-col items-center justify-center font-bold uppercase tracking-widest text-sm transition-all hover:scale-105 hover:bg-primary hover:border-primary active:scale-95 group shadow-2xl">
-              <span className="group-hover:-translate-y-2 transition-transform duration-300">Start</span>
-              <IconArrowUpRight size={24} className="absolute opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-3 transition-all duration-300" />
-            </button>
+            <a 
+              href="https://wa.me/918787205784"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-36 h-36 rounded-full bg-foreground/95 backdrop-blur-xl border border-white/10 text-background flex flex-col items-center justify-center font-bold uppercase tracking-widest text-[10px] text-center transition-all hover:scale-105 hover:bg-green-500 hover:border-green-500 active:scale-95 group shadow-2xl leading-relaxed"
+            >
+              <span className="group-hover:-translate-y-2 transition-transform duration-300">Start on<br/>WhatsApp</span>
+              <IconBrandWhatsapp size={24} className="absolute opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-5 transition-all duration-300" />
+            </a>
           </Magnetic>
         </div>
       </section>

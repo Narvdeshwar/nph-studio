@@ -6,14 +6,15 @@ import { Magnetic } from '@/components/premium/Magnetic';
 import { ScrollVelocity } from '@/components/premium/ScrollVelocity';
 
 const projects = [
-  { name: 'AIBulletin', category: 'AI News Platform' },
-  { name: 'JSPARK.AI', category: 'Enterprise AI' },
-  { name: 'LMS Platform', category: 'EdTech MVP' }
+  { name: 'AIBulletin', category: 'AI News Platform', image: '/aibulletin.png' },
+  { name: 'JSPARK.AI', category: 'Enterprise AI', image: '/jspark.png' },
+  { name: 'LMS Platform', category: 'EdTech MVP', image: '/lms.png' }
 ];
 
 interface ProjectData {
   name: string;
   category: string;
+  image: string;
 }
 
 function FuturisticCard({ project, index }: { project: ProjectData, index: number }) {
@@ -63,15 +64,21 @@ function FuturisticCard({ project, index }: { project: ProjectData, index: numbe
         transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1], delay: (index * 0.3) + 0.8 }}
         style={{ originY: 0.5 }}
       >
-        {/* Hover Gradient Effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-purple-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0" />
+        {/* Hover Gradient Effect - Adjusted to darken image for text legibility */}
+        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0" />
         
-        {/* Image/Video Placeholder Background that scales on hover */}
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop')] bg-cover bg-center opacity-0 group-hover:opacity-40 transition-all duration-1000 group-hover:scale-110 mix-blend-overlay" />
+        {/* Actual Project Image Background */}
+        <div 
+          className="absolute inset-0 bg-cover bg-top opacity-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105" 
+          style={{ backgroundImage: `url('${project.image}')` }}
+        />
+
+        {/* Dark overlay specifically behind text for maximum contrast */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0" />
 
         {/* Step 3: Text reveals after expansion */}
         <div className="relative z-10 text-center pointer-events-none">
-          <motion.div className="overflow-hidden">
+          <motion.div className="overflow-hidden px-4 py-8 -my-8">
             <motion.h3 
               initial={{ y: "100%", opacity: 0, filter: "blur(10px)" }}
               animate={isInView ? { y: "0%", opacity: 1, filter: "blur(0px)" } : {}}

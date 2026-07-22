@@ -5,9 +5,9 @@ import { GlareCard } from '@/components/premium/GlareCard';
 
 export function CapabilitiesBento() {
   return (
-    <section className="py-32 relative z-10">
+    <section className="py-32 relative z-10 border border-t-1">
       <div className="max-w-[1400px] mx-auto px-8 sm:px-20">
-        
+
         <div className="mb-16">
           <h2 className="text-sm font-bold uppercase tracking-widest text-primary mb-4">Core Capabilities</h2>
           <p className="text-4xl sm:text-5xl font-black uppercase tracking-tighter text-foreground leading-[0.9]">
@@ -16,10 +16,10 @@ export function CapabilitiesBento() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
-          
+
           {/* Bento Box 1: Frontend (Spans 2 cols) */}
           <GlareCard className="md:col-span-2">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -29,7 +29,7 @@ export function CapabilitiesBento() {
             <IconLayoutDashboard className="text-primary mb-6" size={32} />
             <h3 className="text-3xl font-black uppercase tracking-tighter mb-4">Frontend Engineering</h3>
             <p className="text-muted text-lg max-w-md">Pixel-perfect, ultra-responsive user interfaces built with React, Next.js, and Framer Motion. We don&apos;t just build websites; we build cinematic experiences.</p>
-            
+
             {/* Decorative UI element */}
             <div className="hidden md:flex absolute -bottom-10 -right-10 w-64 h-48 bg-background border border-border rounded-tl-3xl shadow-2xl group-hover:-translate-y-4 group-hover:-translate-x-4 transition-transform duration-500 flex-col gap-4 p-6">
               <div className="w-full h-4 bg-zinc-100 rounded-full" />
@@ -41,7 +41,7 @@ export function CapabilitiesBento() {
 
           {/* Bento Box 2: Performance */}
           <GlareCard>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -59,7 +59,7 @@ export function CapabilitiesBento() {
 
           {/* Bento Box 3: Backend */}
           <GlareCard>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -75,7 +75,7 @@ export function CapabilitiesBento() {
 
           {/* Bento Box 4: AI/RAG (Spans 2 cols) */}
           <GlareCard className="md:col-span-2">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -86,7 +86,7 @@ export function CapabilitiesBento() {
             <IconCpu className="text-purple-400 mb-6" size={32} />
             <h3 className="text-3xl font-black uppercase tracking-tighter text-white mb-4">Applied AI & RAG</h3>
             <p className="text-zinc-400 text-lg max-w-md">Integrating intelligent agents and semantic search into your product. Custom LLM pipelines tailored to your proprietary data.</p>
-            
+
             {/* Decorative Code block */}
             <div className="hidden md:block absolute -bottom-16 -right-4 w-72 h-56 bg-black border border-zinc-800 rounded-tl-xl shadow-2xl p-6 font-mono text-xs text-green-400 opacity-50 group-hover:-translate-y-4 transition-transform duration-500">
               <p>{`import { generateText } from 'ai';`}</p>

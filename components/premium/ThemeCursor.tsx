@@ -46,19 +46,17 @@ export function ThemeCursor() {
     };
   }, []);
 
+  useEffect(() => {
+    if (!isMobile) {
+      document.body.classList.add('custom-cursor-active');
+    } else {
+      document.body.classList.remove('custom-cursor-active');
+    }
+    return () => document.body.classList.remove('custom-cursor-active');
+  }, [isMobile]);
+
   if (isMobile) {
     return null; // Don't render custom cursors on touch devices for massive performance gain
-  }
-
-  if (isDark) {
-    return (
-      <SplashCursor 
-        BACK_COLOR={{ r: 0, g: 0, b: 0 }} 
-        SIM_RESOLUTION={128} 
-        DYE_RESOLUTION={1024} 
-        PRESSURE_ITERATIONS={15} 
-      />
-    );
   }
 
   return <GhostCursor />;

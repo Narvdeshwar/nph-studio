@@ -1,13 +1,12 @@
 'use client';
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import { Magnetic } from '@/components/premium/Magnetic';
 import { TextMask } from '@/components/premium/TextMask';
-import { IconCheck, IconCopy } from '@tabler/icons-react';
+import { IconBrandWhatsapp } from '@tabler/icons-react';
 
 export function Footer() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [copied, setCopied] = useState(false);
 
   // Mouse tracking for typography
   const mouseX = useMotionValue(0);
@@ -39,11 +38,6 @@ export function Footer() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [mouseX, mouseY]);
 
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText('hello@nph.studio');
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
 
   return (
     <footer ref={containerRef} className="relative h-screen w-full" style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}>
@@ -62,17 +56,19 @@ export function Footer() {
             </h2>
 
             <Magnetic>
-              <button 
-                onClick={handleCopyEmail}
-                className="group relative flex items-center justify-center w-40 h-40 bg-primary rounded-full text-white font-bold uppercase tracking-widest text-sm hover:scale-110 active:scale-95 transition-transform shadow-[0_0_40px_rgba(255,90,54,0.3)]"
+              <a 
+                href="https://wa.me/918787205784"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative flex items-center justify-center w-40 h-40 bg-green-500 rounded-full text-white font-bold uppercase tracking-widest text-sm hover:scale-110 active:scale-95 transition-transform shadow-[0_0_40px_rgba(34,197,94,0.3)]"
               >
                 <div className="flex flex-col items-center gap-2">
-                  <span className="transition-all duration-300 group-hover:-translate-y-2 group-hover:opacity-0">{copied ? 'Copied!' : 'Email Us'}</span>
+                  <span className="transition-all duration-300 group-hover:-translate-y-2 group-hover:opacity-0">WhatsApp</span>
                   <div className="absolute opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-2">
-                    {copied ? <IconCheck size={20} /> : <IconCopy size={20} />}
+                    <IconBrandWhatsapp size={24} />
                   </div>
                 </div>
-              </button>
+              </a>
             </Magnetic>
           </div>
 

@@ -4,6 +4,7 @@ import { Noise } from "@/components/premium/Noise";
 import { Navbar } from "@/components/premium/Navbar";
 import { ThemeCursor } from "@/components/premium/ThemeCursor";
 import { Curtain } from "@/components/premium/Curtain";
+import { WhatsAppWidget } from "@/components/premium/WhatsAppWidget";
 import { Sparkles } from "@/components/premium/Sparkles";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
@@ -33,7 +34,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground cursor-none">
+      <body className="min-h-full flex flex-col bg-background text-foreground">
         <Analytics />
         <Curtain />
         <ThemeCursor />
@@ -49,6 +50,7 @@ export default function RootLayout({
         </div>
         <Noise opacity={0.03} />
         <main className="flex-1 flex flex-col relative z-10">{children}</main>
+        <WhatsAppWidget />
       </body>
     </html>
   );
