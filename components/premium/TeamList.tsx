@@ -18,10 +18,10 @@ const team = [
     color: '#7C3AED'
   },
   {
-    name: 'Sales Executive',
+    name: 'Technical Consultant',
     role: 'Client Success & Strategy',
     description: 'Your direct point of contact. Translates your business goals into actionable engineering timelines and ensures seamless communication from kickoff to launch.',
-    initials: 'SE',
+    initials: 'TC',
     color: '#161616'
   }
 ];
@@ -44,7 +44,7 @@ function TeamCard({ member, index }: { member: TeamMember, index: number }) {
       className="relative rounded-[32px] p-8 sm:p-12 border border-border bg-surface flex flex-col sm:flex-row gap-8 items-center sm:items-start group overflow-hidden"
     >
       {/* Optimized Hover Glow */}
-      <div 
+      <div
         className="absolute top-0 right-0 w-96 h-96 opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none"
         style={{ background: `radial-gradient(circle at center, ${member.color}, transparent 70%)` }}
       />
@@ -60,7 +60,7 @@ function TeamCard({ member, index }: { member: TeamMember, index: number }) {
         <h3 className="text-3xl sm:text-4xl font-black uppercase tracking-tighter mb-4 text-foreground">{member.name}</h3>
         <p className="text-muted leading-relaxed text-lg max-w-2xl">{member.description}</p>
       </div>
-      
+
     </motion.div>
   );
 }

@@ -12,6 +12,7 @@ import { Process } from '@/components/premium/Process';
 import { Sparkles } from '@/components/premium/Sparkles';
 import { Footer } from '@/components/premium/Footer';
 import { CapabilitiesBento } from '@/components/premium/CapabilitiesBento';
+import { TechStack } from '@/components/premium/TechStack';
 import { IconArrowUpRight, IconBrandWhatsapp } from '@tabler/icons-react';
 
 export default function Home() {
@@ -116,6 +117,7 @@ export default function Home() {
 
       {/* Core Capabilities Bento Grid */}
       <CapabilitiesBento />
+      <TechStack />
 
       <ProofStrip />
       <Services />

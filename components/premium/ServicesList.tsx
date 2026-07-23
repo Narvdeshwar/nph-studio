@@ -8,7 +8,7 @@ const services = [
     title: 'Landing Page',
     subtitle: 'Marketing Site',
     timeline: '1–2 weeks',
-    price: 'Starting at ₹40,000',
+    price: 'Starting at ₹20,000',
     description: 'High-conversion, ultra-premium landing pages designed to turn your visitors into customers. Perfect for pre-launch or single-product campaigns.',
     features: ['Custom UI/UX Design', 'Framer Motion Animations', 'Mobile Responsive', 'SEO Optimization', 'Fast Load Times'],
     color: '#FF5A36',
@@ -19,7 +19,7 @@ const services = [
     title: 'Full-Stack MVP',
     subtitle: 'Web Application',
     timeline: '4–8 weeks',
-    price: 'Starting at ₹1,50,000',
+    price: 'Starting at ₹1,00,000',
     description: 'Complete product engineering from database to deployment. We build scalable, production-ready web applications for founders ready to scale.',
     features: ['Next.js App Router', 'Custom Database Architecture', 'Authentication & Auth', 'Payment Integration', 'Admin Dashboard'],
     color: '#7C3AED',
@@ -54,7 +54,7 @@ interface ServiceData {
 function ServiceAccordion({ service, index, isOpen, toggleOpen }: { service: ServiceData, index: number, isOpen: boolean, toggleOpen: () => void }) {
   return (
     <div className="border-b border-border last:border-b-0 py-8">
-      <button 
+      <button
         onClick={toggleOpen}
         className="w-full flex items-center justify-between text-left group"
       >
@@ -96,17 +96,24 @@ function ServiceAccordion({ service, index, isOpen, toggleOpen }: { service: Ser
                   </div>
                 </div>
                 <Magnetic>
-                  <button
-                    className={`px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 w-fit
-                      ${service.available
-                        ? 'bg-foreground text-background hover:bg-primary hover:text-white'
-                        : 'bg-zinc-100 text-muted cursor-not-allowed'}
-                    `}
-                    disabled={!service.available}
-                  >
-                    {service.available ? 'Start Project' : 'Coming Soon'}
-                    {service.available && <IconArrowUpRight size={18} />}
-                  </button>
+                  {service.available ? (
+                    <a
+                      href={`https://wa.me/918787205784?text=${encodeURIComponent(`Hi, I'm interested in starting a new project for: ${service.title}`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 w-fit bg-foreground text-background hover:bg-primary hover:text-white"
+                    >
+                      Start Project
+                      <IconArrowUpRight size={18} />
+                    </a>
+                  ) : (
+                    <button
+                      className="px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 w-fit bg-zinc-100 text-muted cursor-not-allowed"
+                      disabled
+                    >
+                      Coming Soon
+                    </button>
+                  )}
                 </Magnetic>
               </div>
 
@@ -136,7 +143,7 @@ export function ServicesList() {
     <section className="w-full relative z-10 py-32">
       <div className="max-w-[1400px] mx-auto px-8 sm:px-20">
         <div className="flex flex-col lg:flex-row gap-20">
-          
+
           <div className="lg:w-1/3 relative">
             <div className="sticky top-40">
               <h2 className="text-sm font-bold uppercase tracking-widest text-primary mb-4">Our Services</h2>
@@ -152,10 +159,10 @@ export function ServicesList() {
           <div className="flex-1">
             <div className="border-t border-border">
               {services.map((service, i) => (
-                <ServiceAccordion 
-                  key={service.title} 
-                  service={service} 
-                  index={i} 
+                <ServiceAccordion
+                  key={service.title}
+                  service={service}
+                  index={i}
                   isOpen={openIndex === i}
                   toggleOpen={() => setOpenIndex(openIndex === i ? -1 : i)}
                 />
