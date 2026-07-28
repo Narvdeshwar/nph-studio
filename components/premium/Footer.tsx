@@ -50,8 +50,8 @@ export function Footer() {
 
           <div className="flex-1">
             <h2 className="text-[10vw] sm:text-[6vw] font-black leading-[0.85] tracking-tighter uppercase mb-12">
-              <TextMask>Let&apos;s Build</TextMask><br/>
-              <TextMask delay={0.1}>Something</TextMask><br/>
+              <TextMask>Let&apos;s Build</TextMask><br />
+              <TextMask delay={0.1}>Something</TextMask><br />
               <TextMask delay={0.2}>Epic.</TextMask>
             </h2>
 
@@ -88,8 +88,8 @@ export function Footer() {
               <span className="text-white mb-2">Socials</span>
               {[
                 { name: 'Twitter (X)', url: 'https://x.com/Eternal_Dev_IO' },
-                { name: 'LinkedIn', url: 'https://www.linkedin.com/in/narvdeshwar/' },
-                { name: 'GitHub', url: 'https://github.com/narvdeshwar' }
+                { name: 'LinkedIn', url: 'https://www.linkedin.com/company/nph-studio' },
+                { name: 'GitHub (OS)', url: 'https://github.com/Narvdeshwar/nph-open-source' }
               ].map((social) => (
                 <Magnetic key={social.name}>
                   <a

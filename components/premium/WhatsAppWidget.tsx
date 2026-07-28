@@ -65,7 +65,7 @@ export function WhatsAppWidget() {
 
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-16 h-16 rounded-full bg-green-500 text-white flex items-center justify-center shadow-2xl hover:scale-110 hover:bg-green-600 transition-all"
+        className="cursor-pointer w-16 h-16 rounded-full bg-green-500 text-white flex items-center justify-center shadow-2xl hover:scale-110 hover:bg-green-600 transition-all"
       >
         {isOpen ? <IconX size={32} /> : <IconBrandWhatsapp size={36} />}
       </button>

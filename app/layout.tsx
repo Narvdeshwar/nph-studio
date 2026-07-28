@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   description: "NPH Studio is an elite digital agency specializing in high-performance web applications, premium landing pages, and AI/RAG integrations for ambitious founders.",
   keywords: ["Web Development", "UI/UX Design", "Next.js Agency", "ReactJS", "MERN Stack", "AI Integration", "Full-stack Engineering", "Landing Pages", "Narvdeshwar"],
-  authors: [{ name: "Narvdeshwar", url: "https://www.linkedin.com/in/narvdeshwar/" }],
+  authors: [{ name: "Narvdeshwar", url: "https://www.linkedin.com/company/nph-studio" }],
   creator: "Narvdeshwar",
   openGraph: {
     type: "website",

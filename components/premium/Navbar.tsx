@@ -130,7 +130,7 @@ export function Navbar() {
                   transition={{ delay: 0.5, duration: 0.6 }}
                 >
                   <span className={`uppercase tracking-widest text-sm font-bold block mb-6 ${menuTheme === 'dark' ? 'text-zinc-500' : 'text-zinc-400'}`}>Contact Info</span>
-                  <a href="mailto:hello@nph.studio" className="text-xl hover:text-primary transition-colors block mb-2">hello@nph.studio</a>
+                  <a href="mailto:nphstudioo@gmail.com" className="text-xl hover:text-primary transition-colors block mb-2">nphstudioo@gmail.com</a>
                   <p className={menuTheme === 'dark' ? 'text-zinc-400' : 'text-zinc-500'}>Building products worldwide.</p>
                 </motion.div>
 
@@ -140,10 +140,10 @@ export function Navbar() {
                   transition={{ delay: 0.6, duration: 0.6 }}
                 >
                   <span className={`uppercase tracking-widest text-sm font-bold block mb-6 ${menuTheme === 'dark' ? 'text-zinc-500' : 'text-zinc-400'}`}>Socials</span>
-                  <div className="flex gap-6">
-                    <a href="#" className="hover:text-primary transition-colors">Twitter</a>
-                    <a href="#" className="hover:text-primary transition-colors">LinkedIn</a>
-                    <a href="#" className="hover:text-primary transition-colors">GitHub</a>
+                  <div className="flex flex-wrap gap-6">
+                    <a href="https://twitter.com/nphstudio" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Twitter</a>
+                    <a href="https://linkedin.com/company/nph-studio" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">LinkedIn</a>
+                    <a href="https://github.com/Narvdeshwar/nph-open-source" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">GitHub (OS)</a>
                   </div>
                 </motion.div>
               </div>

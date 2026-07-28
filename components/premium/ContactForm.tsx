@@ -105,14 +105,14 @@ export function ContactForm() {
                 onChange={e => setFormData({...formData, details: e.target.value})}
                 placeholder="Tell us about what you want to build..." 
                 rows={4}
-                className="w-full bg-background border border-border rounded-[24px] px-6 py-4 text-foreground focus:outline-none focus:border-primary transition-colors cursor-none resize-none"
+                className="w-full bg-background border border-border rounded-[24px] px-6 py-4 text-foreground focus:outline-none focus:border-primary transition-colors resize-none"
               />
             </div>
 
             <Magnetic>
               <button 
                 type="submit"
-                className="w-full py-4 mt-4 rounded-full bg-green-500 text-white text-sm font-bold uppercase tracking-wider hover:bg-green-600 transition-all flex items-center justify-center gap-2 group cursor-none"
+                className="cursor-pointer w-full py-4 mt-4 rounded-full bg-green-500 text-white text-sm font-bold uppercase tracking-wider hover:bg-green-600 transition-all flex items-center justify-center gap-2 group"
               >
                 Send via WhatsApp
                 <IconBrandWhatsapp size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

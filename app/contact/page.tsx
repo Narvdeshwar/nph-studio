@@ -7,7 +7,7 @@ import { TextMask } from '@/components/premium/TextMask';
 
 export default function ContactPage() {
   return (
-    <div className="relative bg-background text-foreground min-h-screen cursor-none font-sans">
+    <div className="relative bg-background text-foreground min-h-screen font-sans">
 
       {/* Contact Page Header */}
       <section className="relative pt-[25vh] pb-[10vh] px-8 sm:px-20 text-center bg-background z-20">
