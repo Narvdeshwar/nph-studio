@@ -29,7 +29,7 @@ export function Curtain() {
           initial={{ y: '100%' }}
           animate={{ y: '0%' }}
           exit={{ y: '-100%' }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
           className="fixed inset-0 z-[999999] bg-primary flex items-center justify-center pointer-events-none"
         >
           <motion.div

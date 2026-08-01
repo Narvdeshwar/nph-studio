@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Magnetic } from '@/components/premium/Magnetic';
-import { IconBrandWhatsapp, IconCalendarEvent, IconSend } from '@tabler/icons-react';
+import { IconBrandWhatsapp, IconCalendarEvent } from '@tabler/icons-react';
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
@@ -21,7 +21,7 @@ export function ContactForm() {
   return (
     <section className="w-full bg-background relative z-10 py-20 pb-40">
       <div className="max-w-[1200px] mx-auto px-8 sm:px-20 flex flex-col lg:flex-row gap-20">
-        
+
         {/* Left Side: Contact Info & Direct Links */}
         <div className="flex-1 flex flex-col justify-between">
           <div>
@@ -33,7 +33,7 @@ export function ContactForm() {
             </p>
 
             <div className="flex flex-col gap-6">
-              <a href="https://cal.com/your-username" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-6 p-6 rounded-2xl bg-surface border border-border hover:border-primary transition-all">
+              <a href="https://cal.com/nph-studio" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-6 p-6 rounded-2xl bg-surface border border-border hover:border-primary transition-all">
                 <div className="w-14 h-14 rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
                   <IconCalendarEvent size={24} />
                 </div>
@@ -59,34 +59,34 @@ export function ContactForm() {
         {/* Right Side: The Form */}
         <div className="flex-1">
           <form onSubmit={handleWhatsAppSubmit} className="bg-surface border border-border rounded-[32px] p-8 sm:p-12 flex flex-col gap-8 shadow-xl">
-            
+
             <div className="flex flex-col gap-2">
               <label className="text-xs font-bold uppercase tracking-widest text-muted ml-4">Your Name</label>
-              <input 
-                type="text" 
+              <input
+                type="text"
                 required
                 value={formData.name}
                 onChange={e => setFormData({...formData, name: e.target.value})}
-                placeholder="John Doe" 
+                placeholder="Ashrith"
                 className="w-full bg-background border border-border rounded-full px-6 py-4 text-foreground focus:outline-none focus:border-primary transition-colors"
               />
             </div>
 
             <div className="flex flex-col gap-2">
               <label className="text-xs font-bold uppercase tracking-widest text-muted ml-4">Email Address</label>
-              <input 
-                type="email" 
+              <input
+                type="email"
                 required
                 value={formData.email}
                 onChange={e => setFormData({...formData, email: e.target.value})}
-                placeholder="john@startup.com" 
+                placeholder="nph-studioo@gmail.com"
                 className="w-full bg-background border border-border rounded-full px-6 py-4 text-foreground focus:outline-none focus:border-primary transition-colors"
               />
             </div>
 
             <div className="flex flex-col gap-2">
               <label className="text-xs font-bold uppercase tracking-widest text-muted ml-4">Project Budget</label>
-              <select 
+              <select
                 value={formData.budget}
                 onChange={e => setFormData({...formData, budget: e.target.value})}
                 className="w-full bg-background border border-border rounded-full px-6 py-4 text-foreground focus:outline-none focus:border-primary transition-colors appearance-none"
@@ -99,18 +99,18 @@ export function ContactForm() {
 
             <div className="flex flex-col gap-2">
               <label className="text-xs font-bold uppercase tracking-widest text-muted ml-4">Project Details</label>
-              <textarea 
+              <textarea
                 required
                 value={formData.details}
                 onChange={e => setFormData({...formData, details: e.target.value})}
-                placeholder="Tell us about what you want to build..." 
+                placeholder="Tell us about what you want to build..."
                 rows={4}
                 className="w-full bg-background border border-border rounded-[24px] px-6 py-4 text-foreground focus:outline-none focus:border-primary transition-colors resize-none"
               />
             </div>
 
             <Magnetic>
-              <button 
+              <button
                 type="submit"
                 className="cursor-pointer w-full py-4 mt-4 rounded-full bg-green-500 text-white text-sm font-bold uppercase tracking-wider hover:bg-green-600 transition-all flex items-center justify-center gap-2 group"
               >

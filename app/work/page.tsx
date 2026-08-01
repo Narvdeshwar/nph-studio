@@ -7,7 +7,7 @@ import { TextMask } from '@/components/premium/TextMask';
 
 export default function WorkPage() {
   return (
-    <div className="relative bg-background text-foreground min-h-screen cursor-none font-sans">
+    <div className="relative bg-background text-foreground min-h-screen font-sans">
       {/* Work Page Header - Normal document flow */}
       <section className="relative pt-[25vh] pb-[10vh] px-8 sm:px-20 text-center bg-background z-20">
         <h1 className="text-[12vw] sm:text-[8vw] font-bold leading-[0.85] tracking-tighter uppercase mb-6 flex flex-col items-center">

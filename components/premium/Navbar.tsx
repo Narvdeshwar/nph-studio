@@ -10,6 +10,7 @@ const menuLinks = [
   { name: 'Work', href: '/work' },
   { name: 'Services', href: '/services' },
   { name: 'Team', href: '/team' },
+  { name: 'Lab (3D)', href: '/lab' },
   { name: 'Contact', href: '/contact' }
 ];
 

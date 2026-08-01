@@ -1,14 +1,12 @@
 'use client';
 
-import { Cursor } from '@/components/premium/Cursor';
 import { Footer } from '@/components/premium/Footer';
 import { Process } from '@/components/premium/Process';
 import { TextMask } from '@/components/premium/TextMask';
 
 export default function ProcessPage() {
   return (
-    <div className="relative bg-background text-foreground min-h-screen cursor-none font-sans">
-      <Cursor />
+    <div className="relative bg-background text-foreground min-h-screen font-sans">
       
 
       {/* Process Page Header */}

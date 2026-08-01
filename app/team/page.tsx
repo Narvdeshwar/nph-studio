@@ -1,14 +1,12 @@
 'use client';
 
-import { Cursor } from '@/components/premium/Cursor';
 import { Footer } from '@/components/premium/Footer';
 import { TeamList } from '@/components/premium/TeamList';
 import { TextMask } from '@/components/premium/TextMask';
 
 export default function TeamPage() {
   return (
-    <div className="relative bg-background text-foreground min-h-screen cursor-none font-sans">
-      <Cursor />
+    <div className="relative bg-background text-foreground min-h-screen font-sans">
       
 
       {/* Team Page Header */}
