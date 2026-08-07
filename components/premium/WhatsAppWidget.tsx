@@ -1,12 +1,18 @@
 'use client';
 
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { IconBrandWhatsapp, IconX, IconSend } from '@tabler/icons-react';
 
 export function WhatsAppWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
+  const pathname = usePathname();
+
+  if (pathname?.startsWith('/admin')) {
+    return null;
+  }
 
   const handleWhatsAppSubmit = (e: React.FormEvent) => {
     e.preventDefault();
