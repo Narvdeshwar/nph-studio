@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { Lead } from '@/types/lead';
-import { IconBrandWhatsapp, IconTrash, IconBrandLinkedin, IconBrandX, IconWorld, IconLink } from '@tabler/icons-react';
+import { IconBrandWhatsapp, IconTrash, IconBrandLinkedin, IconBrandX, IconWorld, IconLink, IconFilter, IconEye } from '@tabler/icons-react';
+import { LeadDetailsModal } from './LeadDetailsModal';
 
 const getSourceIcon = (source: string) => {
   switch (source) {
@@ -18,25 +20,98 @@ type Props = {
 };
 
 export function RecentActivityTable({ leads, role, onUpdateStatus, onDeleteLead }: Props) {
+  const [dateFilter, setDateFilter] = useState('All');
+  const [statusFilter, setStatusFilter] = useState('All');
+  const [sourceFilter, setSourceFilter] = useState('All');
+  const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
+
+  const filteredLeads = leads.filter(lead => {
+    // Status Filter
+    if (statusFilter !== 'All' && lead.status !== statusFilter) return false;
+    
+    // Source Filter
+    if (sourceFilter !== 'All' && lead.source !== sourceFilter) return false;
+
+    // Date Filter
+    if (dateFilter !== 'All') {
+      const leadDate = new Date(lead.created_at);
+      const today = new Date();
+      
+      if (dateFilter === 'Today') {
+        if (leadDate.toDateString() !== today.toDateString()) return false;
+      } else if (dateFilter === 'Yesterday') {
+        const yesterday = new Date(today);
+        yesterday.setDate(yesterday.getDate() - 1);
+        if (leadDate.toDateString() !== yesterday.toDateString()) return false;
+      }
+    }
+
+    return true;
+  });
+
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-sm">
-      <div className="overflow-x-auto">
-        <table className="w-full text-left border-collapse">
-          <thead>
-            <tr className="bg-slate-950/50 border-b border-slate-800">
-              <th className="p-4 font-semibold text-xs uppercase tracking-wider text-slate-400">Date</th>
-              <th className="p-4 font-semibold text-xs uppercase tracking-wider text-slate-400">Lead Info</th>
-              <th className="p-4 font-semibold text-xs uppercase tracking-wider text-slate-400 text-center">WhatsApp</th>
-              <th className="p-4 font-semibold text-xs uppercase tracking-wider text-slate-400">Source</th>
-              <th className="p-4 font-semibold text-xs uppercase tracking-wider text-slate-400">Status</th>
-              {role === 'superadmin' && <th className="p-4 font-semibold text-xs uppercase tracking-wider text-slate-400 text-right">Actions</th>}
-            </tr>
-          </thead>
-          <tbody className="text-sm">
-            {leads.length === 0 ? (
+    <div className="space-y-4">
+      {/* Filter Bar */}
+      <div className="flex flex-wrap gap-3 items-center bg-slate-900 border border-slate-800 p-4 rounded-2xl shadow-sm">
+        <div className="flex items-center gap-2 text-slate-400 mr-2">
+          <IconFilter size={18} />
+          <span className="text-sm font-medium">Filters:</span>
+        </div>
+        
+        <select 
+          value={dateFilter}
+          onChange={(e) => setDateFilter(e.target.value)}
+          className="bg-slate-950 border border-slate-800 text-slate-300 text-sm rounded-lg px-3 py-2 outline-none focus:border-primary transition-colors cursor-pointer"
+        >
+          <option value="All">Any Date</option>
+          <option value="Today">Today</option>
+          <option value="Yesterday">Yesterday</option>
+        </select>
+
+        <select 
+          value={statusFilter}
+          onChange={(e) => setStatusFilter(e.target.value)}
+          className="bg-slate-950 border border-slate-800 text-slate-300 text-sm rounded-lg px-3 py-2 outline-none focus:border-primary transition-colors cursor-pointer"
+        >
+          <option value="All">All Statuses</option>
+          <option value="New">New</option>
+          <option value="Contacted">Contacted</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Closed - Won">Closed - Won</option>
+          <option value="Closed - Lost">Closed - Lost</option>
+        </select>
+
+        <select 
+          value={sourceFilter}
+          onChange={(e) => setSourceFilter(e.target.value)}
+          className="bg-slate-950 border border-slate-800 text-slate-300 text-sm rounded-lg px-3 py-2 outline-none focus:border-primary transition-colors cursor-pointer"
+        >
+          <option value="All">All Sources</option>
+          <option value="LinkedIn">LinkedIn</option>
+          <option value="X / Twitter">X / Twitter</option>
+          <option value="Website">Website</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-sm">
+        <div className="overflow-x-auto">
+          <table className="w-full text-left border-collapse">
+            <thead>
+              <tr className="bg-slate-950/50 border-b border-slate-800">
+                <th className="p-4 font-semibold text-xs uppercase tracking-wider text-slate-400">Date</th>
+                <th className="p-4 font-semibold text-xs uppercase tracking-wider text-slate-400">Lead Info</th>
+                <th className="p-4 font-semibold text-xs uppercase tracking-wider text-slate-400 text-center">WhatsApp</th>
+                <th className="p-4 font-semibold text-xs uppercase tracking-wider text-slate-400">Source</th>
+                <th className="p-4 font-semibold text-xs uppercase tracking-wider text-slate-400">Status</th>
+                {role === 'superadmin' && <th className="p-4 font-semibold text-xs uppercase tracking-wider text-slate-400 text-right">Actions</th>}
+              </tr>
+            </thead>
+            <tbody className="text-sm">
+              {filteredLeads.length === 0 ? (
               <tr><td colSpan={role === 'superadmin' ? 6 : 5} className="p-8 text-center text-slate-500">No leads found.</td></tr>
             ) : (
-              leads.slice(0, 10).map(lead => (
+              filteredLeads.slice(0, 10).map(lead => (
                 <tr key={lead.id} className="border-b border-slate-800 hover:bg-slate-800/30 transition-colors group">
                   <td className="p-4 text-slate-500 whitespace-nowrap">
                     {new Date(lead.created_at).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}
@@ -103,10 +178,17 @@ export function RecentActivityTable({ leads, role, onUpdateStatus, onDeleteLead 
                     </select>
                   </td>
                   {role === 'superadmin' && (
-                    <td className="p-4 text-right">
+                    <td className="p-4 text-right whitespace-nowrap">
+                      <button 
+                        onClick={() => setSelectedLead(lead)}
+                        className="p-2 text-slate-400 hover:text-blue-400 hover:bg-slate-800 rounded-lg transition-colors mr-1 cursor-pointer"
+                        title="View Details"
+                      >
+                        <IconEye size={16} />
+                      </button>
                       <button 
                         onClick={() => onDeleteLead(lead.id)}
-                        className="p-2 text-slate-400 hover:text-red-400 hover:bg-slate-800 rounded-lg transition-colors"
+                        className="p-2 text-slate-400 hover:text-red-400 hover:bg-slate-800 rounded-lg transition-colors cursor-pointer"
                         title="Delete Lead"
                       >
                         <IconTrash size={16} />
@@ -119,6 +201,13 @@ export function RecentActivityTable({ leads, role, onUpdateStatus, onDeleteLead 
           </tbody>
         </table>
       </div>
+    </div>
+    
+    <LeadDetailsModal 
+      isOpen={!!selectedLead} 
+      lead={selectedLead} 
+      onClose={() => setSelectedLead(null)} 
+    />
     </div>
   );
 }
