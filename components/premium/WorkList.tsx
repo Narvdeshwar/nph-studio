@@ -4,45 +4,9 @@ import { useRef } from 'react';
 import { Magnetic } from '@/components/premium/Magnetic';
 import { IconArrowUpRight } from '@tabler/icons-react';
 
-const caseStudies = [
-  {
-    title: 'AIBulletin',
-    category: 'AI News Platform',
-    problem: 'Founders needed a noise-free source for AI news.',
-    solution: 'Built a high-performance aggregation engine.',
-    color: '#FF5A36',
-    bg: '#1A0F0D',
-    link: 'http://aibulletin.in/'
-  },
-  {
-    title: 'LMS Platform',
-    category: 'EdTech MVP',
-    problem: 'Educators needed a fast, lightweight platform.',
-    solution: 'Delivered a sleek MVP with video streaming.',
-    color: '#3B82F6',
-    bg: '#0D1522'
-  },
-  {
-    title: 'BI Dashboard',
-    category: 'Business Intelligence Tool',
-    problem: 'Executives were drowning in fragmented data.',
-    solution: 'Built a unified dashboard with custom charting.',
-    color: '#10B981',
-    bg: '#0A1A14'
-  }
-];
+import { caseStudies, CaseStudyData } from '@/data/case-studies';
 
-interface StudyData {
-  title: string;
-  category: string;
-  problem: string;
-  solution: string;
-  color: string;
-  bg: string;
-  link?: string;
-}
-
-function HorizontalCard({ study, index }: { study: StudyData, index: number }) {
+function HorizontalCard({ study, index }: { study: CaseStudyData, index: number }) {
   return (
     <div className="w-screen h-full flex-shrink-0 flex items-center justify-center p-8 sm:p-20">
       <div
@@ -80,12 +44,23 @@ function HorizontalCard({ study, index }: { study: StudyData, index: number }) {
                 <p className="text-white/90 text-lg max-w-md leading-relaxed">{study.solution}</p>
               </div>
             </div>
+
+            {study.metrics && (
+              <div className="flex gap-12 mb-12 border-t border-white/10 pt-8">
+                {study.metrics.map((metric, i) => (
+                  <div key={i}>
+                    <p className="text-3xl font-black tracking-tighter" style={{ color: study.color }}>{metric.value}</p>
+                    <p className="text-xs font-bold text-white/50 uppercase tracking-widest mt-1">{metric.label}</p>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
           <Magnetic>
-            {study.link ? (
-              <a href={study.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-sm font-bold uppercase tracking-wider group hover:text-white/80 transition-colors self-start">
-                View Live Case Study
+            {study.slug ? (
+              <a href={`/work/${study.slug}`} className="flex items-center gap-4 text-sm font-bold uppercase tracking-wider group hover:text-white/80 transition-colors self-start">
+                Read Full Case Study
                 <span className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
                   <IconArrowUpRight size={20} />
                 </span>
