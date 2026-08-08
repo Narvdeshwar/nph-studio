@@ -13,7 +13,7 @@ import { Sparkles } from '@/components/premium/Sparkles';
 import { Footer } from '@/components/premium/Footer';
 import { CapabilitiesBento } from '@/components/premium/CapabilitiesBento';
 import { TechStack } from '@/components/premium/TechStack';
-import { IconArrowUpRight, IconBrandWhatsapp } from '@tabler/icons-react';
+import { IconBrandWhatsapp } from '@tabler/icons-react';
 
 export default function Home() {
   const containerRef = useRef(null);

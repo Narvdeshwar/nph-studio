@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Noise } from "@/components/premium/Noise";
-import { Navbar } from "@/components/premium/Navbar";
-import { Curtain } from "@/components/premium/Curtain";
-import { WhatsAppWidget } from "@/components/premium/WhatsAppWidget";
-import { Sparkles } from "@/components/premium/Sparkles";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import { SiteLayout } from "@/components/SiteLayout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://nph-studio.com'), // Placeholder, can be updated later
+  metadataBase: new URL('https://nph-studio.com'),
   title: {
     default: "NPH Studio | Premium Web Design & Full-Stack Development Agency",
     template: "%s | NPH Studio"
@@ -67,20 +63,9 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <Analytics />
-        <Curtain />
-        <Navbar />
-        {/* Global Sparkles Background */}
-        <div className="fixed inset-0 z-0 opacity-60 pointer-events-none">
-          <Sparkles
-            particleColor="#FF5A36"
-            minSize={0.5}
-            maxSize={1.5}
-            particleDensity={15}
-          />
-        </div>
-        <Noise opacity={0.03} />
-        <main className="flex-1 flex flex-col relative z-10">{children}</main>
-        <WhatsAppWidget />
+        <SiteLayout>
+          <main className="flex-1 flex flex-col relative z-10">{children}</main>
+        </SiteLayout>
       </body>
     </html>
   );
