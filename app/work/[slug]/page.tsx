@@ -10,8 +10,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function CaseStudyPage({ params }: { params: { slug: string } }) {
-  const study = getCaseStudyBySlug(params.slug);
+export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
+  const study = getCaseStudyBySlug(resolvedParams.slug);
 
   if (!study) {
     notFound();

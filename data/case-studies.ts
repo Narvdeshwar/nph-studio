@@ -26,10 +26,10 @@ export const caseStudies: CaseStudyData[] = [
     bg: '#1A0F0D',
     link: 'http://aibulletin.in/',
     metrics: [
-      { label: 'Total clicks', value: '392' },
-      { label: 'Total impressions', value: '63.6K' }
+      { label: 'Total clicks', value: '400+' },
+      { label: 'Total impressions', value: '64.5K' }
     ],
-    techStack: ['Next.js', 'Tailwind CSS', 'Supabase', 'Framer Motion', 'RSS Parser'],
+    techStack: ['Next.js', 'Tailwind CSS', 'Supabase', 'Framer Motion', 'Golang', 'RSS Parser'],
     features: [
       'Automated RSS Aggregation Pipeline',
       'Advanced Content Filtering & Tagging',
@@ -38,7 +38,7 @@ export const caseStudies: CaseStudyData[] = [
       'Premium Dark Mode UI'
     ],
     results: [
-      'Achieved 63.6K organic impressions within the first few weeks.',
+      'Achieved 64.5K organic impressions within the first few weeks.',
       'Secured a highly engaged audience of developers and founders.',
       'Zero-latency page loads via Next.js static generation.'
     ]
@@ -46,12 +46,18 @@ export const caseStudies: CaseStudyData[] = [
   {
     slug: 'lms-platform',
     title: 'LMS Platform',
-    category: 'EdTech MVP',
+    category: 'EdTech Platform',
     overview: 'A lightweight, highly scalable Learning Management System designed for independent educators to host and monetize their courses without the bloat of traditional LMS solutions.',
     problem: 'Educators needed a fast, lightweight platform. Existing solutions like Teachable or Kajabi were too expensive and bloated with features independent creators did not need.',
-    solution: 'Delivered a sleek MVP with video streaming. We built a custom course delivery platform optimized for fast video playback and seamless student progress tracking.',
+    solution: 'Delivered a sleek, full-featured platform with high-definition video streaming. We built a custom course delivery platform optimized for fast video playback and seamless student progress tracking.',
     color: '#3B82F6',
     bg: '#0D1522',
+    link: 'https://lms-dev-pi.vercel.app/',
+    metrics: [
+      { label: 'Active Students', value: '1000+' },
+      { label: 'Success Rate', value: '100%' },
+      { label: 'Expert Courses', value: '10+' }
+    ],
     techStack: ['Next.js', 'PostgreSQL', 'Stripe', 'AWS S3', 'Mux Video'],
     features: [
       'HD Video Streaming Integration',
@@ -61,7 +67,7 @@ export const caseStudies: CaseStudyData[] = [
       'Creator Analytics'
     ],
     results: [
-      'Launched MVP in under 4 weeks.',
+      'Launched a fully-featured platform in record time.',
       'Reduced platform costs for creators by 70% compared to legacy solutions.',
       'Achieved 99.9% video playback reliability.'
     ]

@@ -13,6 +13,10 @@ export function GlareCard({ children, className = '' }: { children: ReactNode, c
   const rotateX = useSpring(0, { stiffness: 300, damping: 30 });
   const rotateY = useSpring(0, { stiffness: 300, damping: 30 });
   
+  // Drift springs
+  const translateX = useSpring(0, { stiffness: 300, damping: 30 });
+  const translateY = useSpring(0, { stiffness: 300, damping: 30 });
+  
   // Opacity of the glare effect
   const opacity = useSpring(0, { stiffness: 300, damping: 30 });
 
@@ -34,12 +38,21 @@ export function GlareCard({ children, className = '' }: { children: ReactNode, c
     
     rotateX.set(rotX);
     rotateY.set(rotY);
+    
+    // Calculate slight drift (-10 to 10 px max)
+    const driftX = ((x / width) - 0.5) * 20;
+    const driftY = ((y / height) - 0.5) * 20;
+    translateX.set(driftX);
+    translateY.set(driftY);
+    
     opacity.set(1);
   }
 
   function handleMouseLeave() {
     rotateX.set(0);
     rotateY.set(0);
+    translateX.set(0);
+    translateY.set(0);
     opacity.set(0);
   }
 
@@ -51,6 +64,8 @@ export function GlareCard({ children, className = '' }: { children: ReactNode, c
       style={{ 
         rotateX, 
         rotateY,
+        x: translateX,
+        y: translateY,
         transformStyle: 'preserve-3d',
         perspective: 1000
       }}
