@@ -24,7 +24,7 @@ export const caseStudies: CaseStudyData[] = [
     solution: 'Built a high-performance aggregation engine. Using Next.js and a custom RSS processing pipeline, we created a lightning-fast platform with structured data that immediately ranked on search engines.',
     color: '#FF5A36',
     bg: '#1A0F0D',
-    link: 'http://aibulletin.in/',
+    link: 'https://aibulletin.in/',
     metrics: [
       { label: 'Total clicks', value: '400+' },
       { label: 'Total impressions', value: '64.5K' }
