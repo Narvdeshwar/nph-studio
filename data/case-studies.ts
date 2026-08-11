@@ -8,6 +8,7 @@ export interface CaseStudyData {
   color: string;
   bg: string;
   link?: string;
+  image?: string;
   metrics?: { label: string; value: string }[];
   techStack?: string[];
   features?: string[];
@@ -25,6 +26,7 @@ export const caseStudies: CaseStudyData[] = [
     color: '#FF5A36',
     bg: '#1A0F0D',
     link: 'https://aibulletin.in/',
+    image: '/work/aibulletin.webp',
     metrics: [
       { label: 'Total clicks', value: '400+' },
       { label: 'Total impressions', value: '64.5K' }
@@ -53,6 +55,7 @@ export const caseStudies: CaseStudyData[] = [
     color: '#3B82F6',
     bg: '#0D1522',
     link: 'https://lms-dev-pi.vercel.app/',
+    image: '/work/edtech.webp',
     metrics: [
       { label: 'Active Students', value: '1000+' },
       { label: 'Success Rate', value: '100%' },

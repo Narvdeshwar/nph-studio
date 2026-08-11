@@ -19,7 +19,7 @@ const services = [
     title: 'Full-Stack MVP',
     subtitle: 'Web Application',
     timeline: '4–8 weeks',
-    price: 'Starting at ₹1,00,000',
+    price: 'Starting at ₹1,50,000',
     description: 'Complete product engineering from database to deployment. We build scalable, production-ready web applications for founders ready to scale.',
     features: ['Next.js App Router', 'Custom Database Architecture', 'Authentication & Auth', 'Payment Integration', 'Admin Dashboard'],
     color: '#7C3AED',
@@ -29,13 +29,13 @@ const services = [
   {
     title: 'AI / RAG Integration',
     subtitle: 'Intelligent Add-on',
-    timeline: 'Custom Timeline',
-    price: 'Early Access',
-    description: 'Supercharge your existing product with custom Large Language Models, semantic search, and intelligent AI agents.',
-    features: ['Vector Database Setup', 'Custom LLM Pipelines', 'Automated Workflows', 'Chatbot Integration', 'Data Privacy Focused'],
+    timeline: '3–6 weeks',
+    price: 'Starting at ₹1,00,000',
+    description: 'Give your product an AI assistant that can search and answer questions from your own data — documents, database, or knowledge base — instead of hallucinating generic answers.',
+    features: ['Vector Database Setup', 'Custom RAG Pipelines', 'Automated Workflows', 'Chatbot Integration', 'Data Privacy Focused'],
     color: '#161616',
     popular: false,
-    available: false
+    available: true
   }
 ];
 
@@ -97,15 +97,13 @@ function ServiceAccordion({ service, index, isOpen, toggleOpen }: { service: Ser
                 </div>
                 <Magnetic>
                   {service.available ? (
-                    <a
-                      href={`https://wa.me/918787205784?text=${encodeURIComponent(`Hi, I'm interested in starting a new project for: ${service.title}`)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <button
+                      onClick={() => window.dispatchEvent(new CustomEvent('open-inquiry-modal', { detail: { service: service.title } }))}
                       className="px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 w-fit bg-foreground text-background hover:bg-primary hover:text-white"
                     >
                       Start Project
                       <IconArrowUpRight size={18} />
-                    </a>
+                    </button>
                   ) : (
                     <button
                       className="px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 w-fit bg-zinc-100 text-muted cursor-not-allowed"

@@ -85,8 +85,9 @@ export function Footer() {
             </div>
 
             <div className="flex flex-col gap-6">
-              <span className="text-white mb-2">Socials</span>
+              <span className="text-white mb-2">Socials & Contact</span>
               {[
+                { name: 'Email Us', url: 'mailto:contact@nph-studio.in' },
                 { name: 'Twitter (X)', url: 'https://x.com/Eternal_Dev_IO' },
                 { name: 'LinkedIn', url: 'https://www.linkedin.com/company/nph-studio' },
                 { name: 'GitHub (OS)', url: 'https://github.com/Narvdeshwar/nph-open-source' }

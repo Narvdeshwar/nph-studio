@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { Magnetic } from '@/components/premium/Magnetic';
 import { IconArrowUpRight } from '@tabler/icons-react';
+import Image from 'next/image';
 
 import { caseStudies, CaseStudyData } from '@/data/case-studies';
 
@@ -78,8 +79,37 @@ function HorizontalCard({ study, index }: { study: CaseStudyData, index: number 
 
         {/* Image / Visual Asset */}
         <div className="flex-1 bg-black/50 border-l border-white/5 relative overflow-hidden flex items-center justify-center">
-          <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,white_1px,transparent_1px)] bg-[size:20px_20px]" />
-          <span className="text-white/20 font-bold tracking-widest uppercase text-sm">Visual Asset</span>
+          {study.image ? (
+            <>
+              {/* Ambient Glow Background Layer */}
+              <div className="absolute inset-0 w-full h-full">
+                <Image 
+                  src={study.image} 
+                  alt="" 
+                  fill
+                  className="object-cover opacity-30 blur-3xl scale-125"
+                />
+                <div className="absolute inset-0 bg-black/20" />
+              </div>
+              
+              {/* Sharp Foreground Image */}
+              <div className="relative w-full h-full p-8 sm:p-16 pointer-events-none">
+                <div className="relative w-full h-full pointer-events-auto">
+                  <Image 
+                    src={study.image} 
+                    alt={`${study.title} visual asset`} 
+                    fill
+                    className="object-contain object-top rounded-[32px] shadow-2xl drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-transform duration-700 hover:scale-[1.02]"
+                  />
+                </div>
+              </div>
+            </>
+          ) : (
+            <div className="w-full h-full flex items-center justify-center relative">
+              <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,white_1px,transparent_1px)] bg-[size:20px_20px]" />
+              <span className="text-white/20 font-bold tracking-widest uppercase text-sm z-10">Visual Asset</span>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -4,24 +4,24 @@ import { motion } from 'framer-motion';
 
 const team = [
   {
-    name: 'Founder & Lead Engineer',
-    role: 'Full-Stack / AI Specialist',
+    name: 'Narvdeshwar',
+    role: 'Founder & Lead Engineer',
     description: 'Expert in architecting highly scalable Go backends, Next.js applications, and custom RAG/AI pipelines. Leads all technical strategy and core product development.',
-    initials: 'F',
+    initials: 'N',
     color: '#FF5A36'
   },
   {
-    name: 'Backend Developer',
-    role: 'Infrastructure & APIs',
+    name: 'Harsh Pandey',
+    role: 'Backend Systems Engineer',
     description: 'Specializes in robust database design, microservices, and third-party integrations. Ensures every product is built on a rock-solid, secure foundation.',
-    initials: 'BD',
+    initials: 'HP',
     color: '#7C3AED'
   },
   {
-    name: 'Technical Consultant',
-    role: 'Client Success & Strategy',
+    name: 'Priyanka Sonkar',
+    role: 'Technical Consultant',
     description: 'Your direct point of contact. Translates your business goals into actionable engineering timelines and ensures seamless communication from kickoff to launch.',
-    initials: 'TC',
+    initials: 'PS',
     color: '#161616'
   }
 ];

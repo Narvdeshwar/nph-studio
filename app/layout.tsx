@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://nph-studio.com'),
+  metadataBase: new URL('https://nph-studio.in'),
   title: {
     default: "NPH Studio | Premium Web Design & Full-Stack Development Agency",
     template: "%s | NPH Studio"
@@ -27,15 +27,15 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://nph-studio.com",
+    url: "https://nph-studio.in",
     title: "NPH Studio | Premium Web Design & Full-Stack Development",
-    description: "We design, build, and ship full-stack products. Elevate your brand with our premium digital engineering.",
+    description: "NPH Studio builds landing pages, MVPs, and AI/RAG systems for founders and businesses — engineered fast, shipped transparently.",
     siteName: "NPH Studio",
   },
   twitter: {
     card: "summary_large_image",
     title: "NPH Studio | Premium Web Design & Full-Stack Development",
-    description: "We design, build, and ship full-stack products. Elevate your brand with our premium digital engineering.",
+    description: "NPH Studio builds landing pages, MVPs, and AI/RAG systems for founders and businesses — engineered fast, shipped transparently.",
     creator: "@Eternal_Dev_IO",
   },
   robots: {
@@ -51,6 +51,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { InquiryModal } from "@/components/premium/InquiryModal";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -63,6 +65,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <Analytics />
+        <InquiryModal />
         <SiteLayout>
           <main className="flex-1 flex flex-col relative z-10">{children}</main>
         </SiteLayout>

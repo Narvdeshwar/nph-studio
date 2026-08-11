@@ -18,8 +18,8 @@ const pillars = [
   },
   {
     num: "03",
-    title: "AI & RAG",
-    desc: "Connecting your product to the latest LLMs. Intelligent agents and vector search. (Coming soon)",
+    title: "AI / RAG Integration",
+    desc: "We connect your product's own data to LLMs through custom RAG pipelines — real answers from your knowledge base, not generic AI output.",
     image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965&auto=format&fit=crop"
   }
 ];

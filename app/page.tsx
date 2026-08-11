@@ -9,11 +9,11 @@ import { ProofStrip } from '@/components/premium/ProofStrip';
 import { Services } from '@/components/premium/Services';
 import { WorkPreview } from '@/components/premium/WorkPreview';
 import { Process } from '@/components/premium/Process';
+import { Testimonials } from '@/components/premium/Testimonials';
 import { Sparkles } from '@/components/premium/Sparkles';
 import { Footer } from '@/components/premium/Footer';
 import { CapabilitiesBento } from '@/components/premium/CapabilitiesBento';
 import { TechStack } from '@/components/premium/TechStack';
-import { IconBrandWhatsapp } from '@tabler/icons-react';
 
 export default function Home() {
   const containerRef = useRef(null);
@@ -26,12 +26,12 @@ export default function Home() {
 
   return (
     <div ref={containerRef} className="relative bg-background text-foreground min-h-[200vh] font-sans">
-      
-      
+
+
 
       {/* Hero Section */}
       <section className="relative min-h-[100vh] h-[100vh] flex flex-col justify-center p-8 sm:p-20 z-10 overflow-hidden">
-        
+
         {/* Subtle Engineering Grid Background */}
         <div className="absolute inset-0 z-[-2] opacity-20 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
 
@@ -43,7 +43,7 @@ export default function Home() {
         </div>
 
         {/* Parallax Background Glow */}
-        <motion.div 
+        <motion.div
           style={{ y }}
           className="absolute inset-0 z-[-1] pointer-events-none"
         >
@@ -52,66 +52,64 @@ export default function Home() {
         </motion.div>
 
         <div className="max-w-[1400px] w-full mx-auto relative mt-20">
-          
+
           {/* Sleek Technical Status Badge (Replaced old border-l text) */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
-            className="mb-12 inline-flex items-center gap-4 bg-surface border border-border rounded-full px-6 py-3 shadow-lg backdrop-blur-md"
+            className="mb-8 md:mb-12 inline-flex items-center gap-4 bg-surface border border-border rounded-full px-6 py-3 shadow-lg backdrop-blur-md"
           >
             <div className="flex items-center justify-center relative">
               <span className="w-2.5 h-2.5 bg-primary rounded-full" />
               <span className="w-2.5 h-2.5 bg-primary rounded-full absolute animate-ping opacity-75" />
             </div>
-            <p className="text-foreground text-sm font-bold uppercase tracking-widest">
-              We engineer digital experiences that blur the line between design and deep tech.
+            <p className="text-foreground text-xs md:text-sm font-bold uppercase tracking-widest">
+              Landing pages, MVPs, and RAG-powered AI — engineered by a founder-led team.
             </p>
           </motion.div>
 
           {/* Main Typography */}
-          <h1 className="text-[12vw] sm:text-[11vw] font-black leading-[0.85] tracking-tighter uppercase flex flex-col">
+          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black leading-[0.95] tracking-tighter uppercase max-w-7xl flex flex-col gap-1 sm:gap-2">
             <DecryptedText text="We Build" delay={0.1} className="block" />
-            <span className="flex items-center gap-6">
-              <span className="text-primary block">
-                <DecryptedText text="Products" delay={0.3} className="block" />
-              </span>
-              
-              {/* Upgraded Text Pill - Animated Gradient Mesh */}
-              <motion.div 
-                initial={{ width: 0 }}
-                animate={{ width: "16vw" }}
-                transition={{ delay: 0.8, duration: 1.2, ease: [0.33, 1, 0.68, 1] }}
-                className="h-[8vw] hidden sm:block rounded-[4vw] overflow-hidden relative shadow-inner border border-black/5"
-              >
-                {/* Animated Gradient inside the pill */}
-                <div 
-                  className="absolute inset-[-100%] opacity-90"
-                  style={{
-                    background: 'linear-gradient(45deg, #FF5A36, #7C3AED, #FF5A36, #3B82F6)',
-                    backgroundSize: '400% 400%',
-                    animation: 'gradientShift 8s ease infinite'
-                  }}
-                />
-              </motion.div>
+            <DecryptedText text="Full-Stack Products" delay={0.3} className="block" />
+            <span className="text-primary block">
+              <DecryptedText text="& AI Systems." delay={0.5} className="block" />
             </span>
-            <DecryptedText text="That Ship." delay={0.5} className="block" />
           </h1>
-        </div>
 
-        {/* Premium Floating CTA */}
-        <div className="absolute bottom-10 right-10 sm:bottom-20 sm:right-20 z-50">
-          <Magnetic>
-            <a 
-              href="https://wa.me/918787205784"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-36 h-36 rounded-full bg-foreground/95 backdrop-blur-xl border border-white/10 text-background flex flex-col items-center justify-center font-bold uppercase tracking-widest text-[10px] text-center transition-all hover:scale-105 hover:bg-green-500 hover:border-green-500 active:scale-95 group shadow-2xl leading-relaxed"
-            >
-              <span className="group-hover:-translate-y-2 transition-transform duration-300">Start on<br/>WhatsApp</span>
-              <IconBrandWhatsapp size={24} className="absolute opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-5 transition-all duration-300" />
-            </a>
-          </Magnetic>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7, duration: 0.8 }}
+            className="text-2xl sm:text-3xl lg:text-4xl mt-8 md:mt-12 text-foreground/70 tracking-tight font-medium max-w-4xl"
+          >
+            For founders who need to ship fast, in weeks, not quarters.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 0.8 }}
+            className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mt-12 md:mt-16"
+          >
+            <Magnetic>
+              <button
+                onClick={() => window.dispatchEvent(new CustomEvent('open-inquiry-modal'))}
+                className="bg-foreground text-background px-8 py-5 rounded-full font-bold uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-[0_0_40px_rgba(255,255,255,0.1)] border border-transparent hover:bg-primary hover:text-white hover:shadow-[0_0_40px_rgba(255,90,54,0.4)]"
+              >
+                Get a Free Estimate
+              </button>
+            </Magnetic>
+            <Magnetic>
+              <a
+                href="work"
+                className="bg-surface border border-border px-8 py-5 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-white/5 active:scale-95 transition-all text-foreground/80 hover:text-foreground"
+              >
+                See Our Work
+              </a>
+            </Magnetic>
+          </motion.div>
         </div>
       </section>
 
@@ -123,6 +121,7 @@ export default function Home() {
       <Services />
       <WorkPreview />
       <Process />
+      <Testimonials />
       <Footer />
 
     </div>

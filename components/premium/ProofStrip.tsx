@@ -18,7 +18,7 @@ export function ProofStrip() {
           viewport={{ once: true, margin: "-50px" }}
           className="text-xs font-bold uppercase tracking-widest text-muted mb-12 text-center md:text-left"
         >
-          Trusted by founders & teams behind
+          Selected Products & Portfolios
         </motion.p>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

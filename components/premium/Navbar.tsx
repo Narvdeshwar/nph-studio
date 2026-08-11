@@ -71,7 +71,7 @@ export function Navbar() {
         <Magnetic>
           <button
             onClick={handleMenuClick}
-            className="relative z-50 w-16 h-16 rounded-full flex flex-col items-center justify-center gap-1.5 transition-colors duration-300 bg-white text-black hover:bg-primary hover:text-white pointer-events-auto"
+            className="relative z-50 w-16 h-16 rounded-full flex flex-col items-center justify-center gap-1.5 transition-colors duration-300 bg-white text-black hover:bg-primary hover:text-white pointer-events-auto cursor-pointer"
           >
             <motion.div
               animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 4 : 0 }}

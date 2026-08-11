@@ -124,7 +124,6 @@ function FuturisticCard({ project, index }: { project: ProjectData, index: numbe
 export function WorkPreview() {
   return (
     <section className="w-full py-32 bg-foreground text-background relative z-10 overflow-hidden">
-
       {/* Scroll Velocity Background */}
       <div className="absolute inset-0 z-0 flex flex-col justify-center opacity-5 pointer-events-none">
         <ScrollVelocity
@@ -135,16 +134,20 @@ export function WorkPreview() {
       </div>
 
       <div className="max-w-[1400px] mx-auto px-8 sm:px-20 relative z-10">
-
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-24 gap-8">
           <h2 className="text-[6vw] sm:text-[5vw] font-bold leading-none tracking-tighter uppercase">
-            <TextMask>Selected</TextMask><br />
+            <TextMask>Selected</TextMask>
+            <br />
             <TextMask delay={0.1}>Works</TextMask>
           </h2>
           <Magnetic>
-            <button className="border border-border/20 rounded-full px-6 py-3 text-sm font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">
+            
+            <a
+              href="work"
+               className="border border-border/20 rounded-full px-6 py-3 text-sm font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors"
+            >
               View All Work
-            </button>
+            </a>
           </Magnetic>
         </div>
 
@@ -153,7 +156,6 @@ export function WorkPreview() {
             <FuturisticCard key={project.name} project={project} index={i} />
           ))}
         </div>
-
       </div>
     </section>
   );
