@@ -1,24 +1,84 @@
-import { ImmersiveLabScene } from '@/components/premium/3d/ImmersiveLabScene';
+import Link from 'next/link';
+import { Footer } from '@/components/premium/Footer';
+import { IconFlask, IconArrowUpRight } from '@tabler/icons-react';
 
-export default function LabPage() {
+const experiments = [
+  {
+    id: 'holographic',
+    name: 'Holographic UI',
+    desc: 'Spatial Web Interface',
+    color: '#3B82F6',
+    status: 'Active'
+  },
+  // {
+  //   id: 'cell',
+  //   name: 'Biological Cell',
+  //   desc: 'Interactive Organelles',
+  //   color: '#8B5CF6',
+  //   status: 'Active'
+  // },
+  {
+    id: 'torus',
+    name: 'Magnetic Torus',
+    desc: 'Physics & Particles',
+    color: '#F97316',
+    status: 'Active'
+  }
+];
+
+export default function LabIndexPage() {
   return (
-    <div className="fixed inset-0 bg-[#050505] text-white font-sans overflow-hidden select-none">
-      
-      <div className="absolute bottom-0 left-0 z-50 pointer-events-none p-6 sm:p-8 flex items-end">
-        {/* Floating Instruction Badge */}
-        <div className="hidden md:flex pointer-events-auto items-center gap-3 bg-white/5 border border-white/10 rounded-full px-5 py-2 backdrop-blur-md shadow-2xl">
-          <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-          <p className="text-[10px] font-bold uppercase tracking-widest text-white/70">
-            Click & Drag to Rotate Space. Scroll to Zoom.
-          </p>
+    <main className="min-h-screen bg-background text-foreground flex flex-col font-sans selection:bg-primary/30">
+
+      <div className="flex-1 pt-32 pb-24 px-6 sm:px-12 md:px-24">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="mb-20">
+            <div className="flex items-center gap-3 mb-6">
+              <IconFlask className="text-primary" size={32} />
+              <span className="text-primary font-bold tracking-widest uppercase text-sm">The Lab</span>
+            </div>
+            <h1 className="text-5xl sm:text-7xl font-black uppercase tracking-tighter leading-[0.9] max-w-3xl mb-8">
+              Experimental <br />
+              <span className="text-muted">3D Interfaces</span>
+            </h1>
+            <p className="text-xl text-muted max-w-2xl leading-relaxed">
+              A collection of exploratory 3D web experiences, spatial interfaces, and interactive physics simulations built with React Three Fiber.
+            </p>
+          </div>
+
+          {/* Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {experiments.map((exp) => (
+              <Link href={`/lab/${exp.id}`} key={exp.id}>
+                <div className="group relative bg-surface border border-border rounded-3xl p-8 h-[300px] flex flex-col justify-between overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:border-white/20 hover:shadow-2xl hover:shadow-primary/5 cursor-pointer">
+                  {/* Glow */}
+                  <div
+                    className="absolute -top-24 -right-24 w-64 h-64 rounded-full opacity-0 group-hover:opacity-20 blur-3xl transition-opacity duration-700 pointer-events-none"
+                    style={{ backgroundColor: exp.color }}
+                  />
+
+                  <div className="flex justify-between items-start relative z-10">
+                    <span className="text-xs font-bold uppercase tracking-widest text-muted border border-border px-3 py-1 rounded-full">
+                      {exp.status}
+                    </span>
+                    <span className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted group-hover:bg-white group-hover:text-black group-hover:border-white transition-all duration-300">
+                      <IconArrowUpRight size={20} />
+                    </span>
+                  </div>
+
+                  <div className="relative z-10">
+                    <h3 className="text-2xl font-black uppercase tracking-tighter mb-2 group-hover:text-primary transition-colors">{exp.name}</h3>
+                    <p className="text-muted text-sm">{exp.desc}</p>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* The Master 3D Scene (Full Screen) */}
-      <div className="absolute inset-0 z-10 cursor-move">
-        <ImmersiveLabScene />
-      </div>
-
-    </div>
+      <Footer />
+    </main>
   );
 }
