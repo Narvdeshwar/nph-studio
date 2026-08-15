@@ -28,8 +28,9 @@ export const caseStudies: CaseStudyData[] = [
     link: 'https://aibulletin.in/',
     image: '/work/aibulletin.webp',
     metrics: [
-      { label: 'Total clicks', value: '400+' },
-      { label: 'Total impressions', value: '64.5K' }
+      { label: 'Total clicks', value: '410+' },
+      { label: 'Total impressions', value: '68.7K' },
+      { label: 'Avg Position', value: 'Top 10' }
     ],
     techStack: ['Next.js', 'Tailwind CSS', 'Supabase', 'Framer Motion', 'Golang', 'RSS Parser'],
     features: [
@@ -40,8 +41,9 @@ export const caseStudies: CaseStudyData[] = [
       'Premium Dark Mode UI'
     ],
     results: [
-      'Achieved 64.5K organic impressions within the first few weeks.',
+      'Achieved 68.7K organic impressions and 410 clicks within the first few weeks.',
       'Secured a highly engaged audience of developers and founders.',
+      'Reached an average search position of 8.6 across all queries.',
       'Zero-latency page loads via Next.js static generation.'
     ]
   },
