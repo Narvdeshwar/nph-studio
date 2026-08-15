@@ -11,7 +11,7 @@ function HorizontalCard({ study, index }: { study: CaseStudyData, index: number 
   return (
     <div className="w-screen h-full flex-shrink-0 flex items-center justify-center p-8 sm:p-20">
       <div
-        className="w-full max-w-[1400px] h-[80vh] rounded-[40px] overflow-hidden relative shadow-2xl flex flex-col md:flex-row border border-white/5"
+        className="w-full max-w-[1400px] h-[85vh] sm:min-h-[650px] rounded-[32px] sm:rounded-[40px] overflow-hidden relative shadow-2xl flex flex-col md:flex-row border border-white/5"
         style={{ backgroundColor: study.bg }}
       >
         {/* Glow - Optimized for low-end devices using radial-gradient instead of CSS blur */}
@@ -23,35 +23,35 @@ function HorizontalCard({ study, index }: { study: CaseStudyData, index: number 
         />
 
         {/* Content */}
-        <div className="flex-1 p-12 sm:p-20 flex flex-col justify-between z-10 text-white">
+        <div className="flex-1 p-8 sm:p-12 md:p-20 flex flex-col justify-between z-10 text-white overflow-y-auto custom-scrollbar relative">
           <div>
             <span
-              className="font-bold uppercase tracking-widest text-sm mb-6 block"
+              className="font-bold uppercase tracking-widest text-xs sm:text-sm mb-4 sm:mb-6 block"
               style={{ color: study.color }}
             >
               0{index + 1} — {study.category}
             </span>
-            <h2 className="text-5xl sm:text-7xl font-black uppercase tracking-tighter leading-[0.9] mb-12">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter leading-[0.9] mb-8 sm:mb-12">
               {study.title}
             </h2>
 
-            <div className="flex flex-col gap-8 mb-12">
+            <div className="flex flex-col gap-6 sm:gap-8 mb-8 sm:mb-12">
               <div>
-                <h3 className="text-xs font-bold text-white/50 uppercase tracking-widest mb-2">The Problem</h3>
-                <p className="text-white/90 text-lg max-w-md leading-relaxed">{study.problem}</p>
+                <h3 className="text-[10px] sm:text-xs font-bold text-white/50 uppercase tracking-widest mb-2">The Problem</h3>
+                <p className="text-white/90 text-base sm:text-lg max-w-md leading-relaxed">{study.problem}</p>
               </div>
               <div>
-                <h3 className="text-xs font-bold text-white/50 uppercase tracking-widest mb-2">The Solution</h3>
-                <p className="text-white/90 text-lg max-w-md leading-relaxed">{study.solution}</p>
+                <h3 className="text-[10px] sm:text-xs font-bold text-white/50 uppercase tracking-widest mb-2">The Solution</h3>
+                <p className="text-white/90 text-base sm:text-lg max-w-md leading-relaxed">{study.solution}</p>
               </div>
             </div>
 
             {study.metrics && (
-              <div className="flex gap-12 mb-12 border-t border-white/10 pt-8">
+              <div className="flex gap-8 sm:gap-12 mb-8 sm:mb-12 border-t border-white/10 pt-6 sm:pt-8 flex-wrap">
                 {study.metrics.map((metric, i) => (
                   <div key={i}>
-                    <p className="text-3xl font-black tracking-tighter" style={{ color: study.color }}>{metric.value}</p>
-                    <p className="text-xs font-bold text-white/50 uppercase tracking-widest mt-1">{metric.label}</p>
+                    <p className="text-2xl sm:text-3xl font-black tracking-tighter" style={{ color: study.color }}>{metric.value}</p>
+                    <p className="text-[10px] sm:text-xs font-bold text-white/50 uppercase tracking-widest mt-1">{metric.label}</p>
                   </div>
                 ))}
               </div>
