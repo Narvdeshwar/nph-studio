@@ -54,7 +54,7 @@ export function Navbar() {
     <>
       {/* Floating Header */}
       <motion.header
-        className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 p-6 sm:p-8 flex justify-between items-center mix-blend-difference text-white pointer-events-none ${scrolled ? 'py-4' : ''}`}
+        className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 p-4 sm:p-8 flex justify-between items-center mix-blend-difference text-white pointer-events-none ${scrolled ? 'py-2 sm:py-4' : ''}`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
@@ -62,7 +62,7 @@ export function Navbar() {
         <Magnetic>
           <TransitionLink href="/" className="pointer-events-auto z-[60]">
             <div className="relative group">
-              <Logo className="text-2xl sm:text-3xl text-white" />
+              <Logo className="text-xl sm:text-3xl text-white" />
               <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full scale-0 group-hover:scale-150 transition-transform duration-500" />
             </div>
           </TransitionLink>
@@ -71,19 +71,19 @@ export function Navbar() {
         <Magnetic>
           <button
             onClick={handleMenuClick}
-            className="relative z-50 w-16 h-16 rounded-full flex flex-col items-center justify-center gap-1.5 transition-colors duration-300 bg-white text-black hover:bg-primary hover:text-white pointer-events-auto cursor-pointer"
+            className="relative z-50 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex flex-col items-center justify-center gap-1 sm:gap-1.5 transition-colors duration-300 bg-white text-black hover:bg-primary hover:text-white pointer-events-auto cursor-pointer"
           >
             <motion.div
               animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 4 : 0 }}
-              className="w-6 h-[2px] bg-current origin-center"
+              className="w-5 sm:w-6 h-[2px] bg-current origin-center"
             />
             <motion.div
-              animate={{ width: isOpen ? 0 : 24, opacity: isOpen ? 0 : 1 }}
-              className="w-6 h-[2px] bg-current"
+              animate={{ width: isOpen ? 0 : 20, opacity: isOpen ? 0 : 1 }}
+              className="h-[2px] bg-current sm:w-6"
             />
             <motion.div
               animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? -4 : 0 }}
-              className="w-6 h-[2px] bg-current origin-center"
+              className="w-5 sm:w-6 h-[2px] bg-current origin-center"
             />
           </button>
         </Magnetic>
@@ -97,12 +97,12 @@ export function Navbar() {
             animate={{ clipPath: 'circle(150% at calc(100% - 4rem) 4rem)' }}
             exit={{ clipPath: 'circle(0% at calc(100% - 4rem) 4rem)' }}
             transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
-            className={`fixed inset-0 z-40 flex items-center justify-center transition-colors duration-500 ${menuTheme === 'dark' ? 'bg-[#0A0A0A] text-white' : 'bg-[#FDFCFB] text-[#161616]'}`}
+            className={`fixed inset-0 z-40 flex items-center justify-center transition-colors duration-500 overflow-y-auto ${menuTheme === 'dark' ? 'bg-[#0A0A0A] text-white' : 'bg-[#FDFCFB] text-[#161616]'}`}
           >
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-7xl px-8 flex flex-col sm:flex-row justify-between items-start">
+            <div className="w-full max-w-7xl px-4 sm:px-8 py-24 sm:py-32 min-h-screen flex flex-col md:flex-row justify-between items-start gap-12">
 
-              <div className="flex flex-col gap-4 sm:gap-8">
-                <span className={`uppercase tracking-widest text-sm font-bold mb-4 ${menuTheme === 'dark' ? 'text-zinc-500' : 'text-zinc-400'}`}>Navigation</span>
+              <div className="flex flex-col gap-4 sm:gap-8 w-full">
+                <span className={`uppercase tracking-widest text-xs sm:text-sm font-bold mb-2 sm:mb-4 ${menuTheme === 'dark' ? 'text-zinc-500' : 'text-zinc-400'}`}>Navigation</span>
                 {menuLinks.map((link, i) => (
                   <div key={link.name} className="overflow-hidden">
                     <motion.div
@@ -114,9 +114,9 @@ export function Navbar() {
                       <TransitionLink
                         href={link.href}
                         onClick={() => setIsOpen(false)}
-                        className="text-5xl sm:text-7xl font-black uppercase tracking-tighter hover:text-primary transition-colors flex items-center gap-4 group"
+                        className="text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tighter hover:text-primary transition-colors flex items-center gap-2 sm:gap-4 group w-fit"
                       >
-                        <span className={`text-xl sm:text-3xl font-medium transition-colors ${menuTheme === 'dark' ? 'text-zinc-600 group-hover:text-primary/50' : 'text-zinc-300 group-hover:text-primary/50'}`}>0{i + 1}</span>
+                        <span className={`text-lg sm:text-2xl md:text-3xl font-medium transition-colors ${menuTheme === 'dark' ? 'text-zinc-600 group-hover:text-primary/50' : 'text-zinc-300 group-hover:text-primary/50'}`}>0{i + 1}</span>
                         {link.name}
                       </TransitionLink>
                     </motion.div>
@@ -124,7 +124,7 @@ export function Navbar() {
                 ))}
               </div>
 
-              <div className="mt-20 sm:mt-0 flex flex-col gap-12 sm:max-w-xs">
+              <div className="flex flex-col gap-8 sm:gap-12 w-full md:max-w-xs">
                 <motion.div
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}

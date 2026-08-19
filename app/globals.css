@@ -152,6 +152,7 @@ body {
     @apply font-sans;
   }
 }
+
 body.custom-cursor-active, body.custom-cursor-active * { cursor: none !important; }
 /* Hide scrollbar for the Hologram */
 .custom-scrollbar::-webkit-scrollbar { display: none; }
