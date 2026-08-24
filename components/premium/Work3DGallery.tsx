@@ -173,7 +173,7 @@ export function Work3DGallery() {
           <PresentationControls 
             global 
             config={{ mass: 1, tension: 150, friction: 20 }} 
-            snap={{ mass: 2, tension: 100 }} 
+            snap={true} 
             rotation={[0, 0, 0]} 
             polar={[-0.2, 0.2]} 
             azimuth={[-Infinity, Infinity]} 
