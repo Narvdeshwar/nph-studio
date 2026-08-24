@@ -5,7 +5,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
+      disallow: ['/private/'],
     },
-    sitemap: 'https://nph-studio.com/sitemap.xml',
+    sitemap: 'https://www.nph-studio.in/sitemap.xml',
   };
 }

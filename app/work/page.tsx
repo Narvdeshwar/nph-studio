@@ -1,28 +1,11 @@
 'use client';
 
-
-import { Footer } from '@/components/premium/Footer';
-import { WorkList } from '@/components/premium/WorkList';
-import { TextMask } from '@/components/premium/TextMask';
+import { WorkShowcase } from '@/components/premium/WorkShowcase';
 
 export default function WorkPage() {
   return (
-    <div className="relative bg-background text-foreground min-h-screen font-sans">
-      {/* Work Page Header - Normal document flow */}
-      <section className="relative pt-[25vh] pb-[10vh] px-8 sm:px-20 text-center bg-background z-20">
-        <h1 className="text-[12vw] sm:text-[8vw] font-bold leading-[0.85] tracking-tighter uppercase mb-6 flex flex-col items-center">
-          <TextMask>Selected</TextMask>
-          <TextMask delay={0.1}>Case Studies</TextMask>
-        </h1>
-        <p className="text-muted text-xl max-w-2xl mx-auto uppercase tracking-widest font-medium">
-          Real products we&apos;ve designed and shipped for founders worldwide.
-        </p>
-      </section>
-
-      {/* Z-Axis Interactive Tunnel */}
-      <WorkList />
-
-      <Footer />
+    <div className="relative bg-[#050505] min-h-screen font-sans">
+      <WorkShowcase />
     </div>
   );
 }
