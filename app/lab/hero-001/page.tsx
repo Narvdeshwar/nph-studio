@@ -1,7 +1,7 @@
 'use client';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
-import { IconArrowLeft, IconFingerprint, IconLock, IconShieldCheck, IconCpu, IconActivity, IconMenu, IconArrowUpRight, IconBrandApple, IconChevronDown } from '@tabler/icons-react';
+import { IconArrowLeft, IconFingerprint, IconShieldCheck, IconMenu, IconChevronDown } from '@tabler/icons-react';
 import { Magnetic } from '@/components/premium/Magnetic';
 import { LiquidAurora } from '@/components/premium/LiquidAurora';
 import { useRef } from 'react';
@@ -10,7 +10,6 @@ export default function AuroraOSPage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 1000], [0, 200]);
-  const y2 = useTransform(scrollY, [0, 1000], [0, -200]);
   
   return (
     <main ref={containerRef} className="relative min-h-screen bg-[#050505] text-white overflow-hidden font-sans selection:bg-emerald-500/30">

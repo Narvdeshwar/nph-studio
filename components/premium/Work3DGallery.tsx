@@ -43,6 +43,7 @@ function Carousel() {
 function ProjectCard({ study, position, rotation, index }: { study: import('@/data/case-studies').CaseStudyData, position: [number, number, number], rotation: [number, number, number], index: number }) {
   const [hovered, setHovered] = useState(false);
   const router = useRouter();
+  const groupRef = useRef<THREE.Group>(null);
   const materialRef = useRef<THREE.MeshStandardMaterial>(null);
 
   useFrame(() => {
@@ -56,16 +57,16 @@ function ProjectCard({ study, position, rotation, index }: { study: import('@/da
         hovered ? 0.9 : 0.6,
         0.1
       );
-      materialRef.current.scale = THREE.MathUtils.lerp(
-        materialRef.current.scale,
-        hovered ? 1.05 : 1,
-        0.1
-      );
+    }
+    if (groupRef.current) {
+      const targetScale = hovered ? 1.05 : 1;
+      groupRef.current.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.1);
     }
   });
 
   return (
     <group 
+      ref={groupRef}
       position={position} 
       rotation={rotation}
       onPointerOver={(e) => { e.stopPropagation(); setHovered(true); document.body.style.cursor = 'pointer'; }}
