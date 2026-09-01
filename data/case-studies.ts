@@ -58,9 +58,9 @@ export const caseStudies: CaseStudyData[] = [
     link: 'https://aibulletin.in/',
     image: '/work/aibulletin.webp',
     metrics: [
-      { label: 'Total clicks', value: '419+' },
-      { label: 'Total impressions', value: '70K' },
-      { label: 'Avg Position', value: 'Top 10' }
+      { label: 'Total Impressions', value: '71.7K' },
+      { label: 'Active Users', value: '1.2K' },
+      { label: 'Avg Position', value: '9.2' }
     ],
     techStack: ['Next.js', 'Tailwind CSS', 'Supabase', 'Framer Motion', 'Golang', 'RSS Parser'],
     features: [
@@ -68,13 +68,13 @@ export const caseStudies: CaseStudyData[] = [
       'Advanced Content Filtering & Tagging',
       'High-performance Static Generation',
       'SEO-Optimized Structured Data',
-      'Premium Dark Mode UI'
+      'Custom Admin Subscriber Dashboard'
     ],
     results: [
-      'Achieved 70K organic impressions and 419 clicks within the first few weeks.',
-      'Secured a highly engaged audience of developers and founders.',
-      'Reached an average search position of 8.9 across all queries.',
-      'Zero-latency page loads via Next.js static generation.'
+      'Achieved 71.7K organic search impressions and 443 clicks on Google Search.',
+      'Grew to 1.2K active users and 1.9K sessions with high engagement.',
+      'Built a fully functional custom admin portal for seamless newsletter subscriber management.',
+      'Maintained zero-latency page loads via Next.js static generation.'
     ]
   },
   {
