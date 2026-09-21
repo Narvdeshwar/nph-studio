@@ -1,8 +1,20 @@
-'use client';
-
+import { Metadata } from 'next';
 import { Footer } from '@/components/premium/Footer';
 import { TeamList } from '@/components/premium/TeamList';
 import { TextMask } from '@/components/premium/TextMask';
+
+export const metadata: Metadata = {
+  title: "Our Team | NPH Studio",
+  description: "Meet the founder-led engineering team behind NPH Studio. We are highly specialized full-stack engineers building scalable products.",
+  alternates: {
+    canonical: 'https://www.nph-studio.in/team',
+  },
+  openGraph: {
+    url: 'https://www.nph-studio.in/team',
+    title: 'The Engineers | NPH Studio',
+    description: 'Meet the founder-led engineering team behind NPH Studio.',
+  }
+};
 
 export default function TeamPage() {
   return (

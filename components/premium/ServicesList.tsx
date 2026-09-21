@@ -1,3 +1,4 @@
+'use client';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Magnetic } from '@/components/premium/Magnetic';
@@ -51,96 +52,92 @@ interface ServiceData {
   available: boolean;
 }
 
-function ServiceAccordion({ service, index, isOpen, toggleOpen }: { service: ServiceData, index: number, isOpen: boolean, toggleOpen: () => void }) {
+function ServiceCard({ service, index }: { service: ServiceData, index: number }) {
   return (
-    <div className="border-b border-border last:border-b-0 py-8">
-      <button
-        onClick={toggleOpen}
-        className="w-full flex items-center justify-between text-left group"
-      >
-        <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-12">
-          <span className="text-muted font-mono text-sm">0{index + 1}</span>
-          <h3 className={`text-4xl sm:text-5xl font-black uppercase tracking-tighter transition-colors ${isOpen ? 'text-primary' : 'text-foreground group-hover:text-primary/70'}`}>
+    <div className="border border-border rounded-3xl p-8 sm:p-12 bg-surface mb-8 last:mb-0 relative overflow-hidden group">
+      {/* Decorative gradient */}
+      <div 
+        className="absolute top-0 right-0 w-[500px] h-[500px] opacity-0 group-hover:opacity-5 transition-opacity duration-1000 pointer-events-none rounded-full blur-[100px]"
+        style={{ backgroundColor: service.color }}
+      />
+      
+      <div className="flex flex-col lg:flex-row gap-12 relative z-10">
+        <div className="flex-1">
+          <div className="flex items-center gap-4 mb-4">
+            <span className="text-muted font-mono text-sm">0{index + 1}</span>
+            {service.popular && (
+              <span className="bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest py-1.5 px-3 rounded-full">
+                Most Popular
+              </span>
+            )}
+          </div>
+          
+          <h3 className="text-4xl sm:text-5xl font-black uppercase tracking-tighter mb-2 text-foreground">
             {service.title}
           </h3>
-          {service.popular && (
-            <span className="bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest py-1.5 px-3 rounded-full hidden sm:block">
-              Most Popular
-            </span>
-          )}
-        </div>
-        <div className={`p-4 rounded-full transition-colors ${isOpen ? 'bg-primary text-white' : 'bg-surface text-foreground group-hover:bg-primary/10 group-hover:text-primary'}`}>
-          {isOpen ? <IconMinus /> : <IconPlus />}
-        </div>
-      </button>
-
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="overflow-hidden"
-          >
-            <div className="pt-12 pb-4 flex flex-col lg:flex-row gap-12">
-              <div className="flex-1">
-                <p className="text-xl text-muted leading-relaxed mb-8">{service.description}</p>
-                <div className="flex items-center gap-8 mb-8">
-                  <div>
-                    <div className="text-sm font-bold uppercase tracking-widest text-muted mb-1">Timeline</div>
-                    <div className="font-medium">{service.timeline}</div>
-                  </div>
-                  <div>
-                    <div className="text-sm font-bold uppercase tracking-widest text-muted mb-1">Starting At</div>
-                    <div className="font-medium">{service.price}</div>
-                  </div>
-                </div>
-                <Magnetic>
-                  {service.available ? (
-                    <button
-                      onClick={() => window.dispatchEvent(new CustomEvent('open-inquiry-modal', { detail: { service: service.title } }))}
-                      className="px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 w-fit bg-foreground text-background hover:bg-primary hover:text-white"
-                    >
-                      Start Project
-                      <IconArrowUpRight size={18} />
-                    </button>
-                  ) : (
-                    <button
-                      className="px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 w-fit bg-zinc-100 text-muted cursor-not-allowed"
-                      disabled
-                    >
-                      Coming Soon
-                    </button>
-                  )}
-                </Magnetic>
-              </div>
-
-              <div className="w-full lg:w-1/3 bg-surface rounded-3xl p-8 border border-border">
-                <h4 className="text-sm font-bold uppercase tracking-widest text-foreground mb-6">What&apos;s Included</h4>
-                <ul className="flex flex-col gap-4">
-                  {service.features.map((feature: string, i: number) => (
-                    <li key={i} className="flex items-center gap-4 text-sm font-medium text-muted">
-                      <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: service.color }} />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          <h4 className="text-primary font-bold uppercase tracking-widest text-sm mb-8">
+            {service.subtitle}
+          </h4>
+          
+          <p className="text-xl text-muted leading-relaxed mb-8 max-w-2xl">
+            {service.description}
+          </p>
+          
+          <div className="flex flex-wrap items-center gap-8 mb-10 p-6 bg-background rounded-2xl border border-border inline-flex">
+            <div>
+              <div className="text-xs font-bold uppercase tracking-widest text-muted mb-1">Timeline</div>
+              <div className="font-medium text-lg">{service.timeline}</div>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            <div className="w-px h-10 bg-border hidden sm:block"></div>
+            <div>
+              <div className="text-xs font-bold uppercase tracking-widest text-muted mb-1">Starting At</div>
+              <div className="font-medium text-lg">{service.price}</div>
+            </div>
+          </div>
+          
+          <div>
+            <Magnetic>
+              {service.available ? (
+                <button
+                  onClick={() => window.dispatchEvent(new CustomEvent('open-inquiry-modal', { detail: { service: service.title } }))}
+                  className="px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 w-full sm:w-fit bg-foreground text-background hover:bg-primary hover:text-white"
+                >
+                  Start Project
+                  <IconArrowUpRight size={18} />
+                </button>
+              ) : (
+                <button
+                  className="px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 w-full sm:w-fit bg-zinc-100 text-muted cursor-not-allowed"
+                  disabled
+                >
+                  Coming Soon
+                </button>
+              )}
+            </Magnetic>
+          </div>
+        </div>
+
+        <div className="w-full lg:w-1/3 bg-background rounded-3xl p-8 border border-border flex flex-col justify-center">
+          <h4 className="text-sm font-bold uppercase tracking-widest text-foreground mb-6">What&apos;s Included</h4>
+          <ul className="flex flex-col gap-4">
+            {service.features.map((feature: string, i: number) => (
+              <li key={i} className="flex items-center gap-4 text-sm font-medium text-muted">
+                <span className="w-2 h-2 rounded-full" style={{ backgroundColor: service.color }} />
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }
 
 export function ServicesList() {
-  const [openIndex, setOpenIndex] = useState(0);
-
   return (
     <section className="w-full relative z-10 py-32">
-      <div className="max-w-[1400px] mx-auto px-8 sm:px-20">
-        <div className="flex flex-col lg:flex-row gap-20">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-8">
+        <div className="flex flex-col lg:flex-row gap-16">
 
           <div className="lg:w-1/3 relative">
             <div className="sticky top-40">
@@ -155,14 +152,12 @@ export function ServicesList() {
           </div>
 
           <div className="flex-1">
-            <div className="border-t border-border">
+            <div className="flex flex-col">
               {services.map((service, i) => (
-                <ServiceAccordion
+                <ServiceCard
                   key={service.title}
                   service={service}
                   index={i}
-                  isOpen={openIndex === i}
-                  toggleOpen={() => setOpenIndex(openIndex === i ? -1 : i)}
                 />
               ))}
             </div>

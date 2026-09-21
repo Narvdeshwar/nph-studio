@@ -21,6 +21,13 @@ const spatialExperiments = [
     color: '#F97316',
     status: 'Active'
   },
+  {
+    id: 'galaxium',
+    name: 'Galaxium OS',
+    desc: 'Cinematic Space Telemetry',
+    color: '#8B5CF6',
+    status: 'Active'
+  }
 ];
 
 export const heroVault = [

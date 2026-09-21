@@ -6,8 +6,9 @@ import { Magnetic } from '@/components/premium/Magnetic';
 import { ScrollVelocity } from '@/components/premium/ScrollVelocity';
 
 const projects = [
-  { name: 'AIBulletin', category: 'AI News Platform', image: '/aibulletin.png', link: 'http://aibulletin.in/' },
-  { name: 'LMS Platform', category: 'EdTech MVP', image: '/lms.png' }
+  { name: 'Care Well', category: 'Healthcare Platform', image: '/carewell.png', link: 'https://care-well-hospital-six.vercel.app/', metric: '< 1s Load Time' },
+  { name: 'AIBulletin', category: 'AI News Platform', image: '/aibulletin.png', link: 'http://aibulletin.in/', metric: '71K Impressions' },
+  { name: 'LMS Platform', category: 'EdTech MVP', image: '/lms.png', metric: '1.2K Active Users' }
 ];
 
 interface ProjectData {
@@ -15,6 +16,7 @@ interface ProjectData {
   category: string;
   image: string;
   link?: string;
+  metric?: string;
 }
 
 function FuturisticCard({ project, index }: { project: ProjectData, index: number }) {
@@ -60,46 +62,55 @@ function FuturisticCard({ project, index }: { project: ProjectData, index: numbe
         transition={{ duration: 1.5, ease: "easeInOut", delay: index * 0.3 }}
       />
 
-      {/* Step 2: The container expands from the center collision line */}
+      {/* The container expands from the center collision line */}
       <motion.div
-        className="absolute inset-0 bg-[#0A0A0A] flex items-center justify-center border border-zinc-800 transition-transform duration-1000 group-hover:scale-95 rounded-2xl"
+        className="absolute inset-0 bg-[#0A0A0A] flex items-end justify-start border border-zinc-800 transition-transform duration-1000 group-hover:scale-[0.98] rounded-2xl overflow-hidden"
         initial={{ scaleY: 0, opacity: 0 }}
         animate={isInView ? { scaleY: 1, opacity: 1 } : {}}
         transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1], delay: (index * 0.3) + 0.8 }}
         style={{ originY: 0.5 }}
       >
-        {/* Hover Gradient Effect - Adjusted to darken image for text legibility */}
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0" />
-
-        {/* Actual Project Image Background */}
+        {/* Actual Project Image Background - Now always visible */}
         <div
-          className="absolute inset-0 bg-cover bg-top opacity-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105"
+          className="absolute inset-0 bg-cover bg-center opacity-40 group-hover:opacity-80 transition-all duration-1000 group-hover:scale-105"
           style={{ backgroundImage: `url('${project.image}')` }}
         />
 
-        {/* Dark overlay specifically behind text for maximum contrast */}
-        {/* <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0" /> */}
+        {/* Gradient overlay for text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 z-0" />
 
-        {/* Step 3: Text reveals after expansion */}
-        <div className="relative z-10 text-center pointer-events-none">
-          <motion.div className="overflow-hidden px-4 py-8 -my-8">
+        {/* Text reveals after expansion */}
+        <div className="relative z-10 w-full p-8 md:p-12 pointer-events-none flex flex-col items-start justify-end h-full">
+          <motion.div className="overflow-hidden mb-2">
             <motion.h3
-              initial={{ y: "100%", opacity: 0, filter: "blur(10px)" }}
-              animate={isInView ? { y: "0%", opacity: 1, filter: "blur(0px)" } : {}}
+              initial={{ y: "100%", opacity: 0 }}
+              animate={isInView ? { y: "0%", opacity: 1 } : {}}
               transition={{ duration: 0.6, delay: (index * 0.3) + 1.2, ease: "easeOut" }}
-              className="text-4xl sm:text-7xl font-black uppercase tracking-tighter mb-4 group-hover:scale-110 group-hover:text-red-400 transition-all duration-700 drop-shadow-2xl text-zinc-300"
+              className="text-4xl sm:text-6xl font-black uppercase tracking-tighter text-white"
             >
               {project.name}
             </motion.h3>
           </motion.div>
-          <motion.p
-            initial={{ opacity: 0, letterSpacing: "0px" }}
-            animate={isInView ? { opacity: 1, letterSpacing: "8px" } : {}}
-            transition={{ duration: 1, delay: (index * 0.3) + 1.4, ease: "easeOut" }}
-            className="text-primary uppercase text-sm font-bold opacity-0 group-hover:opacity-100 transition-all duration-500 drop-shadow-md"
-          >
-            {project.category}
-          </motion.p>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <motion.p
+              initial={{ opacity: 0, x: -20 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 1, delay: (index * 0.3) + 1.4, ease: "easeOut" }}
+              className="text-primary uppercase text-sm font-bold tracking-widest"
+            >
+              {project.category}
+            </motion.p>
+            {project.metric && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.8, delay: (index * 0.3) + 1.6, ease: "backOut" }}
+                className="bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1 rounded-full text-xs font-bold text-white uppercase tracking-widest"
+              >
+                {project.metric}
+              </motion.div>
+            )}
+          </div>
         </div>
       </motion.div>
 

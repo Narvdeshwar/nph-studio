@@ -8,21 +8,27 @@ const team = [
     role: 'Founder & Lead Engineer',
     description: 'Expert in architecting highly scalable Go backends, Next.js applications, and custom RAG/AI pipelines. Leads all technical strategy and core product development.',
     initials: 'N',
-    color: '#FF5A36'
+    color: '#FF5A36',
+    image: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=200&auto=format&fit=crop',
+    linkedin: 'https://linkedin.com/'
   },
   {
     name: 'Harsh Pandey',
     role: 'Backend Systems Engineer',
     description: 'Specializes in robust database design, microservices, and third-party integrations. Ensures every product is built on a rock-solid, secure foundation.',
     initials: 'HP',
-    color: '#7C3AED'
+    color: '#7C3AED',
+    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop',
+    linkedin: 'https://linkedin.com/'
   },
   {
     name: 'Priyanka Sonkar',
     role: 'Technical Consultant',
     description: 'Your direct point of contact. Translates your business goals into actionable engineering timelines and ensures seamless communication from kickoff to launch.',
     initials: 'PS',
-    color: '#161616'
+    color: '#161616',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop',
+    linkedin: 'https://linkedin.com/'
   }
 ];
 
@@ -32,6 +38,8 @@ interface TeamMember {
   description: string;
   initials: string;
   color: string;
+  image?: string;
+  linkedin?: string;
 }
 
 function TeamCard({ member, index }: { member: TeamMember, index: number }) {
@@ -49,16 +57,26 @@ function TeamCard({ member, index }: { member: TeamMember, index: number }) {
         style={{ background: `radial-gradient(circle at center, ${member.color}, transparent 70%)` }}
       />
 
-      {/* Avatar Placeholder */}
+      {/* Avatar / Photo */}
       <div className="w-32 h-32 flex-shrink-0 rounded-full bg-zinc-100 flex items-center justify-center text-3xl font-black text-foreground shadow-inner relative overflow-hidden group-hover:scale-105 transition-transform duration-500">
         <div className="absolute inset-0 opacity-10" style={{ backgroundColor: member.color }} />
-        {member.initials}
+        {member.image ? (
+          <img src={member.image} alt={member.name} className="w-full h-full object-cover relative z-10" />
+        ) : (
+          <span className="relative z-10">{member.initials}</span>
+        )}
       </div>
 
       <div className="flex-1 text-center sm:text-left z-10">
         <span className="text-muted text-sm font-bold uppercase tracking-widest mb-2 block">{member.role}</span>
         <h3 className="text-3xl sm:text-4xl font-black uppercase tracking-tighter mb-4 text-foreground">{member.name}</h3>
-        <p className="text-muted leading-relaxed text-lg max-w-2xl">{member.description}</p>
+        <p className="text-muted leading-relaxed text-lg max-w-2xl mb-6">{member.description}</p>
+        
+        {member.linkedin && (
+          <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-primary hover:text-primary/80 transition-colors">
+            View LinkedIn <span className="text-lg leading-none">↗</span>
+          </a>
+        )}
       </div>
 
     </motion.div>

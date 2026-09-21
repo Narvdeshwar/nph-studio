@@ -1,8 +1,20 @@
-'use client';
-
+import { Metadata } from 'next';
 import { Footer } from '@/components/premium/Footer';
 import { ServicesList } from '@/components/premium/ServicesList';
 import { TextMask } from '@/components/premium/TextMask';
+
+export const metadata: Metadata = {
+  title: "Services & Pricing | NPH Studio",
+  description: "Transparent pricing for full-stack product development. Explore our packages for Landing Pages, Full-Stack MVPs, and AI/RAG integrations.",
+  alternates: {
+    canonical: 'https://www.nph-studio.in/services',
+  },
+  openGraph: {
+    url: 'https://www.nph-studio.in/services',
+    title: 'Services & Pricing | NPH Studio',
+    description: 'Explore premium engineering services: Landing Pages, MVPs, and RAG/AI Pipelines.',
+  }
+};
 
 export default function ServicesPage() {
   return (

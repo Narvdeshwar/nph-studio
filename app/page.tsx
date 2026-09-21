@@ -71,10 +71,10 @@ export default function Home() {
 
           {/* Main Typography */}
           <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black leading-[0.95] tracking-tighter uppercase max-w-7xl flex flex-col gap-1 sm:gap-2">
-            <DecryptedText text="We Build" delay={0.1} className="block" />
-            <DecryptedText text="Full-Stack Products" delay={0.3} className="block" />
+            <DecryptedText text="We Engineer" delay={0.1} className="block" />
+            <DecryptedText text="High-Performance" delay={0.3} className="block" />
             <span className="text-primary block">
-              <DecryptedText text="& AI Systems." delay={0.5} className="block" />
+              <DecryptedText text="Web Applications." delay={0.5} className="block" />
             </span>
           </h1>
 
@@ -84,7 +84,7 @@ export default function Home() {
             transition={{ delay: 0.7, duration: 0.8 }}
             className="text-xl sm:text-3xl lg:text-4xl mt-6 sm:mt-8 md:mt-12 text-foreground/70 tracking-tight font-medium max-w-4xl"
           >
-            For founders who need to ship fast, in weeks, not quarters.
+            NPH Studio helps ambitious brands design and develop blazing-fast digital experiences.
           </motion.p>
 
           <motion.div
@@ -113,13 +113,15 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Featured Work immediately below hero */}
+      <WorkPreview />
+
       {/* Core Capabilities Bento Grid */}
       <CapabilitiesBento />
       <TechStack />
 
       <ProofStrip />
       <Services />
-      <WorkPreview />
       <Process />
       <Testimonials />
       <Footer />
