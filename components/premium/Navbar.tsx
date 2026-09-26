@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 import { TransitionLink } from '@/components/premium/TransitionLink';
 import { Logo } from '@/components/premium/Logo';
 import { Magnetic } from '@/components/premium/Magnetic';
@@ -16,6 +17,7 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [menuTheme, setMenuTheme] = useState<'dark' | 'light'>('dark');
+  const pathname = usePathname();
 
   const handleMenuClick = () => {
     if (!isOpen) {
@@ -69,17 +71,23 @@ export function Navbar() {
 
           {/* Desktop Links - Center */}
           <div className="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
-            {menuLinks.map((link) => (
-              <Magnetic key={link.name}>
-                <TransitionLink
-                  href={link.href}
-                  className="text-xs font-bold uppercase tracking-widest text-foreground/70 hover:text-primary transition-colors relative group"
-                >
-                  {link.name}
-                  <span className="absolute -bottom-1.5 left-1/2 w-0 h-px bg-primary group-hover:w-full group-hover:left-0 transition-all duration-300 ease-out" />
-                </TransitionLink>
-              </Magnetic>
-            ))}
+            {menuLinks.map((link) => {
+              const isActive = pathname === link.href || (link.href !== '/' && pathname?.startsWith(link.href));
+              
+              return (
+                <Magnetic key={link.name}>
+                  <TransitionLink
+                    href={link.href}
+                    className={`text-xs font-bold uppercase tracking-widest transition-colors relative group ${isActive ? 'text-primary' : 'text-foreground/70 hover:text-primary'}`}
+                  >
+                    {link.name}
+                    <span 
+                      className={`absolute -bottom-1.5 h-px bg-primary transition-all duration-300 ease-out ${isActive ? 'w-full left-0' : 'w-0 left-1/2 group-hover:w-full group-hover:left-0'}`} 
+                    />
+                  </TransitionLink>
+                </Magnetic>
+              );
+            })}
           </div>
 
           {/* CTA & Mobile Toggle - Right */}
@@ -132,7 +140,10 @@ export function Navbar() {
             <div className="w-full max-w-7xl px-6 py-24 min-h-screen flex flex-col justify-between items-start gap-12">
               <div className="flex flex-col gap-6 w-full">
                 <span className={`uppercase tracking-widest text-xs font-bold mb-4 ${menuTheme === 'dark' ? 'text-zinc-500' : 'text-zinc-400'}`}>Navigation</span>
-                {[{ name: 'Home', href: '/' }, ...menuLinks, { name: 'Contact', href: '/contact' }].map((link, i) => (
+                {[{ name: 'Home', href: '/' }, ...menuLinks, { name: 'Contact', href: '/contact' }].map((link, i) => {
+                  const isActive = pathname === link.href || (link.href !== '/' && pathname?.startsWith(link.href));
+                  
+                  return (
                   <div key={link.name} className="overflow-hidden">
                     <motion.div
                       initial={{ y: "100%" }}
@@ -143,14 +154,15 @@ export function Navbar() {
                       <TransitionLink
                         href={link.href}
                         onClick={() => setIsOpen(false)}
-                        className="text-4xl font-black uppercase tracking-tighter hover:text-primary transition-colors flex items-center gap-4 group w-fit"
+                        className={`text-4xl font-black uppercase tracking-tighter hover:text-primary transition-colors flex items-center gap-4 group w-fit ${isActive ? 'text-primary' : ''}`}
                       >
-                        <span className={`text-lg font-medium transition-colors ${menuTheme === 'dark' ? 'text-zinc-600 group-hover:text-primary/50' : 'text-zinc-300 group-hover:text-primary/50'}`}>0{i + 1}</span>
+                        <span className={`text-lg font-medium transition-colors ${isActive ? 'text-primary/70' : menuTheme === 'dark' ? 'text-zinc-600 group-hover:text-primary/50' : 'text-zinc-300 group-hover:text-primary/50'}`}>0{i + 1}</span>
                         {link.name}
                       </TransitionLink>
                     </motion.div>
                   </div>
-                ))}
+                );
+                })}
               </div>
 
               <div className="flex flex-col gap-8 w-full">
