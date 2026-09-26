@@ -129,6 +129,75 @@ export const caseStudies: CaseStudyData[] = [
       'Identified a 12% revenue leak through unified data visibility.',
       'Achieved sub-second query times on millions of data points.'
     ]
+  },
+  {
+    slug: 'jspark',
+    title: 'JSpark AI',
+    category: 'AI Application',
+    overview: 'An advanced AI-powered platform designed to accelerate productivity through intelligent automation and generative models.',
+    problem: 'Users needed a seamless, high-performance interface to interact with cutting-edge AI models without workflow friction.',
+    solution: 'Developed a sophisticated web interface integrating large language models. The platform features real-time generation capabilities, seamless UI/UX, and robust prompt handling.',
+    color: '#3B82F6', // Blue
+    bg: '#0B1324',
+    link: 'https://jspark.ai/',
+    techStack: ['Next.js', 'Tailwind CSS', 'OpenAI API', 'Framer Motion'],
+    features: [
+      'Generative AI Integration',
+      'Real-time Data Processing',
+      'High-Performance UI',
+      'Seamless User Authentication',
+      'Responsive Design'
+    ],
+    metrics: [
+      { label: 'Platform Type', value: 'Generative AI' },
+      { label: 'Load Time', value: '< 1.5s' }
+    ]
+  },
+  {
+    slug: 'jspark-prime',
+    title: 'JSpark Prime',
+    category: 'Enterprise SaaS',
+    overview: 'The premium, enterprise-tier extension of the JSpark ecosystem, offering advanced features, higher limits, and tailored AI solutions for businesses.',
+    problem: 'Enterprise clients required a scalable, secure, and highly available environment with elevated rate limits and dedicated capabilities.',
+    solution: 'Architected an enterprise-grade SaaS architecture with enhanced security, role-based access, and optimized backend processing for heavy AI workloads.',
+    color: '#EAB308', // Gold/Yellow
+    bg: '#1C190F',
+    link: 'https://jsparkprime.com/',
+    techStack: ['Next.js', 'PostgreSQL', 'Stripe Integration', 'Enterprise Auth'],
+    features: [
+      'Enterprise Tier Access',
+      'Advanced API Limits',
+      'Custom Analytics Dashboard',
+      'Priority Processing',
+      'Secure Data Handling'
+    ],
+    metrics: [
+      { label: 'Platform', value: 'Enterprise SaaS' },
+      { label: 'Uptime', value: '99.99%' }
+    ]
+  },
+  {
+    slug: 'ssslux',
+    title: 'SSSLux',
+    category: 'Luxury Platform (WIP)',
+    overview: 'A high-end, premium digital platform currently under development, aimed at delivering a world-class luxury digital experience.',
+    problem: 'The client needed a digital presence that perfectly matched the exclusivity, elegance, and premium nature of their luxury brand.',
+    solution: 'Currently engineering a highly immersive, WebGL-enhanced frontend with buttery smooth animations, deep aesthetic contrast, and ultra-premium typography.',
+    color: '#D4AF37', // Luxury Gold
+    bg: '#14130F',
+    link: 'https://ssslux.vercel.app/',
+    techStack: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'WebGL'],
+    features: [
+      'Cinematic Animations',
+      'Premium Typography',
+      'Immersive Scrolling',
+      'High-End UI/UX',
+      'Under Development'
+    ],
+    metrics: [
+      { label: 'Status', value: 'In Development' },
+      { label: 'Focus', value: 'Luxury UX' }
+    ]
   }
 ];
 
