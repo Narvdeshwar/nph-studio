@@ -1,5 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 
 const team = [
@@ -61,7 +62,7 @@ function TeamCard({ member, index }: { member: TeamMember, index: number }) {
       <div className="w-32 h-32 flex-shrink-0 rounded-full bg-zinc-100 flex items-center justify-center text-3xl font-black text-foreground shadow-inner relative overflow-hidden group-hover:scale-105 transition-transform duration-500">
         <div className="absolute inset-0 opacity-10" style={{ backgroundColor: member.color }} />
         {member.image ? (
-          <img src={member.image} alt={member.name} className="w-full h-full object-cover relative z-10" />
+          <Image src={member.image} alt={member.name} fill unoptimized className="object-cover relative z-10" />
         ) : (
           <span className="relative z-10">{member.initials}</span>
         )}

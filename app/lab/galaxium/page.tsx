@@ -2,7 +2,7 @@
 import { useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Stars, Sparkles, OrbitControls, Sphere, MeshDistortMaterial, Environment } from '@react-three/drei';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { IconArrowLeft, IconCrosshair, IconRadar } from '@tabler/icons-react';
 import * as THREE from 'three';
@@ -121,7 +121,7 @@ export default function GalaxiumPage() {
   const currentData = CELESTIAL_DATA[activeTarget];
   const categories = ['All', ...Array.from(new Set(Object.values(CELESTIAL_DATA).map(d => d.category)))];
   
-  const filteredTargets = Object.entries(CELESTIAL_DATA).filter(([_, data]) => 
+  const filteredTargets = Object.entries(CELESTIAL_DATA).filter(([, data]) => 
     categoryFilter === 'All' || data.category === categoryFilter
   );
 

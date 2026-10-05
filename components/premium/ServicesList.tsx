@@ -1,8 +1,6 @@
 'use client';
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Magnetic } from '@/components/premium/Magnetic';
-import { IconArrowUpRight, IconPlus, IconMinus } from '@tabler/icons-react';
+import { IconArrowUpRight } from '@tabler/icons-react';
 
 const services = [
   {

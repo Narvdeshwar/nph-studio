@@ -4,6 +4,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, PresentationControls, Sparkles, Html, Edges } from '@react-three/drei';
 import * as THREE from 'three';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { caseStudies } from '@/data/case-studies';
 
 function Carousel() {
@@ -113,7 +114,7 @@ function ProjectCard({ study, position, rotation, index }: { study: import('@/da
         >
           {study.image && (
             <div className="absolute inset-0 w-full h-full z-0 transition-opacity duration-500" style={{ opacity: hovered ? 0.15 : 0.4 }}>
-              <img src={study.image} alt={study.title} className="w-full h-full object-cover grayscale" />
+              <Image src={study.image} alt={study.title} fill unoptimized className="object-cover grayscale" />
             </div>
           )}
           
