@@ -31,7 +31,7 @@ export default function Home() {
 
 
       {/* Hero Section */}
-      <section className="relative min-h-[100vh] h-[100vh] flex flex-col justify-center p-6 sm:p-12 md:p-20 pt-28 sm:pt-32 md:pt-40 z-10 overflow-hidden">
+      <section className="relative min-h-screen flex flex-col justify-center px-6 sm:px-12 md:px-20 pt-28 sm:pt-32 pb-16 z-10 overflow-hidden">
 
         {/* Subtle Engineering Grid Background */}
         <div className="absolute inset-0 z-[-2] opacity-20 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
@@ -52,14 +52,14 @@ export default function Home() {
           <div className="absolute bottom-[20%] left-[10%] w-[500px] h-[500px] opacity-[0.10]" style={{ background: 'radial-gradient(circle at center, var(--secondary), transparent 70%)' }} />
         </motion.div>
 
-        <div className="max-w-[1400px] w-full mx-auto relative mt-8 sm:mt-16 md:mt-20">
+        <div className="max-w-[1400px] w-full mx-auto relative">
 
           {/* Sleek Agency Status Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
-            className="mb-8 md:mb-12 inline-flex items-center gap-3 sm:gap-4 bg-surface border border-border rounded-full px-4 sm:px-6 py-2 sm:py-3 shadow-lg backdrop-blur-md max-w-full"
+            className="mb-6 sm:mb-8 inline-flex items-center gap-3 sm:gap-4 bg-surface border border-border rounded-full px-4 sm:px-6 py-2 sm:py-2.5 shadow-lg backdrop-blur-md max-w-full"
           >
             <div className="flex items-center justify-center relative flex-shrink-0">
               <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-primary rounded-full" />
@@ -71,7 +71,7 @@ export default function Home() {
           </motion.div>
 
           {/* Main Typography */}
-          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black leading-[0.95] tracking-tighter uppercase max-w-7xl flex flex-col gap-1 sm:gap-2">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.95] tracking-tighter uppercase max-w-7xl flex flex-col gap-1 sm:gap-2">
             <DecryptedText text="We Build" delay={0.1} className="block" />
             <DecryptedText text="Turnkey Products" delay={0.3} className="block" />
             <span className="text-primary block">
@@ -83,7 +83,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className="text-xl sm:text-3xl lg:text-4xl mt-6 sm:mt-8 md:mt-12 text-foreground/70 tracking-tight font-medium max-w-4xl"
+            className="text-lg sm:text-2xl lg:text-3xl mt-4 sm:mt-6 text-foreground/70 tracking-tight font-medium max-w-3xl"
           >
             NPH Studio is a digital engineering agency. We partner with startups and scaling businesses to design, engineer, and deploy production-grade software in weeks, not quarters.
           </motion.p>
@@ -92,12 +92,12 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.8 }}
-            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6 mt-8 sm:mt-12 md:mt-16"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6 mt-6 sm:mt-8 md:mt-10"
           >
             <Magnetic>
               <button
                 onClick={() => window.dispatchEvent(new CustomEvent('open-inquiry-modal'))}
-                className="bg-foreground text-background px-6 sm:px-8 py-4 sm:py-5 rounded-full font-bold uppercase tracking-widest text-xs sm:text-sm hover:scale-105 active:scale-95 transition-all shadow-[0_0_40px_rgba(255,255,255,0.1)] border border-transparent hover:bg-primary hover:text-white hover:shadow-[0_0_40px_rgba(255,90,54,0.4)] w-full sm:w-auto text-center"
+                className="bg-foreground text-background px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-bold uppercase tracking-widest text-xs sm:text-sm hover:scale-105 active:scale-95 transition-all shadow-[0_0_40px_rgba(255,255,255,0.1)] border border-transparent hover:bg-primary hover:text-white hover:shadow-[0_0_40px_rgba(255,90,54,0.4)] w-full sm:w-auto text-center"
               >
                 Start Your Project
               </button>
@@ -105,7 +105,7 @@ export default function Home() {
             <Magnetic>
               <Link
                 href="/work"
-                className="bg-surface border border-border px-6 sm:px-8 py-4 sm:py-5 rounded-full font-bold uppercase tracking-widest text-xs sm:text-sm hover:bg-white/5 active:scale-95 transition-all text-foreground/80 hover:text-foreground w-full sm:w-auto text-center block"
+                className="bg-surface border border-border px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-bold uppercase tracking-widest text-xs sm:text-sm hover:bg-white/5 active:scale-95 transition-all text-foreground/80 hover:text-foreground w-full sm:w-auto text-center block"
               >
                 View Client Case Studies
               </Link>
