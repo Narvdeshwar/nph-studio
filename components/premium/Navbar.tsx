@@ -9,8 +9,8 @@ import { Magnetic } from '@/components/premium/Magnetic';
 const menuLinks = [
   { name: 'Work', href: '/work' },
   { name: 'Services', href: '/services' },
-  { name: 'Team', href: '/team' },
-  { name: 'Lab (3D)', href: '/lab' }
+  { name: 'Process', href: '/process' },
+  { name: 'Team', href: '/team' }
 ];
 
 export function Navbar() {

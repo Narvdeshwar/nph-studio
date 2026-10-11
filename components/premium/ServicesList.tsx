@@ -4,35 +4,46 @@ import { IconArrowUpRight } from '@tabler/icons-react';
 
 const services = [
   {
-    title: 'Landing Page',
-    subtitle: 'Marketing Site',
+    title: 'High-Impact Web Presence',
+    subtitle: 'Brand & Conversion Engine',
     timeline: '1–2 weeks',
-    price: 'Starting at ₹20,000',
-    description: 'High-conversion, ultra-premium landing pages designed to turn your visitors into customers. Perfect for pre-launch or single-product campaigns.',
-    features: ['Custom UI/UX Design', 'Framer Motion Animations', 'Mobile Responsive', 'SEO Optimization', 'Fast Load Times'],
+    price: 'Starting at ₹25,000',
+    description: 'Bespoke, cinematic marketing websites designed to convert cold visitors into high-ticket inbound clients. Built with Next.js, Framer Motion, and technical SEO baked in.',
+    features: ['Custom UI/UX & Art Direction', 'Framer Motion Fluid Interactions', '100/100 Core Web Vitals Optimization', 'Technical SEO & JSON-LD Structured Data', 'Analytics & Lead Capture Integration', 'Full Codebase Ownership & IP Transfer'],
     color: '#FF5A36',
     popular: false,
     available: true
   },
   {
-    title: 'Full-Stack MVP',
-    subtitle: 'Web Application',
-    timeline: '4–8 weeks',
+    title: 'Full-Stack MVP Sprint',
+    subtitle: 'Turnkey Product Launch',
+    timeline: '4–6 weeks',
     price: 'Starting at ₹1,50,000',
-    description: 'Complete product engineering from database to deployment. We build scalable, production-ready web applications for founders ready to scale.',
-    features: ['Next.js App Router', 'Custom Database Architecture', 'Authentication & Auth', 'Payment Integration', 'Admin Dashboard'],
+    description: 'From wireframes to live users. We engineer production-grade web applications with scalable databases, role-based auth, payment gateways, and custom admin portals.',
+    features: ['Next.js App Router & Server Actions', 'PostgreSQL / Supabase Data Architecture', 'Secure Auth & RBAC Permissions', 'Stripe / Razorpay Payment Integration', 'Custom Admin Management Portal', 'Automated CI/CD & Cloud Deployment'],
     color: '#7C3AED',
     popular: true,
     available: true
   },
   {
     title: 'AI / RAG Integration',
-    subtitle: 'Intelligent Add-on',
-    timeline: '3–6 weeks',
+    subtitle: 'Intelligent Automation & Retrieval',
+    timeline: '3–5 weeks',
     price: 'Starting at ₹1,00,000',
-    description: 'Give your product an AI assistant that can search and answer questions from your own data — documents, database, or knowledge base — instead of hallucinating generic answers.',
-    features: ['Vector Database Setup', 'Custom RAG Pipelines', 'Automated Workflows', 'Chatbot Integration', 'Data Privacy Focused'],
+    description: 'Empower your application with intelligent context-aware AI. We engineer custom vector retrieval pipelines, semantic search, and autonomous LLM agents that query your private knowledge.',
+    features: ['Vector Database Setup (pgvector / Pinecone)', 'Custom Chunking & RAG Retrieval Pipelines', 'Private Knowledge Base Connectors', 'Latency-Optimized Stream Responses', 'Guardrails, Cost & Rate Limit Controls', 'Post-Launch Tuning & Evaluation'],
     color: '#161616',
+    popular: false,
+    available: true
+  },
+  {
+    title: 'Dedicated Engineering Squad',
+    subtitle: 'Monthly Product Retainer',
+    timeline: 'Ongoing / Monthly Sprints',
+    price: 'Custom / Monthly',
+    description: 'A dedicated senior engineering team plugged into your company. Continuous feature shipping, architecture scaling, performance tuning, and on-call reliability.',
+    features: ['Dedicated Full-Stack & Systems Engineers', 'Weekly Live Sprint Demo & Deployments', 'Direct Slack / WhatsApp Executive Channel', 'Architecture Advisory & Code Reviews', 'Priority Bug Fixing & SLAs', 'Flexible Resource Allocation'],
+    color: '#059669',
     popular: false,
     available: true
   }

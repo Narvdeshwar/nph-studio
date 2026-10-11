@@ -6,30 +6,30 @@ import Image from 'next/image';
 const team = [
   {
     name: 'Narvdeshwar',
-    role: 'Founder & Lead Engineer',
-    description: 'Expert in architecting highly scalable Go backends, Next.js applications, and custom RAG/AI pipelines. Leads all technical strategy and core product development.',
+    role: 'Founder & Technical Director',
+    description: 'Leads engineering strategy, high-scale architecture, and AI/RAG system design. Ensures every client platform meets enterprise-grade performance, security, and uptime standards.',
     initials: 'N',
     color: '#FF5A36',
     image: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=200&auto=format&fit=crop',
-    linkedin: 'https://linkedin.com/'
+    linkedin: 'https://www.linkedin.com/company/nph-studio'
   },
   {
     name: 'Harsh Pandey',
-    role: 'Backend Systems Engineer',
-    description: 'Specializes in robust database design, microservices, and third-party integrations. Ensures every product is built on a rock-solid, secure foundation.',
+    role: 'Lead Systems & Cloud Architect',
+    description: 'Specializes in high-throughput backend services, PostgreSQL database modeling, and cloud infrastructure. Ensures fast, secure, and cost-efficient client architectures.',
     initials: 'HP',
     color: '#7C3AED',
     image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop',
-    linkedin: 'https://linkedin.com/'
+    linkedin: 'https://www.linkedin.com/company/nph-studio'
   },
   {
     name: 'Priyanka Sonkar',
-    role: 'Technical Consultant',
-    description: 'Your direct point of contact. Translates your business goals into actionable engineering timelines and ensures seamless communication from kickoff to launch.',
+    role: 'Client Partner & Product Manager',
+    description: 'Your direct agency point of contact. Coordinates sprint roadmaps, manages client communications, translates business milestones into technical deliverables, and ensures on-time launches.',
     initials: 'PS',
     color: '#161616',
     image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop',
-    linkedin: 'https://linkedin.com/'
+    linkedin: 'https://www.linkedin.com/company/nph-studio'
   }
 ];
 

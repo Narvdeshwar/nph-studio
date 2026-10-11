@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import { IconBuildingSkyscraper, IconSchool, IconLayoutDashboard } from '@tabler/icons-react';
 
 const clients = [
-  { name: 'AIBulletin', icon: IconBuildingSkyscraper },
-  { name: 'LMS Project', icon: IconSchool },
-  { name: 'NextGen UI', icon: IconLayoutDashboard },
+  { name: 'Care Well Health', category: 'Healthcare Platform', icon: IconBuildingSkyscraper },
+  { name: 'NSS Education', category: 'EdTech Streaming', icon: IconSchool },
+  { name: 'AIBulletin', category: 'AI Intelligence', icon: IconLayoutDashboard },
 ];
 
 export function ProofStrip() {
@@ -18,7 +18,7 @@ export function ProofStrip() {
           viewport={{ once: true, margin: "-50px" }}
           className="text-xs font-bold uppercase tracking-widest text-muted mb-12 text-center md:text-left"
         >
-          Selected Products & Portfolios
+          Trusted By Fast-Growing Startups & Enterprises
         </motion.p>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -31,9 +31,14 @@ export function ProofStrip() {
               transition={{ delay: i * 0.1 }}
               className="group flex items-center justify-between p-6 sm:p-8 rounded-2xl bg-surface border border-border hover:border-primary/50 transition-colors"
             >
-              <span className="text-xl sm:text-2xl font-black uppercase tracking-tighter text-foreground group-hover:text-primary transition-colors">
-                {client.name}
-              </span>
+              <div>
+                <span className="text-xl sm:text-2xl font-black uppercase tracking-tighter text-foreground group-hover:text-primary transition-colors block">
+                  {client.name}
+                </span>
+                <span className="text-xs text-muted font-medium uppercase tracking-wider block mt-1">
+                  {client.category}
+                </span>
+              </div>
               <client.icon className="text-muted/50 group-hover:text-primary transition-colors" size={32} />
             </motion.div>
           ))}

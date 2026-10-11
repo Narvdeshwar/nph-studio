@@ -3,22 +3,22 @@ import { motion } from 'framer-motion';
 
 const testimonials = [
   {
-    quote: "NPH Studio delivered our MVP in 3 weeks, something other agencies quoted 3 months for. Their technical depth and speed are unmatched.",
-    name: "Alex Reed",
-    role: "Founder, SaaS Startup",
-    company: "Acme Corp"
+    quote: "NPH Studio took our product from concept wireframes to a live, revenue-generating MVP in 4 weeks. Their technical rigor with Next.js and Supabase allowed us to onboard our first 500 paid users without a single infrastructure hiccup.",
+    name: "Sachin Sharma",
+    role: "Founder & Lead Educator",
+    company: "NSS Online Academy"
   },
   {
-    quote: "They integrated a custom RAG pipeline into our existing database seamlessly. It completely transformed how our users interact with our platform.",
-    name: "Sarah Jenkins",
-    role: "CTO, FinTech Scaleup",
-    company: "Global Tech"
+    quote: "We needed our emergency patient services and hospital department directory digitized fast. NPH Studio delivered an ultra-responsive, accessible platform with sub-second page loads that streamlined our patient communication.",
+    name: "Dr. R. K. Singh",
+    role: "Director of Operations",
+    company: "Care Well Hospital"
   },
   {
-    quote: "The visual polish and engineering quality we received was world-class. It feels like an in-house elite team without the overhead.",
-    name: "David Chen",
-    role: "CEO, E-commerce Brand",
-    company: "NextRetail"
+    quote: "Their RAG and automated AI pipeline processing saved our editorial desk over 20 hours a week. NPH Studio operates as a true technical partner, not just a dev shop.",
+    name: "Devendra Verma",
+    role: "Head of Product",
+    company: "AIBulletin Media"
   }
 ];
 
@@ -53,7 +53,8 @@ export function Testimonials() {
                 </div>
                 <div>
                   <h4 className="font-bold text-foreground">{testimonial.name}</h4>
-                  <p className="text-sm text-muted">{testimonial.role}</p>
+                  <p className="text-xs text-primary font-medium tracking-wide">{testimonial.company}</p>
+                  <p className="text-xs text-muted">{testimonial.role}</p>
                 </div>
               </div>
             </motion.div>

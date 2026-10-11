@@ -75,9 +75,9 @@ export function Footer() {
           <div className="flex flex-col sm:flex-row gap-12 sm:gap-16 text-sm uppercase tracking-widest font-medium text-zinc-500 w-full md:w-auto">
             <div className="flex flex-col gap-4 sm:gap-6">
               <span className="text-white mb-2 text-xs sm:text-sm">Navigation</span>
-              {['Work', 'Services', 'Team', 'Process'].map((item) => (
+              {['Work', 'Services', 'Team', 'Process', 'Lab (R&D)'].map((item) => (
                 <Magnetic key={item}>
-                  <a href={`/${item.toLowerCase()}`} className="hover:text-primary transition-colors block w-fit text-xs sm:text-sm">
+                  <a href={item.startsWith('Lab') ? '/lab' : `/${item.toLowerCase()}`} className="hover:text-primary transition-colors block w-fit text-xs sm:text-sm">
                     {item}
                   </a>
                 </Magnetic>

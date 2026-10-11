@@ -4,10 +4,10 @@ import { useRef } from 'react';
 import { BlurText } from '@/components/premium/BlurText';
 
 const steps = [
-  { num: "01", title: "Discovery", desc: "We map out the exact scope, requirements, and tech stack needed to launch your product." },
-  { num: "02", title: "Proposal", desc: "Clear timeline and upfront costs. No hidden fees." },
-  { num: "03", title: "Execution", desc: "We build rapidly with weekly staging deployments so you can see the progress live." },
-  { num: "04", title: "Launch", desc: "Deployment to production, scaling infrastructure, and complete handover." }
+  { num: "01", title: "Discovery & Architecture", desc: "We map out your business objectives, system architecture, database schema, and fixed milestones before writing a line of code." },
+  { num: "02", title: "Fixed Scope & Timeline", desc: "No ambiguous hourly billing. You receive an all-inclusive sprint proposal, fixed timeline, and guaranteed scope." },
+  { num: "03", title: "Rapid Sprints & Staging", desc: "Weekly live staging deployments with continuous feedback loops. You see your actual software running in production from week one." },
+  { num: "04", title: "Launch, Handover & SLA", desc: "Full code and IP transfer, automated CI/CD setup, monitoring configuration, and post-launch maintenance warranty." }
 ];
 
 export function Process() {

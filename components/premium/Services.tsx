@@ -6,20 +6,20 @@ import { BlurText } from '@/components/premium/BlurText';
 const pillars = [
   {
     num: "01",
-    title: "Frontend & UI",
-    desc: "Next.js App Router, Framer Motion, and Tailwind CSS. We build interfaces that feel alive.",
+    title: "Product Design & Frontend",
+    desc: "Turnkey UI/UX, responsive Next.js architectures, and interactive motion design engineered for conversion and retention.",
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
   },
   {
     num: "02",
-    title: "Backend & Infra",
-    desc: "Scalable Go microservices, robust databases, and secure authentication. The invisible heavy lifting.",
+    title: "Cloud Backend & Microservices",
+    desc: "Battle-tested Go & Node.js backends, custom PostgreSQL architectures, secure auth, and automated zero-downtime CI/CD.",
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop"
   },
   {
     num: "03",
-    title: "AI / RAG Integration",
-    desc: "We connect your product's own data to LLMs through custom RAG pipelines — real answers from your knowledge base, not generic AI output.",
+    title: "AI Pipelines & RAG Systems",
+    desc: "Connect LLMs to your private business knowledge. We build high-accuracy vector retrieval, semantic search, and autonomous workflows.",
     image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965&auto=format&fit=crop"
   }
 ];

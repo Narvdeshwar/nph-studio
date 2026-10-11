@@ -1,6 +1,7 @@
 'use client';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import Link from 'next/link';
 import { Magnetic } from '@/components/premium/Magnetic';
 
 import { DecryptedText } from '@/components/premium/DecryptedText';
@@ -53,7 +54,7 @@ export default function Home() {
 
         <div className="max-w-[1400px] w-full mx-auto relative mt-8 sm:mt-16 md:mt-20">
 
-          {/* Sleek Technical Status Badge (Replaced old border-l text) */}
+          {/* Sleek Agency Status Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -65,16 +66,16 @@ export default function Home() {
               <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-primary rounded-full absolute animate-ping opacity-75" />
             </div>
             <p className="text-foreground text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-widest break-words overflow-hidden text-ellipsis line-clamp-2">
-              Landing pages, MVPs, and RAG-powered AI — engineered by a founder-led team.
+              Digital Product Agency • Full-Stack Web Apps, MVPs & AI Systems
             </p>
           </motion.div>
 
           {/* Main Typography */}
           <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black leading-[0.95] tracking-tighter uppercase max-w-7xl flex flex-col gap-1 sm:gap-2">
-            <DecryptedText text="We Engineer" delay={0.1} className="block" />
-            <DecryptedText text="High-Performance" delay={0.3} className="block" />
+            <DecryptedText text="We Build" delay={0.1} className="block" />
+            <DecryptedText text="Turnkey Products" delay={0.3} className="block" />
             <span className="text-primary block">
-              <DecryptedText text="Web Applications." delay={0.5} className="block" />
+              <DecryptedText text="For Visionary Founders." delay={0.5} className="block" />
             </span>
           </h1>
 
@@ -84,7 +85,7 @@ export default function Home() {
             transition={{ delay: 0.7, duration: 0.8 }}
             className="text-xl sm:text-3xl lg:text-4xl mt-6 sm:mt-8 md:mt-12 text-foreground/70 tracking-tight font-medium max-w-4xl"
           >
-            NPH Studio helps ambitious brands design and develop blazing-fast digital experiences.
+            NPH Studio is a digital engineering agency. We partner with startups and scaling businesses to design, engineer, and deploy production-grade software in weeks, not quarters.
           </motion.p>
 
           <motion.div
@@ -98,16 +99,16 @@ export default function Home() {
                 onClick={() => window.dispatchEvent(new CustomEvent('open-inquiry-modal'))}
                 className="bg-foreground text-background px-6 sm:px-8 py-4 sm:py-5 rounded-full font-bold uppercase tracking-widest text-xs sm:text-sm hover:scale-105 active:scale-95 transition-all shadow-[0_0_40px_rgba(255,255,255,0.1)] border border-transparent hover:bg-primary hover:text-white hover:shadow-[0_0_40px_rgba(255,90,54,0.4)] w-full sm:w-auto text-center"
               >
-                Get a Free Estimate
+                Start Your Project
               </button>
             </Magnetic>
             <Magnetic>
-              <a
-                href="work"
+              <Link
+                href="/work"
                 className="bg-surface border border-border px-6 sm:px-8 py-4 sm:py-5 rounded-full font-bold uppercase tracking-widest text-xs sm:text-sm hover:bg-white/5 active:scale-95 transition-all text-foreground/80 hover:text-foreground w-full sm:w-auto text-center block"
               >
-                See Our Work
-              </a>
+                View Client Case Studies
+              </Link>
             </Magnetic>
           </motion.div>
         </div>
