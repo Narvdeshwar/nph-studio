@@ -68,14 +68,30 @@ export function DecryptedText({ text, speed = 30, maxIterations = 10, className 
   }, [started, text, speed, maxIterations]);
 
   return (
-    <motion.span 
+    <span 
       ref={containerRef} 
-      className={className}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.2, delay }}
+      className={`relative inline-block ${className}`}
     >
-      {started ? displayText : text.replace(/./g, ' ')}
-    </motion.span>
+      {/* Invisible anchor text that immediately gives the element its exact width & height preventing CLS and providing accessible text to screen readers/crawlers */}
+      <span className="invisible select-none" aria-hidden="true">
+        {text}
+      </span>
+
+      {/* Visual animated layer positioned precisely over the reserved space */}
+      <motion.span 
+        className="absolute inset-0 select-none"
+        aria-hidden="true"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.2, delay }}
+      >
+        {started ? displayText : text}
+      </motion.span>
+
+      {/* Screen-reader accessible label */}
+      <span className="sr-only">
+        {text}
+      </span>
+    </span>
   );
 }

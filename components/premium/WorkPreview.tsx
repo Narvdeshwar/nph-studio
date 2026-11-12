@@ -69,7 +69,7 @@ export function WorkPreview() {
   return (
     <section className="w-full py-24 sm:py-32 bg-background text-foreground relative z-10 overflow-hidden">
       {/* Scroll Velocity Background (Subtle) */}
-      <div className="absolute inset-0 z-0 flex flex-col justify-center opacity-[0.02] pointer-events-none">
+      <div className="absolute inset-0 z-0 flex flex-col justify-center opacity-[0.02] pointer-events-none" aria-hidden="true">
         <ScrollVelocity
           text="NPH STUDIO — SELECTED WORKS — NPH STUDIO — SELECTED WORKS —"
           baseVelocity={2}

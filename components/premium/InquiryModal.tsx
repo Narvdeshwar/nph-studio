@@ -94,7 +94,9 @@ export function InquiryModal() {
             <div className="bg-surface border border-border rounded-[32px] p-8 sm:p-12 relative overflow-hidden shadow-2xl">
               
               <button 
+                type="button"
                 onClick={closeModal}
+                aria-label="Close estimate dialog"
                 className="absolute top-8 right-8 text-muted hover:text-foreground transition-colors p-2 bg-white/5 rounded-full"
               >
                 <IconX size={24} />

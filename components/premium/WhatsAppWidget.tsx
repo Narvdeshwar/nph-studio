@@ -40,7 +40,12 @@ export function WhatsAppWidget() {
                 <h3 className="font-bold text-lg leading-tight mb-1">Chat with NPH Studio</h3>
                 <p className="text-sm opacity-90">We typically reply in a few minutes.</p>
               </div>
-              <button onClick={() => setIsOpen(false)} className="opacity-70 hover:opacity-100 transition-opacity">
+              <button 
+                type="button"
+                onClick={() => setIsOpen(false)} 
+                aria-label="Close chat window"
+                className="opacity-70 hover:opacity-100 transition-opacity"
+              >
                 <IconX size={20} />
               </button>
             </div>
@@ -71,6 +76,8 @@ export function WhatsAppWidget() {
 
       <button
         onClick={() => setIsOpen(!isOpen)}
+        aria-label={isOpen ? "Close WhatsApp chat" : "Open WhatsApp chat"}
+        aria-expanded={isOpen}
         className="cursor-pointer w-16 h-16 rounded-full bg-green-500 text-white flex items-center justify-center shadow-2xl hover:scale-110 hover:bg-green-600 transition-all"
       >
         {isOpen ? <IconX size={32} /> : <IconBrandWhatsapp size={36} />}

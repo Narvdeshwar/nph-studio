@@ -107,6 +107,8 @@ export function Navbar() {
             <Magnetic>
               <button
                 onClick={handleMenuClick}
+                aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+                aria-expanded={isOpen}
                 className="md:hidden relative w-12 h-12 rounded-full flex flex-col items-center justify-center gap-1.5 transition-colors duration-300 bg-foreground text-background hover:bg-primary pointer-events-auto cursor-pointer"
               >
                 <motion.div
