@@ -52,12 +52,12 @@ export function Navbar() {
     <>
       {/* Floating Pill Navbar */}
       <motion.header
-        className={`fixed left-1/2 -translate-x-1/2 z-[100] w-[calc(100%-1.5rem)] sm:w-[calc(100%-3rem)] max-w-[1400px] transition-all duration-500 pointer-events-none ${scrolled ? 'top-2' : 'top-3'}`}
+        className={`fixed left-1/2 -translate-x-1/2 z-100 w-[calc(100%-1.5rem)] sm:w-[calc(100%-3rem)] max-w-350 transition-all duration-500 pointer-events-none ${scrolled ? 'top-2' : 'top-3'}`}
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
       >
-        <div className="bg-surface/50 backdrop-blur-2xl backdrop-saturate-150 border border-white/50 rounded-[2rem] sm:rounded-full px-4 sm:px-8 py-3 sm:py-4 flex justify-between items-center shadow-[0_8px_32px_rgba(0,0,0,0.04)] pointer-events-auto">
+        <div className="bg-surface/50 backdrop-blur-2xl backdrop-saturate-150 border border-white/90 rounded-[2rem] sm:rounded-full px-4 sm:px-8 py-3 sm:py-4 flex justify-between items-center shadow-[0_8px_32px_rgba(0,0,0,0.04)] pointer-events-auto">
 
           {/* Logo - Left */}
           <Magnetic>
@@ -73,7 +73,7 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
             {menuLinks.map((link) => {
               const isActive = pathname === link.href || (link.href !== '/' && pathname?.startsWith(link.href));
-              
+
               return (
                 <Magnetic key={link.name}>
                   <TransitionLink
@@ -81,8 +81,8 @@ export function Navbar() {
                     className={`text-xs font-bold uppercase tracking-widest transition-colors relative group ${isActive ? 'text-primary' : 'text-foreground/70 hover:text-primary'}`}
                   >
                     {link.name}
-                    <span 
-                      className={`absolute -bottom-1.5 h-px bg-primary transition-all duration-300 ease-out ${isActive ? 'w-full left-0' : 'w-0 left-1/2 group-hover:w-full group-hover:left-0'}`} 
+                    <span
+                      className={`absolute -bottom-1.5 h-px bg-primary transition-all duration-300 ease-out ${isActive ? 'w-full left-0' : 'w-0 left-1/2 group-hover:w-full group-hover:left-0'}`}
                     />
                   </TransitionLink>
                 </Magnetic>
@@ -144,7 +144,7 @@ export function Navbar() {
                 <span className={`uppercase tracking-widest text-xs font-bold mb-4 ${menuTheme === 'dark' ? 'text-zinc-500' : 'text-zinc-400'}`}>Navigation</span>
                 {[{ name: 'Home', href: '/' }, ...menuLinks, { name: 'Contact', href: '/contact' }].map((link, i) => {
                   const isActive = pathname === link.href || (link.href !== '/' && pathname?.startsWith(link.href));
-                  
+
                   return (
                   <div key={link.name} className="overflow-hidden">
                     <motion.div
