@@ -31,6 +31,7 @@ export function Curtain() {
           exit={{ y: '-100%' }}
           transition={{ duration: 0.3, ease: "easeOut" }}
           className="fixed inset-0 z-[999999] bg-primary flex items-center justify-center pointer-events-none"
+          aria-hidden="true"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}

@@ -114,6 +114,7 @@ export function Sparkles({
     <canvas
       ref={canvasRef}
       id={id}
+      aria-hidden="true"
       className={`pointer-events-none absolute inset-0 ${className}`}
     />
   );

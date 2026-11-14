@@ -74,7 +74,7 @@ export function InquiryModal() {
   return (
     <AnimatePresence>
       {isOpen && (
-        <>
+        <div className="fixed inset-0 z-[200] overflow-y-auto flex min-h-full items-center justify-center p-3 sm:p-6">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -84,83 +84,91 @@ export function InquiryModal() {
             className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[200]"
           />
 
-          {/* Modal */}
+          {/* Modal Container */}
           <motion.div
-            initial={{ opacity: 0, y: 100, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 100, scale: 0.95 }}
-            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-xl z-[210] p-4"
+            initial={{ opacity: 0, scale: 0.95, y: 15 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 15 }}
+            transition={{ duration: 0.2 }}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="inquiry-modal-title"
+            className="relative w-full max-w-xl my-auto z-[210] bg-surface border border-border rounded-[28px] sm:rounded-[32px] p-6 sm:p-8 md:p-10 shadow-2xl max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-3rem)] flex flex-col overflow-hidden"
           >
-            <div className="bg-surface border border-border rounded-[32px] p-8 sm:p-12 relative overflow-hidden shadow-2xl">
-              
-              <button 
-                type="button"
-                onClick={closeModal}
-                aria-label="Close estimate dialog"
-                className="absolute top-8 right-8 text-muted hover:text-foreground transition-colors p-2 bg-white/5 rounded-full"
-              >
-                <IconX size={24} />
-              </button>
+            {/* Top Close Button - Always visible inside modal */}
+            <button 
+              type="button"
+              onClick={closeModal}
+              aria-label="Close estimate dialog"
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 text-muted hover:text-foreground transition-colors p-2 bg-foreground/5 hover:bg-foreground/10 rounded-full z-20 cursor-pointer"
+            >
+              <IconX size={20} />
+            </button>
 
+            <div className="overflow-y-auto pr-1 sm:pr-2">
               {isSuccess ? (
-                <div className="flex flex-col items-center justify-center text-center py-12">
-                  <div className="w-20 h-20 bg-green-500/20 text-green-500 rounded-full flex items-center justify-center mb-6">
-                    <IconCheck size={40} />
+                <div className="flex flex-col items-center justify-center text-center py-10">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-green-500/20 text-green-500 rounded-full flex items-center justify-center mb-5">
+                    <IconCheck size={36} />
                   </div>
-                  <h3 className="text-3xl font-black uppercase tracking-tighter mb-4 text-foreground">Estimate Requested</h3>
-                  <p className="text-muted text-lg">We&apos;ve received your inquiry and will be in touch within 24 hours to discuss the details.</p>
-                  <button onClick={closeModal} className="mt-8 px-8 py-4 bg-white/5 border border-white/10 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-white/10 transition-colors text-white">
+                  <h3 id="inquiry-modal-title" className="text-2xl sm:text-3xl font-black uppercase tracking-tighter mb-3 text-foreground">Estimate Requested</h3>
+                  <p className="text-muted text-sm sm:text-base max-w-md">We&apos;ve received your inquiry and will be in touch within 24 hours to discuss the details.</p>
+                  <button onClick={closeModal} className="mt-6 px-8 py-3.5 bg-foreground text-background rounded-full font-bold uppercase tracking-widest text-xs hover:opacity-90 transition-opacity">
                     Close Window
                   </button>
                 </div>
               ) : (
                 <>
-                  <h3 className="text-3xl font-black uppercase tracking-tighter mb-2 text-foreground">Get an Estimate</h3>
-                  <p className="text-muted mb-8">Tell us about your project and we&apos;ll get back to you with a timeline and quote.</p>
+                  <h3 id="inquiry-modal-title" className="text-2xl sm:text-3xl font-black uppercase tracking-tighter mb-1.5 text-foreground">Get an Estimate</h3>
+                  <p className="text-muted text-xs sm:text-sm mb-6">Tell us about your project and we&apos;ll get back to you with a timeline and quote.</p>
 
-                  <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                      <div className="flex flex-col gap-2">
-                        <label className="text-xs font-bold uppercase tracking-widest text-muted">Name</label>
+                  <form onSubmit={handleSubmit} className="flex flex-col gap-4 sm:gap-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="flex flex-col gap-1.5">
+                        <label htmlFor="inquiry-name" className="text-xs font-bold uppercase tracking-widest text-muted">Name</label>
                         <input 
+                          id="inquiry-name"
                           required
                           value={formData.name}
                           onChange={(e) => setFormData({...formData, name: e.target.value})}
-                          className="bg-background border border-border rounded-xl px-4 py-3 text-foreground focus:outline-none focus:border-primary/50 transition-colors"
+                          className="bg-background border border-border rounded-xl px-4 py-2.5 sm:py-3 text-sm text-foreground focus:outline-none focus:border-primary/50 transition-colors"
                           placeholder="Jane Doe"
                         />
                       </div>
-                      <div className="flex flex-col gap-2">
-                        <label className="text-xs font-bold uppercase tracking-widest text-muted">Email Address</label>
+                      <div className="flex flex-col gap-1.5">
+                        <label htmlFor="inquiry-email" className="text-xs font-bold uppercase tracking-widest text-muted">Email Address</label>
                         <input 
+                          id="inquiry-email"
                           required
                           type="email"
                           value={formData.email}
                           onChange={(e) => setFormData({...formData, email: e.target.value})}
-                          className="bg-background border border-border rounded-xl px-4 py-3 text-foreground focus:outline-none focus:border-primary/50 transition-colors"
+                          className="bg-background border border-border rounded-xl px-4 py-2.5 sm:py-3 text-sm text-foreground focus:outline-none focus:border-primary/50 transition-colors"
                           placeholder="jane@example.com"
                         />
                       </div>
                     </div>
 
-                    <div className="flex flex-col gap-2">
-                      <label className="text-xs font-bold uppercase tracking-widest text-muted">Phone / WhatsApp</label>
+                    <div className="flex flex-col gap-1.5">
+                      <label htmlFor="inquiry-phone" className="text-xs font-bold uppercase tracking-widest text-muted">Phone / WhatsApp</label>
                       <input 
+                        id="inquiry-phone"
                         required
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                        className="bg-background border border-border rounded-xl px-4 py-3 text-foreground focus:outline-none focus:border-primary/50 transition-colors"
+                        className="bg-background border border-border rounded-xl px-4 py-2.5 sm:py-3 text-sm text-foreground focus:outline-none focus:border-primary/50 transition-colors"
                         placeholder="+91 98765 43210"
                       />
                     </div>
 
-                    <div className="flex flex-col gap-2">
-                      <label className="text-xs font-bold uppercase tracking-widest text-muted">Service Needed</label>
+                    <div className="flex flex-col gap-1.5">
+                      <label htmlFor="inquiry-service" className="text-xs font-bold uppercase tracking-widest text-muted">Service Needed</label>
                       <select 
+                        id="inquiry-service"
                         value={selectedService}
                         onChange={(e) => setSelectedService(e.target.value)}
-                        className="bg-background border border-border rounded-xl px-4 py-3 text-foreground focus:outline-none focus:border-primary/50 transition-colors appearance-none"
+                        className="bg-background border border-border rounded-xl px-4 py-2.5 sm:py-3 text-sm text-foreground focus:outline-none focus:border-primary/50 transition-colors appearance-none cursor-pointer"
                       >
                         <option>Landing Page</option>
                         <option>Full-Stack MVP</option>
@@ -169,14 +177,15 @@ export function InquiryModal() {
                       </select>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                      <div className="flex flex-col gap-2">
-                        <label className="text-xs font-bold uppercase tracking-widest text-muted">Estimated Budget</label>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="flex flex-col gap-1.5">
+                        <label htmlFor="inquiry-budget" className="text-xs font-bold uppercase tracking-widest text-muted">Estimated Budget</label>
                         <select 
+                          id="inquiry-budget"
                           required
                           value={formData.budget}
                           onChange={(e) => setFormData({...formData, budget: e.target.value})}
-                          className="bg-background border border-border rounded-xl px-4 py-3 text-foreground focus:outline-none focus:border-primary/50 transition-colors appearance-none"
+                          className="bg-background border border-border rounded-xl px-4 py-2.5 sm:py-3 text-sm text-foreground focus:outline-none focus:border-primary/50 transition-colors appearance-none cursor-pointer"
                         >
                           <option value="" disabled>Select Budget...</option>
                           <option>₹20K - ₹50K</option>
@@ -185,13 +194,14 @@ export function InquiryModal() {
                           <option>₹5L+</option>
                         </select>
                       </div>
-                      <div className="flex flex-col gap-2">
-                        <label className="text-xs font-bold uppercase tracking-widest text-muted">Timeline</label>
+                      <div className="flex flex-col gap-1.5">
+                        <label htmlFor="inquiry-timeline" className="text-xs font-bold uppercase tracking-widest text-muted">Timeline</label>
                         <select 
+                          id="inquiry-timeline"
                           required
                           value={formData.timeline}
                           onChange={(e) => setFormData({...formData, timeline: e.target.value})}
-                          className="bg-background border border-border rounded-xl px-4 py-3 text-foreground focus:outline-none focus:border-primary/50 transition-colors appearance-none"
+                          className="bg-background border border-border rounded-xl px-4 py-2.5 sm:py-3 text-sm text-foreground focus:outline-none focus:border-primary/50 transition-colors appearance-none cursor-pointer"
                         >
                           <option value="" disabled>Select Timeline...</option>
                           <option>ASAP (Rush)</option>
@@ -202,12 +212,14 @@ export function InquiryModal() {
                       </div>
                     </div>
 
-                    <div className="flex flex-col gap-2">
-                      <label className="text-xs font-bold uppercase tracking-widest text-muted">Project Description (Optional)</label>
+                    <div className="flex flex-col gap-1.5">
+                      <label htmlFor="inquiry-desc" className="text-xs font-bold uppercase tracking-widest text-muted">Project Description (Optional)</label>
                       <textarea 
+                        id="inquiry-desc"
+                        rows={3}
                         value={formData.description}
                         onChange={(e) => setFormData({...formData, description: e.target.value})}
-                        className="bg-background border border-border rounded-xl px-4 py-3 text-foreground focus:outline-none focus:border-primary/50 transition-colors min-h-[100px] resize-y"
+                        className="bg-background border border-border rounded-xl px-4 py-2.5 text-sm text-foreground focus:outline-none focus:border-primary/50 transition-colors min-h-[70px] max-h-[140px] resize-y"
                         placeholder="Briefly describe your goals..."
                       />
                     </div>
@@ -215,7 +227,7 @@ export function InquiryModal() {
                     <button 
                       type="submit" 
                       disabled={isSubmitting}
-                      className="mt-4 bg-primary text-primary-foreground px-8 py-4 rounded-full font-bold uppercase tracking-widest text-sm hover:scale-[1.02] active:scale-95 transition-all shadow-[0_0_30px_rgba(255,90,54,0.3)] disabled:opacity-50 disabled:hover:scale-100 flex items-center justify-center"
+                      className="mt-2 bg-primary hover:bg-[#E04D2D] text-white py-3.5 sm:py-4 rounded-full font-bold uppercase tracking-widest text-xs sm:text-sm hover:scale-[1.01] active:scale-95 transition-all shadow-[0_0_30px_rgba(255,90,54,0.3)] disabled:opacity-50 disabled:hover:scale-100 flex items-center justify-center cursor-pointer"
                     >
                       {isSubmitting ? (
                         <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -228,7 +240,7 @@ export function InquiryModal() {
               )}
             </div>
           </motion.div>
-        </>
+        </div>
       )}
     </AnimatePresence>
   );

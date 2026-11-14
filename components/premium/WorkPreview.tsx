@@ -4,12 +4,13 @@ import { useState, useEffect, useRef } from 'react';
 import { TextMask } from '@/components/premium/TextMask';
 import { Magnetic } from '@/components/premium/Magnetic';
 import { ScrollVelocity } from '@/components/premium/ScrollVelocity';
+import Link from 'next/link';
 import { IconArrowUpRight } from '@tabler/icons-react';
 
 const projects = [
   { name: 'Care Well', category: 'Healthcare Platform', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1600&auto=format&fit=crop', link: 'https://care-well-hospital-six.vercel.app/', metric: '< 1s Load Time' },
   { name: 'AIBulletin', category: 'AI News Platform', image: '/aibulletin.png', link: 'https://aibulletin.in/', metric: '71K Impressions' },
-  { name: 'Sachin Sharma LMS', category: 'EdTech Platform', image: '/work/edtech.webp', link: 'https://courses.sachinnssharma.com', metric: '1.2K Active Users' },
+  { name: 'Sachin Sharma LMS', category: 'EdTech Platform', image: '/work/edtech.webp', link: 'https://courses.sachinSSSharma.com', metric: '1.2K Active Users' },
   { name: 'JSpark AI', category: 'Generative AI', image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1600&auto=format&fit=crop', link: 'https://jspark.ai/', metric: 'AI SaaS' },
   { name: 'JSpark Prime', category: 'Enterprise SaaS', image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1600&auto=format&fit=crop', link: 'https://jsparkprime.com/', metric: 'B2B Analytics' },
   { name: 'SSSLux', category: 'Luxury E-Commerce', image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1600&auto=format&fit=crop', link: 'https://ssslux.vercel.app/', metric: 'Under Development' }
@@ -17,40 +18,28 @@ const projects = [
 
 export function WorkPreview() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [progress, setProgress] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const progressRef = useRef(0);
 
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [mouseZone, setMouseZone] = useState<'left' | 'right' | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Story Timer
+  // Story Timer - changes slides without CPU-heavy 50ms setState polling
   useEffect(() => {
     if (isPaused) return;
 
-    const interval = setInterval(() => {
-      progressRef.current += 1; // 1% every 50ms = 5000ms total duration
-      
-      if (progressRef.current >= 100) {
-        progressRef.current = 0;
-        setProgress(0);
-        setCurrentIndex((prev) => (prev + 1) % projects.length);
-      } else {
-        setProgress(progressRef.current);
-      }
-    }, 50);
+    const timer = setTimeout(() => {
+      setCurrentIndex((prev) => (prev + 1) % projects.length);
+    }, 5500);
 
-    return () => clearInterval(interval);
+    return () => clearTimeout(timer);
   }, [isPaused, currentIndex]);
 
   const handleNext = () => {
-    setProgress(0);
     setCurrentIndex((prev) => (prev + 1) % projects.length);
   };
 
   const handlePrev = () => {
-    setProgress(0);
     setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
   };
 
@@ -83,16 +72,16 @@ export function WorkPreview() {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 sm:mb-16 gap-6">
           <h2 className="text-[12vw] sm:text-[6vw] font-black leading-[0.85] tracking-tighter uppercase">
             <TextMask>Selected</TextMask>
-            
+
             <TextMask delay={0.1}>Works</TextMask>
           </h2>
           <Magnetic>
-            <a
-              href="work"
+            <Link
+              href="/work"
               className="border border-foreground/10 rounded-full px-6 py-3 sm:px-8 sm:py-4 text-xs sm:text-sm font-bold uppercase tracking-wider hover:bg-foreground hover:text-background transition-colors"
             >
               View All Work
-            </a>
+            </Link>
           </Magnetic>
         </div>
 
@@ -123,27 +112,37 @@ export function WorkPreview() {
           {/* Vignette Overlay for Text Legibility */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80 pointer-events-none" />
 
-          {/* Instagram-Style Progress Bars */}
-          <div className="absolute top-6 left-6 right-6 sm:top-10 sm:left-10 sm:right-10 flex gap-2 sm:gap-4 z-30 pointer-events-none">
+          {/* Progress Bars */}
+          <div className="absolute top-6 left-6 right-6 sm:top-10 sm:left-10 sm:right-10 flex gap-2 sm:gap-4 z-30 pointer-events-none" aria-hidden="true">
             {projects.map((_, i) => (
               <div key={i} className="h-1 sm:h-1.5 flex-1 bg-white/20 rounded-full overflow-hidden backdrop-blur-md">
                 <motion.div
-                  className="h-full bg-white"
-                  style={{
-                    width: i < currentIndex ? '100%' : i === currentIndex ? `${progress}%` : '0%'
+                  key={`${i}-${currentIndex}-${isPaused}`}
+                  className="h-full bg-white rounded-full"
+                  initial={{ width: i < currentIndex ? '100%' : '0%' }}
+                  animate={{
+                    width: i < currentIndex ? '100%' : i === currentIndex ? (isPaused ? '50%' : '100%') : '0%'
+                  }}
+                  transition={{
+                    duration: i === currentIndex ? 5.5 : 0.3,
+                    ease: "linear"
                   }}
                 />
               </div>
             ))}
           </div>
 
-          {/* Navigation Click Zones */}
-          <div
-            className="absolute inset-y-0 left-0 w-1/3 z-20"
+          {/* Accessible Semantic Navigation Controls */}
+          <button
+            type="button"
+            aria-label="Previous project"
+            className="absolute inset-y-0 left-0 w-1/3 z-20 cursor-pointer focus:outline-none"
             onClick={handlePrev}
           />
-          <div
-            className="absolute inset-y-0 right-0 w-2/3 z-20"
+          <button
+            type="button"
+            aria-label="Next project"
+            className="absolute inset-y-0 right-0 w-2/3 z-20 cursor-pointer focus:outline-none"
             onClick={handleNext}
           />
 
@@ -183,6 +182,7 @@ export function WorkPreview() {
                   href={currentProject.link}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`Launch ${currentProject.name} case study`}
                   className="pointer-events-auto bg-white text-black px-8 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-primary hover:text-white transition-colors shadow-2xl flex items-center gap-2 group"
                 >
                   Launch Project

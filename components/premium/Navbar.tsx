@@ -16,6 +16,7 @@ const menuLinks = [
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [footerVisible, setFooterVisible] = useState(false);
   const [menuTheme, setMenuTheme] = useState<'dark' | 'light'>('dark');
   const pathname = usePathname();
 
@@ -48,20 +49,57 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    let observer: IntersectionObserver | null = null;
+
+    const setupObserver = () => {
+      const footer = document.getElementById('site-footer') || document.querySelector('footer');
+      if (!footer) return;
+
+      if (observer) {
+        observer.disconnect();
+      }
+
+      observer = new IntersectionObserver(
+        (entries) => {
+          const entry = entries[0];
+          setFooterVisible(entry.isIntersecting);
+        },
+        {
+          root: null,
+          threshold: 0.05,
+        }
+      );
+
+      observer.observe(footer);
+    };
+
+    setupObserver();
+    const timer = setTimeout(setupObserver, 300);
+
+    return () => {
+      clearTimeout(timer);
+      if (observer) observer.disconnect();
+    };
+  }, [pathname]);
+
   return (
     <>
       {/* Floating Pill Navbar */}
       <motion.header
         className={`fixed left-1/2 -translate-x-1/2 z-100 w-[calc(100%-1.5rem)] sm:w-[calc(100%-3rem)] max-w-350 transition-all duration-500 pointer-events-none ${scrolled ? 'top-2' : 'top-3'}`}
         initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
+        animate={{
+          y: footerVisible ? -120 : 0,
+          opacity: footerVisible ? 0 : 1,
+        }}
+        transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
       >
-        <div className="bg-surface/50 backdrop-blur-2xl backdrop-saturate-150 border border-white/90 rounded-[2rem] sm:rounded-full px-4 sm:px-8 py-3 sm:py-4 flex justify-between items-center shadow-[0_8px_32px_rgba(0,0,0,0.04)] pointer-events-auto">
+        <div className={`bg-surface/50 backdrop-blur-2xl backdrop-saturate-150 border border-white/90 rounded-[2rem] sm:rounded-full px-4 sm:px-8 py-3 sm:py-4 flex justify-between items-center shadow-[0_8px_32px_rgba(0,0,0,0.04)] ${footerVisible ? 'pointer-events-none' : 'pointer-events-auto'}`}>
 
           {/* Logo - Left */}
           <Magnetic>
-            <TransitionLink href="/" className="z-[60] flex items-center px-2">
+            <TransitionLink href="/" aria-label="NPH Studio Home" className="z-[60] flex items-center px-2">
               <div className="relative group flex items-center">
                 <Logo className="text-xl sm:text-2xl text-foreground" />
                 <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full scale-0 group-hover:scale-150 transition-transform duration-500" />
@@ -95,7 +133,9 @@ export function Navbar() {
             <div className="hidden md:block">
               <Magnetic>
                 <button
+                  type="button"
                   onClick={() => window.dispatchEvent(new CustomEvent('open-inquiry-modal'))}
+                  aria-label="Let's talk - open project estimate form"
                   className="bg-primary text-white font-bold text-[10px] sm:text-xs uppercase tracking-widest rounded-full px-8 py-3.5 hover:scale-105 hover:bg-foreground transition-all duration-300 shadow-lg shadow-primary/20"
                 >
                   Let&apos;s Talk

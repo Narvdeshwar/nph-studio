@@ -4,7 +4,17 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { MeshDistortMaterial, Sphere, Environment, Float, Sparkles } from '@react-three/drei';
 import * as THREE from 'three';
 
-function LiquidSphere() {
+interface LiquidAuroraProps {
+  baseColor?: string;
+  wireframeColor?: string;
+  lightColor?: string;
+}
+
+function LiquidSphere({
+  baseColor = '#064e3b',
+  wireframeColor = '#0EA5E9',
+  lightColor = '#10B981',
+}: LiquidAuroraProps) {
   const meshRef = useRef<THREE.Mesh>(null);
   const wireframeRef = useRef<THREE.Mesh>(null);
   const lightRef = useRef<THREE.SpotLight>(null);
@@ -39,11 +49,11 @@ function LiquidSphere() {
   return (
     <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
       {/* Interactive Spotlight */}
-      <spotLight ref={lightRef} position={[0, 0, 10]} intensity={5} color="#10B981" distance={20} penumbra={1} />
+      <spotLight ref={lightRef} position={[0, 0, 10]} intensity={5} color={lightColor} distance={20} penumbra={1} />
 
       <Sphere ref={meshRef} args={[1, 128, 128]} scale={1.8}>
         <MeshDistortMaterial
-          color="#064e3b" // Deep dark emerald base
+          color={baseColor}
           attach="material"
           distort={0.5}
           speed={2}
@@ -57,7 +67,7 @@ function LiquidSphere() {
       
       <Sphere ref={wireframeRef} args={[1, 64, 64]} scale={2.1}>
         <MeshDistortMaterial
-          color="#0EA5E9" // Sky blue
+          color={wireframeColor}
           attach="material"
           distort={0.6}
           speed={2.5}
@@ -75,13 +85,13 @@ function LiquidSphere() {
         size={3} 
         speed={0.6} 
         opacity={0.6} 
-        color="#10B981"
+        color={lightColor}
       />
     </Float>
   );
 }
 
-export function LiquidAurora() {
+export function LiquidAurora(props: LiquidAuroraProps) {
   return (
     <div className="absolute inset-0 z-0 pointer-events-auto w-full h-full">
       <Canvas 
@@ -91,7 +101,7 @@ export function LiquidAurora() {
         <ambientLight intensity={0.2} />
         <directionalLight position={[10, 10, 10]} intensity={1} color="#fff" />
         <directionalLight position={[-10, -10, -10]} intensity={1.5} color="#0EA5E9" />
-        <LiquidSphere />
+        <LiquidSphere {...props} />
         <Environment preset="city" />
       </Canvas>
     </div>

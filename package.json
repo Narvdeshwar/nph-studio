@@ -49,5 +49,8 @@
     "*.{ts,tsx}": [
       "eslint --fix"
     ]
+  },
+  "allowScripts": {
+    "sharp@0.34.5": true
   }
 }

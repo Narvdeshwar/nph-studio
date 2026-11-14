@@ -33,11 +33,14 @@ export function WhatsAppWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="whatsapp-chat-title"
             className="mb-4 w-[320px] sm:w-[360px] bg-surface border border-border rounded-3xl shadow-2xl overflow-hidden flex flex-col"
           >
             <div className="bg-green-500 p-6 text-white flex justify-between items-start">
               <div>
-                <h3 className="font-bold text-lg leading-tight mb-1">Chat with NPH Studio</h3>
+                <h3 id="whatsapp-chat-title" className="font-bold text-lg leading-tight mb-1">Chat with NPH Studio</h3>
                 <p className="text-sm opacity-90">We typically reply in a few minutes.</p>
               </div>
               <button 
@@ -52,8 +55,9 @@ export function WhatsAppWidget() {
             
             <form onSubmit={handleWhatsAppSubmit} className="p-6 bg-background flex flex-col gap-4">
               <div className="flex flex-col gap-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-muted">Your Query</label>
+                <label htmlFor="whatsapp-query-input" className="text-xs font-bold uppercase tracking-widest text-muted">Your Query</label>
                 <textarea
+                  id="whatsapp-query-input"
                   required
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}

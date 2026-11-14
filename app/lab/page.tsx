@@ -8,6 +8,34 @@ import { IconFlask, IconArrowUpRight, IconLayoutDashboard } from '@tabler/icons-
 
 const spatialExperiments = [
   {
+    id: 'quantum',
+    name: 'Quantum-EX 3D Volatility',
+    desc: 'Lab 05: 3D implied volatility surface & high-frequency order book',
+    color: '#38BDF8',
+    status: 'Trending'
+  },
+  {
+    id: 'dna',
+    name: 'Genome-X DNA Helix',
+    desc: 'Lab 04: 3D double helix molecular CRISPR-Cas9 gene editor',
+    color: '#06B6D4',
+    status: 'Active'
+  },
+  {
+    id: 'lab-3',
+    name: 'Chroma Fluid 3D',
+    desc: 'Lab 03: Non-Newtonian liquid metal & thin-film iridescence',
+    color: '#EC4899',
+    status: 'Active'
+  },
+  {
+    id: 'synapse',
+    name: 'Neural Synapse 3D',
+    desc: 'Cognitive Vector Topology & Thought Graph',
+    color: '#8B5CF6',
+    status: 'Active'
+  },
+  {
     id: 'holographic',
     name: 'Holographic UI',
     desc: 'Spatial Web Interface',
@@ -31,6 +59,38 @@ const spatialExperiments = [
 ];
 
 export const heroVault = [
+  {
+    id: 'hero-005',
+    name: 'Quantum-EX 3D',
+    desc: 'Week 5: 3D implied volatility surface & quantitative Greeks matrix.',
+    color: '#38BDF8',
+    status: 'Trending',
+    slug: '/lab/hero-005'
+  },
+  {
+    id: 'hero-004',
+    name: 'Genome-X DNA',
+    desc: 'Week 4: 3D double helix, molecular CRISPR gene editing & NGS.',
+    color: '#06B6D4',
+    status: 'Active',
+    slug: '/lab/hero-004'
+  },
+  {
+    id: 'hero-003',
+    name: 'Chroma Fluid 3D',
+    desc: 'Week 3: Liquid metal raymarching, iridescence & spatial audio.',
+    color: '#EC4899',
+    status: 'Active',
+    slug: '/lab/hero-003'
+  },
+  {
+    id: 'hero-002',
+    name: 'NeuroSpatial',
+    desc: 'Week 2: 3D neural synapse graph & interactive thought propagation.',
+    color: '#8B5CF6',
+    status: 'Active',
+    slug: '/lab/hero-002'
+  },
   {
     id: 'hero-001',
     name: 'Aurora OS',

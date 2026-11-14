@@ -6,7 +6,7 @@ const testimonials = [
     quote: "NPH Studio took our product from concept wireframes to a live, revenue-generating MVP in 4 weeks. Their technical rigor with Next.js and Supabase allowed us to onboard our first 500 paid users without a single infrastructure hiccup.",
     name: "Sachin Sharma",
     role: "Founder & Lead Educator",
-    company: "NSS Online Academy"
+    company: "SSS Online Academy"
   },
   {
     quote: "We needed our emergency patient services and hospital department directory digitized fast. NPH Studio delivered an ultra-responsive, accessible platform with sub-second page loads that streamlined our patient communication.",
@@ -46,13 +46,13 @@ export function Testimonials() {
               <p className="text-lg text-foreground/80 font-medium leading-relaxed mb-12">
                 &quot;{testimonial.quote}&quot;
               </p>
-              
+
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center font-bold text-lg text-white">
                   {testimonial.name.charAt(0)}
                 </div>
                 <div>
-                  <h4 className="font-bold text-foreground">{testimonial.name}</h4>
+                  <h3 className="font-bold text-foreground">{testimonial.name}</h3>
                   <p className="text-xs text-primary font-medium tracking-wide">{testimonial.company}</p>
                   <p className="text-xs text-muted">{testimonial.role}</p>
                 </div>

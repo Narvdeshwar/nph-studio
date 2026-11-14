@@ -9,16 +9,20 @@ import { Sparkles } from "@/components/premium/Sparkles";
 
 export function SiteLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  
+
   // If we are on any admin route, just render the children without the marketing site's global components
   if (pathname?.startsWith('/admin')) {
     return <>{children}</>;
   }
 
+  // When inside any lab experiment (lab/* subpage), hide the main navbar and provide the floating lab return button
+  const isLabSubpage = pathname !== '/lab' && pathname?.startsWith('/lab');
+
   return (
     <>
       <Curtain />
-      <Navbar />
+      {!isLabSubpage && <Navbar />}
+      {/* {isLabSubpage && <LabFloatingButton />} */}
       {/* Global Sparkles Background */}
       <div className="fixed inset-0 z-0 opacity-60 pointer-events-none">
         <Sparkles

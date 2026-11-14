@@ -1,0 +1,25 @@
+# NPH Studio
+> Full-Stack Digital Product & AI Engineering Agency
+
+## Overview
+NPH Studio is a founder-led digital engineering studio that designs, engineers, and deploys production-grade web applications, SaaS MVPs, and applied AI/RAG systems for high-growth startups and established businesses.
+
+## Core Services
+- **Full-Stack SaaS MVPs**: Complete engineering from database architecture to cloud deployment within 3–5 weeks.
+- **Applied AI & Custom RAG Pipelines**: Enterprise retrieval-augmented generation pipelines, vector database integration (pgvector/Pinecone), and LLM agents.
+- **High-Impact UI/UX & Web Presence**: High-converting web applications with sub-second performance and 100/100 Core Web Vitals.
+- **Dedicated Engineering Squad**: Senior fractional engineering squads for continuous feature shipping.
+
+## Key URLs
+- Home: https://www.nph-studio.in/
+- Work / Case Studies: https://www.nph-studio.in/work
+- Services: https://www.nph-studio.in/services
+- Engineering Process: https://www.nph-studio.in/process
+- Team: https://www.nph-studio.in/team
+- Contact: https://www.nph-studio.in/contact
+
+## Contact & Inquiries
+- Official Website: https://www.nph-studio.in
+- Inquiries: https://www.nph-studio.in/contact
+- WhatsApp: +91 8787205784
+- Email: contact@nph-studio.in

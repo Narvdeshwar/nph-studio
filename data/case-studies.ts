@@ -79,7 +79,7 @@ export const caseStudies: CaseStudyData[] = [
   },
   {
     slug: 'lms-platform',
-    title: 'NSS Online Academy',
+    title: 'SSS Online Academy',
     category: 'EdTech Streaming Platform',
     overview: 'A lightweight, highly scalable Learning Management Platform engineered for independent educators and course creators to host, stream, and monetize course content globally.',
     problem: 'The client faced crippling platform subscription fees and sluggish video playback on legacy platforms (Teachable/Kajabi), resulting in student churn and poor video retention.',
