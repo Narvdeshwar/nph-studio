@@ -83,6 +83,10 @@ export function Navbar() {
     };
   }, [pathname]);
 
+  // If inside any lab experiment subpage, do not render Navbar
+  const isLabSubpage = pathname !== '/lab' && Boolean(pathname?.startsWith('/lab'));
+  if (isLabSubpage) return null;
+
   return (
     <>
       {/* Floating Pill Navbar */}

@@ -6,6 +6,7 @@ import { Navbar } from "@/components/premium/Navbar";
 import { Curtain } from "@/components/premium/Curtain";
 import { WhatsAppWidget } from "@/components/premium/WhatsAppWidget";
 import { Sparkles } from "@/components/premium/Sparkles";
+import { LabFloatingButton } from "@/components/premium/LabFloatingButton";
 
 export function SiteLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -16,13 +17,13 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
   }
 
   // When inside any lab experiment (lab/* subpage), hide the main navbar and provide the floating lab return button
-  const isLabSubpage = pathname !== '/lab' && pathname?.startsWith('/lab');
+  const isLabSubpage = pathname !== '/lab' && Boolean(pathname?.startsWith('/lab'));
 
   return (
     <>
       <Curtain />
       {!isLabSubpage && <Navbar />}
-      {/* {isLabSubpage && <LabFloatingButton />} */}
+      {isLabSubpage && <LabFloatingButton />}
       {/* Global Sparkles Background */}
       <div className="fixed inset-0 z-0 opacity-60 pointer-events-none">
         <Sparkles
