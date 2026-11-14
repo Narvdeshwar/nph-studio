@@ -1,5 +1,0 @@
-allowBuilds:
-  sharp: true
-  unrs-resolver: true
-minimumReleaseAgeExclude:
-  - lint-staged@17.1.0
