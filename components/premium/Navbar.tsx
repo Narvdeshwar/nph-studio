@@ -103,7 +103,7 @@ export function Navbar() {
 
           {/* Logo - Left */}
           <Magnetic>
-            <TransitionLink href="/" aria-label="NPH Studio Home" className="z-[60] flex items-center px-2">
+            <TransitionLink href="/" aria-label="NPH-STUDIO - Home" className="z-[60] flex items-center px-2">
               <div className="relative group flex items-center">
                 <Logo className="text-xl sm:text-2xl text-foreground" />
                 <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full scale-0 group-hover:scale-150 transition-transform duration-500" />

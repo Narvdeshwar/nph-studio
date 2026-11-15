@@ -1,6 +1,6 @@
 'use client';
 import { motion, useTransform, useSpring, useMotionValue } from 'framer-motion';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Magnetic } from '@/components/premium/Magnetic';
 import { TextMask } from '@/components/premium/TextMask';
@@ -8,6 +8,7 @@ import { IconBrandWhatsapp } from '@tabler/icons-react';
 
 export function Footer() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [timeStr, setTimeStr] = useState<string>('');
 
   // Mouse tracking for typography
   const mouseX = useMotionValue(0);
@@ -32,11 +33,20 @@ export function Footer() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [mouseX, mouseY]);
 
+  useEffect(() => {
+    const updateTime = () => {
+      setTimeStr(new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', timeZoneName: 'short' }));
+    };
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
 
   return (
-    <footer 
+    <footer
       id="site-footer"
-      ref={containerRef} 
+      ref={containerRef}
       className="relative w-full bg-[#0A0A0A] text-white min-h-screen lg:h-screen flex flex-col justify-between pt-16 sm:pt-20 pb-8 sm:pb-10 px-6 sm:px-12 md:px-20 z-10 overflow-hidden"
     >
       <div className="flex flex-col md:flex-row justify-between items-start w-full max-w-[1400px] mx-auto gap-8 sm:gap-12 md:gap-16">
@@ -54,7 +64,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Chat with NPH Studio on WhatsApp"
-              className="group relative flex items-center justify-center w-28 h-28 sm:w-32 sm:h-32 bg-green-500 rounded-full text-white font-bold uppercase tracking-widest text-xs hover:scale-105 active:scale-95 transition-transform shadow-[0_0_35px_rgba(34,197,94,0.35)] cursor-pointer"
+              className="group relative flex items-center justify-center w-28 h-28 sm:w-32 sm:h-32 bg-[#15803D] hover:bg-[#166534] rounded-full text-white font-bold uppercase tracking-widest text-xs hover:scale-105 active:scale-95 transition-all shadow-[0_0_35px_rgba(21,128,61,0.35)] cursor-pointer"
             >
               <div className="flex flex-col items-center gap-1.5">
                 <span className="transition-all duration-300 group-hover:-translate-y-2 group-hover:opacity-0">WhatsApp</span>
@@ -66,7 +76,7 @@ export function Footer() {
           </Magnetic>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-8 sm:gap-14 text-xs sm:text-sm uppercase tracking-widest font-medium text-zinc-500 w-full md:w-auto">
+        <div className="flex flex-col sm:flex-row gap-8 sm:gap-14 text-xs sm:text-sm uppercase tracking-widest font-medium text-zinc-400 w-full md:w-auto">
           <div className="flex flex-col gap-3 sm:gap-4">
             <span className="text-white mb-1 text-xs font-bold tracking-widest">Navigation</span>
             {['Work', 'Services', 'Team', 'Process', 'Lab (R&D)'].map((item) => (
@@ -81,7 +91,7 @@ export function Footer() {
           <div className="flex flex-col gap-3 sm:gap-4">
             <span className="text-white mb-1 text-xs font-bold tracking-widest">Socials & Contact</span>
             {[
-              { name: 'Email Us', url: 'mailto:contact@nph-studio.in' },
+              { name: 'Email Us', url: 'mailto:nphstudioo@gmail.com' },
               { name: 'Twitter (X)', url: 'https://x.com/Eternal_Dev_IO' },
               { name: 'LinkedIn', url: 'https://www.linkedin.com/company/nph-studio' },
               { name: 'GitHub (OS)', url: 'https://github.com/Narvdeshwar/nph-open-source' }
@@ -120,9 +130,9 @@ export function Footer() {
         </svg>
       </div>
 
-      <div className="flex flex-col sm:flex-row justify-between items-center gap-3 text-[10px] sm:text-xs text-zinc-500 font-bold uppercase tracking-widest max-w-[1400px] w-full mx-auto mt-4 sm:mt-6 border-t border-zinc-800/80 pt-4 sm:pt-6 text-center sm:text-left">
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-3 text-[10px] sm:text-xs text-zinc-400 font-bold uppercase tracking-widest max-w-[1400px] w-full mx-auto mt-4 sm:mt-6 border-t border-zinc-800/80 pt-4 sm:pt-6 text-center sm:text-left">
         <span>© {new Date().getFullYear()} NPH Studio</span>
-        <span>Local Time: {new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', timeZoneName: 'short' })}</span>
+        <span suppressHydrationWarning>{timeStr ? `Local Time: ${timeStr}` : 'New Delhi, India (IST)'}</span>
       </div>
 
     </footer>

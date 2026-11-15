@@ -222,7 +222,7 @@ function ProjectDigitalMockup({ project }: { project: ProjectItem }) {
             </div>
           </div>
 
-          <div className="flex items-center justify-between text-[10px] font-mono text-zinc-500 pt-2 border-t border-white/10">
+          <div className="flex items-center justify-between text-[10px] font-mono text-zinc-400 pt-2 border-t border-white/10">
             <span>Lighthouse: 100/100 Accessibility</span>
             <span className="text-emerald-400">Response: 0.8s</span>
           </div>
@@ -253,12 +253,12 @@ function ProjectDigitalMockup({ project }: { project: ProjectItem }) {
                   <span className="text-white font-medium block truncate">{item.title}</span>
                   <span className="text-[9px] font-mono text-purple-400 uppercase">{item.tag}</span>
                 </div>
-                <span className="text-[10px] font-mono text-zinc-500 shrink-0">{item.time}</span>
+                <span className="text-[10px] font-mono text-zinc-400 shrink-0">{item.time}</span>
               </div>
             ))}
           </div>
 
-          <div className="flex items-center justify-between text-[10px] font-mono text-zinc-500 pt-2 border-t border-white/10">
+          <div className="flex items-center justify-between text-[10px] font-mono text-zinc-400 pt-2 border-t border-white/10">
             <span>Static Cache: Zero Latency</span>
             <span className="text-purple-400">1.2K Monthly Developers</span>
           </div>
@@ -296,17 +296,17 @@ function ProjectDigitalMockup({ project }: { project: ProjectItem }) {
 
             <div className="grid grid-cols-2 gap-2 text-[10px] font-mono">
               <div className="p-2 rounded-xl bg-white/5 border border-white/5 flex justify-between">
-                <span className="text-zinc-500">Video Latency:</span>
+                <span className="text-zinc-400">Video Latency:</span>
                 <span className="text-amber-400 font-bold">&lt; 250ms</span>
               </div>
               <div className="p-2 rounded-xl bg-white/5 border border-white/5 flex justify-between">
-                <span className="text-zinc-500">Student Rating:</span>
+                <span className="text-zinc-400">Student Rating:</span>
                 <span className="text-emerald-400 font-bold">4.9 ★★★★★</span>
               </div>
             </div>
           </div>
 
-          <div className="flex items-center justify-between text-[10px] font-mono text-zinc-500 pt-2 border-t border-white/10">
+          <div className="flex items-center justify-between text-[10px] font-mono text-zinc-400 pt-2 border-t border-white/10">
             <span>Platform Fee: 0% Rev-Share</span>
             <span className="text-amber-400">Bespoke Mux Video</span>
           </div>
@@ -563,13 +563,13 @@ export function WorkPreview() {
                 </div>
 
                 {/* Progress Indicators */}
-                <div className="flex items-center gap-1.5">
+                <div className="flex items-center gap-1">
                   {PROJECTS.map((_, i) => (
                     <button
                       key={i}
                       onClick={() => setCurrentIndex(i)}
                       aria-label={`Switch to project ${i + 1}`}
-                      className="group p-1"
+                      className="group min-w-[28px] min-h-[28px] p-1.5 flex items-center justify-center focus:outline-none"
                     >
                       <div
                         className={`h-1.5 rounded-full transition-all duration-300 ${
@@ -625,7 +625,7 @@ export function WorkPreview() {
 
                       {/* Stack Badges */}
                       <div className="flex flex-wrap items-center gap-1.5 mb-6">
-                        <span className="text-[10px] font-mono text-zinc-500 uppercase pr-1">Stack:</span>
+                        <span className="text-[10px] font-mono text-zinc-400 uppercase pr-1">Stack:</span>
                         {currentProject.techStack.map((tech) => (
                           <span
                             key={tech}
@@ -643,7 +643,7 @@ export function WorkPreview() {
                             href={currentProject.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label={`Launch ${currentProject.name} live in new tab`}
+                            aria-label={`Launch Live Site - ${currentProject.name}`}
                             className="px-6 py-3 rounded-full bg-primary hover:bg-[#E04D2D] text-white font-bold text-xs uppercase tracking-widest transition-all shadow-lg shadow-primary/25 flex items-center gap-2 group cursor-pointer"
                           >
                             <span>Launch Live Site</span>

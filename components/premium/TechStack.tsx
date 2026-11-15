@@ -17,8 +17,13 @@ export function TechStack() {
       <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-40 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-40 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
-      {/* Marquee Container */}
-      <div className="flex w-[400vw] sm:w-[200vw]">
+      {/* Screen Reader Accessible List */}
+      <p className="sr-only">
+        Core technologies utilized: {techStack.join(', ')}
+      </p>
+
+      {/* Marquee Container (Decorative) */}
+      <div className="flex w-[400vw] sm:w-[200vw]" aria-hidden="true">
         <motion.div
           animate={{ x: [0, -1000] }}
           transition={{

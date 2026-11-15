@@ -99,7 +99,7 @@ export default function Home() {
               <button
                 type="button"
                 onClick={() => window.dispatchEvent(new CustomEvent('open-inquiry-modal'))}
-                aria-label="Start your project with NPH Studio"
+                aria-label="Start Your Project →"
                 className="bg-primary hover:bg-[#E04D2D] text-white px-8 py-4 rounded-full font-bold uppercase tracking-widest text-xs sm:text-sm hover:scale-105 active:scale-95 transition-all shadow-[0_0_35px_rgba(255,90,54,0.35)] w-full sm:w-auto text-center cursor-pointer"
               >
                 Start Your Project →
@@ -108,7 +108,7 @@ export default function Home() {
             <Magnetic>
               <Link
                 href="/work"
-                aria-label="Explore NPH Studio client work"
+                aria-label="Explore Client Work - NPH Studio Projects"
                 className="bg-surface border border-border px-8 py-4 rounded-full font-bold uppercase tracking-widest text-xs sm:text-sm hover:bg-white/5 active:scale-95 transition-all text-foreground/80 hover:text-foreground w-full sm:w-auto text-center block"
               >
                 Explore Client Work

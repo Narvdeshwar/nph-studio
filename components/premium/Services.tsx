@@ -11,7 +11,7 @@ const pillars = [
     timeline: "4–6 Weeks",
     desc: "Complete product engineering from database schema to cloud deployment. We build scalable Next.js architectures with secure auth, payment gateways, and custom admin portals.",
     deliverables: ["Next.js App Router & Server Actions", "PostgreSQL / Supabase Architecture", "RBAC Auth & Session Security", "Payment & Subscription Integration", "Custom Admin Dashboard"],
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=75&w=800&auto=format&fit=crop",
     serviceKey: "Full-Stack MVP"
   },
   {
@@ -21,7 +21,7 @@ const pillars = [
     timeline: "3–5 Weeks",
     desc: "Empower your application with context-aware AI. We engineer custom vector retrieval pipelines, semantic search, and autonomous LLM agents that query your private knowledge base.",
     deliverables: ["Vector Database Setup (pgvector / Pinecone)", "Custom Chunking & RAG Retrieval", "Private Knowledge Base Connectors", "Sub-Second Streaming Latency", "Cost & Rate-Limit Controls"],
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=75&w=800&auto=format&fit=crop",
     serviceKey: "AI / RAG Integration"
   },
   {
@@ -31,7 +31,7 @@ const pillars = [
     timeline: "1–2 Weeks",
     desc: "Bespoke, cinematic marketing websites designed to convert cold visitors into high-ticket inbound clients. Built with fluid Framer Motion animations and 100/100 Core Web Vitals.",
     deliverables: ["Custom UI/UX & Art Direction", "Framer Motion Fluid Interactions", "100/100 Core Web Vitals Optimization", "Technical SEO & Schema Markup", "Lead Capture & Telemetry"],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=75&w=800&auto=format&fit=crop",
     serviceKey: "Landing Page"
   },
   {
@@ -41,7 +41,7 @@ const pillars = [
     timeline: "Monthly Sprints",
     desc: "A dedicated senior engineering team plugged into your company. Continuous feature shipping, architecture scaling, performance tuning, and on-call reliability.",
     deliverables: ["Dedicated Senior Engineers Only", "Weekly Live Sprint Demos & Deploys", "Direct Slack / WhatsApp Channel", "Architecture & Code Reviews", "Priority Bug Fixes & SLAs"],
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=75&w=800&auto=format&fit=crop",
     serviceKey: "Custom Development"
   }
 ];

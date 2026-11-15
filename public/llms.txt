@@ -1,25 +1,23 @@
 # NPH Studio
 > Full-Stack Digital Product & AI Engineering Agency
 
-## Overview
 NPH Studio is a founder-led digital engineering studio that designs, engineers, and deploys production-grade web applications, SaaS MVPs, and applied AI/RAG systems for high-growth startups and established businesses.
 
 ## Core Services
-- **Full-Stack SaaS MVPs**: Complete engineering from database architecture to cloud deployment within 3–5 weeks.
-- **Applied AI & Custom RAG Pipelines**: Enterprise retrieval-augmented generation pipelines, vector database integration (pgvector/Pinecone), and LLM agents.
-- **High-Impact UI/UX & Web Presence**: High-converting web applications with sub-second performance and 100/100 Core Web Vitals.
-- **Dedicated Engineering Squad**: Senior fractional engineering squads for continuous feature shipping.
+- [Full-Stack SaaS MVPs](https://www.nph-studio.in/services): Complete engineering from database architecture to cloud deployment within 3–5 weeks.
+- [Applied AI & Custom RAG Pipelines](https://www.nph-studio.in/services): Enterprise retrieval-augmented generation pipelines, vector database integration (pgvector/Pinecone), and LLM agents.
+- [High-Impact UI/UX & Web Presence](https://www.nph-studio.in/services): High-converting web applications with sub-second performance and 100/100 Core Web Vitals.
+- [Dedicated Engineering Squad](https://www.nph-studio.in/services): Senior fractional engineering squads for continuous feature shipping.
 
-## Key URLs
-- Home: https://www.nph-studio.in/
-- Work / Case Studies: https://www.nph-studio.in/work
-- Services: https://www.nph-studio.in/services
-- Engineering Process: https://www.nph-studio.in/process
-- Team: https://www.nph-studio.in/team
-- Contact: https://www.nph-studio.in/contact
+## Key Pages
+- [Home](https://www.nph-studio.in/): Agency introduction, core engineering capabilities, and featured case studies.
+- [Selected Works & Case Studies](https://www.nph-studio.in/work): Verified case studies in healthcare, AI news platforms, LMS streaming, and enterprise SaaS.
+- [Services & Pricing](https://www.nph-studio.in/services): Transparent sprint packages and deliverables for MVPs, AI/RAG systems, and high-performance websites.
+- [Engineering Process](https://www.nph-studio.in/process): Four-step engineering lifecycle from scoping to zero-downtime deployment.
+- [Team](https://www.nph-studio.in/team): Core engineers, system architects, and agency founders.
+- [Contact & Project Inquiry](https://www.nph-studio.in/contact): Scoping form, instant project estimates, and consultation booking.
 
 ## Contact & Inquiries
-- Official Website: https://www.nph-studio.in
-- Inquiries: https://www.nph-studio.in/contact
-- WhatsApp: +91 8787205784
-- Email: contact@nph-studio.in
+- [Official Website](https://www.nph-studio.in/): NPH Studio web platform.
+- [Direct Email](mailto:nphstudioo@gmail.com): Reach the engineering team directly.
+- [WhatsApp Direct](https://wa.me/918787205784): Quick consultation via WhatsApp.

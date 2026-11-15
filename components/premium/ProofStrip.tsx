@@ -18,11 +18,11 @@ export function ProofStrip() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-xs font-bold uppercase tracking-widest text-muted"
+            className="text-xs font-bold uppercase tracking-widest text-neutral-600"
           >
             Trusted By Fast-Growing Startups & Regional Leaders
           </motion.p>
-          <span className="text-xs text-muted/70 font-mono hidden sm:block">Proven Production Outcomes</span>
+          <span className="text-xs text-neutral-600 font-mono hidden sm:block">Proven Production Outcomes</span>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">

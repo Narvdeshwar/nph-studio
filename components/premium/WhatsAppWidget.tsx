@@ -38,7 +38,7 @@ export function WhatsAppWidget() {
             aria-labelledby="whatsapp-chat-title"
             className="mb-4 w-[320px] sm:w-[360px] bg-surface border border-border rounded-3xl shadow-2xl overflow-hidden flex flex-col"
           >
-            <div className="bg-green-500 p-6 text-white flex justify-between items-start">
+            <div className="bg-[#15803D] p-6 text-white flex justify-between items-start">
               <div>
                 <h3 id="whatsapp-chat-title" className="font-bold text-lg leading-tight mb-1">Chat with NPH Studio</h3>
                 <p className="text-sm opacity-90">We typically reply in a few minutes.</p>
@@ -63,12 +63,12 @@ export function WhatsAppWidget() {
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder="Hi, I'm looking to build a..."
                   rows={3}
-                  className="w-full bg-surface border border-border rounded-xl px-4 py-3 text-sm text-foreground focus:outline-none focus:border-green-500 transition-colors resize-none"
+                  className="w-full bg-surface border border-border rounded-xl px-4 py-3 text-sm text-foreground focus:outline-none focus:border-[#15803D] transition-colors resize-none"
                 />
               </div>
               <button 
                 type="submit"
-                className="w-full py-3 rounded-full bg-green-500 text-white text-sm font-bold uppercase tracking-wider hover:bg-green-600 transition-colors flex items-center justify-center gap-2"
+                className="w-full py-3 rounded-full bg-[#15803D] text-white text-sm font-bold uppercase tracking-wider hover:bg-[#166534] transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-md"
               >
                 Send Message
                 <IconSend size={16} />
@@ -82,7 +82,7 @@ export function WhatsAppWidget() {
         onClick={() => setIsOpen(!isOpen)}
         aria-label={isOpen ? "Close WhatsApp chat" : "Open WhatsApp chat"}
         aria-expanded={isOpen}
-        className="cursor-pointer w-16 h-16 rounded-full bg-green-500 text-white flex items-center justify-center shadow-2xl hover:scale-110 hover:bg-green-600 transition-all"
+        className="cursor-pointer w-16 h-16 rounded-full bg-[#15803D] text-white flex items-center justify-center shadow-2xl hover:scale-110 hover:bg-[#166534] transition-all"
       >
         {isOpen ? <IconX size={32} /> : <IconBrandWhatsapp size={36} />}
       </button>

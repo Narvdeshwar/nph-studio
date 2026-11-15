@@ -122,7 +122,7 @@ export function WorkShowcase() {
                       key={i}
                       onClick={() => handleSelect(i)}
                       aria-label={`Go to project ${i + 1}`}
-                      className="group p-1 focus:outline-none"
+                      className="group min-w-[28px] min-h-[28px] p-1.5 flex items-center justify-center focus:outline-none"
                     >
                       {isActive ? (
                         <motion.div
