@@ -120,12 +120,13 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${googleSans.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <head>
         <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
       </head>
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <body className="min-h-full flex flex-col bg-background text-foreground" suppressHydrationWarning>
         <Analytics />
         <InquiryModal />
         <SiteLayout>
