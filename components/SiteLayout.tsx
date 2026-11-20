@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { Noise } from "@/components/premium/Noise";
 import { Navbar } from "@/components/premium/Navbar";
@@ -10,6 +11,24 @@ import { Sparkles } from "@/components/premium/Sparkles";
 
 export function SiteLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+
+  useEffect(() => {
+    // Silence upstream Three.js r183+ deprecation warning used internally by @react-three/fiber
+    const originalWarn = console.warn;
+    console.warn = (...args: unknown[]) => {
+      if (
+        typeof args[0] === 'string' &&
+        (args[0].includes('THREE.Clock: This module has been deprecated') ||
+          args[0].includes('Clock: This module has been deprecated'))
+      ) {
+        return;
+      }
+      originalWarn.apply(console, args);
+    };
+    return () => {
+      console.warn = originalWarn;
+    };
+  }, []);
 
   // If we are on any admin route, just render the children without the marketing site's global components
   if (pathname?.startsWith('/admin')) {
